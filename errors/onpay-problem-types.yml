@@ -1,0 +1,79 @@
+generated: '2026-08-04'
+method: derived
+source: openapi/onpay-api-openapi.json
+docs: https://onpay.readme.io/reference/authorization
+format: proprietary
+note: >-
+  OnPay does NOT use RFC 9457 problem+json. Every error is returned as application/json with a
+  proprietary envelope. The OpenAPI declares an ErrorBadRequest schema with only `resp` and `message`,
+  but the live production API at https://api.onpay.com/v2 returns four fields — `resp`, `error_code`,
+  `error_message`, `message` — plus a `more_info` URL. The `more_info` value published by the live API
+  is https://docs.onpay.com, a hostname that does not resolve (DNS NXDOMAIN as of this probe), so the
+  documented remediation link is a dead end for every error the API returns.
+envelope:
+  content_type: application/json
+  fields:
+  - name: resp
+    description: Literal string "error" on any failure.
+  - name: error_code
+    description: Numeric OnPay error code. Observed value 100 for all authorization failures.
+  - name: error_message
+    description: Human-readable message (duplicated in `message`).
+  - name: message
+    description: Human-readable message (duplicated from `error_message`).
+  - name: more_info
+    description: Documentation URL. Live API returns https://docs.onpay.com, which does not resolve.
+  schema: openapi/onpay-api-openapi.json#/components/schemas/ErrorBadRequest
+problems:
+- status: 400
+  title: Bad Request
+  schema: ErrorBadRequest
+  declared_on:
+  - GET /employees
+  - GET /employees/recent-notes-and-comments
+  observed:
+    error_code: 100
+    message: Missing token
+    note: Returned when the Authorization header is absent. OnPay answers a missing credential with
+      400, not 401.
+- status: 401
+  title: Unauthorized
+  schema: ErrorBadRequest
+  declared_on:
+  - GET /employees
+  - GET /employees/recent-notes-and-comments
+  note: Documented as the response to a missing or expired access token (access tokens expire after
+    two hours).
+- status: 402
+  title: Unauthorized (spec description); HTTP semantics are Payment Required
+  schema: ErrorBadRequest
+  declared_on:
+  - GET /employees
+  - GET /employees/recent-notes-and-comments
+  note: The spec labels 402 "Unauthorized". No published meaning for 402 was found in the docs.
+- status: 403
+  title: Forbidden
+  observed:
+    error_code: 100
+    message: expired token
+    note: Not declared anywhere in the OpenAPI. Observed live when an invalid bearer token is sent to
+      an unknown path under /v2.
+- status: default
+  title: Bad Request
+  schema: ErrorBadRequest
+  declared_on_count: 14
+  note: 14 operations declare only a `default` error response rather than explicit status codes.
+gaps:
+- 44 of 58 operations declare no error response at all (only a 200).
+- The declared ErrorBadRequest schema omits `error_code`, `error_message` and `more_info`, all of which
+  the live API returns.
+- No error-code registry is published; error_code 100 is the only value observed.
+x-evidence:
+- url: https://api.onpay.com/v2/employees
+  http_status: 400
+  body: '{"resp":"error","error_code":100,"error_message":"Missing token","message":"Missing token","more_info":"https://docs.onpay.com"}'
+  fetched: '2026-08-04'
+- url: https://api.onpay.com/v2/nope
+  http_status: 403
+  body: '{"resp":"error","error_code":100,"error_message":"expired token","message":"expired token","more_info":"https://docs.onpay.com"}'
+  fetched: '2026-08-04'

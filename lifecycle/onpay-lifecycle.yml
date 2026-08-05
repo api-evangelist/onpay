@@ -1,0 +1,74 @@
+generated: '2026-08-04'
+method: searched
+source: https://onpay.readme.io/reference/versioning
+versioning:
+  scheme: uri-path
+  current: v2
+  spec_version: 2.0.0
+  docs: https://onpay.readme.io/reference/versioning
+  policy: >-
+    "Versioning in the OnPay API is achieved in the url, e.g. https://onpaydev.com/:version/example.
+    When building an application against a specific version of the API, partners can feel confident
+    that the behavior of that version will not change as long as that version is supported. Changes
+    that would break an existing version utilization will be applied to a new version."
+  supported_versions_published: false
+  note: >-
+    A v1 path still answers on the production host (https://api.onpay.com/v1/employees returns the same
+    authorization error envelope as v2), but OnPay publishes no list of supported versions and no end
+    date for any of them.
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: unknown
+  deprecation_header: unknown
+  note: >-
+    No deprecation policy, sunset schedule, or RFC 8594 Sunset/Deprecation header support is published.
+    The versioning page promises a version will not change while "supported" but never defines how long
+    support lasts or how partners are notified. No `Deprecation` pointer is wired — the policy does not
+    exist to point at.
+deprecated_operations: []
+sla:
+  url: null
+  uptime_target: null
+  published: false
+status_page:
+  url: null
+  published: false
+  probes:
+  - url: https://status.onpay.com
+    result: DNS does not resolve
+  - url: https://onpay.statuspage.io
+    http_status: 302
+    note: redirects to https://www.statuspage.io/ — the subdomain is unclaimed, not OnPay's status page
+  - url: https://onpay.com/status
+    http_status: 404
+  note: >-
+    OnPay publishes no API status page. No `StatusPage` pointer is wired.
+changelog:
+  url: null
+  published: false
+  note: >-
+    The public ReadMe hub's own llms.txt enumerates every page on the hub — one guide (Getting Started)
+    and the API reference. There is no changelog, release-notes, or migration-guide page, so partners
+    have no dated record of API changes.
+support:
+  channel: https://help.onpay.com/hc/en-us
+  api_access: Partner-only. "The OnPay API has access limited to approved partners only. To partner,
+    please contact us."
+  contact: https://onpay.com/about-us/contact/
+x-evidence:
+- url: https://onpay.readme.io/reference/versioning.md
+  http_status: 200
+  fetched: '2026-08-04'
+- url: https://onpay.readme.io/llms.txt
+  http_status: 200
+  fetched: '2026-08-04'
+- url: https://onpay.statuspage.io
+  http_status: 302
+  fetched: '2026-08-04'
+- url: https://onpay.com/status
+  http_status: 404
+  fetched: '2026-08-04'
+- url: https://api.onpay.com/v1/employees
+  http_status: 400
+  fetched: '2026-08-04'

@@ -1,0 +1,139 @@
+generated: '2026-08-04'
+method: derived
+source: openapi/onpay-api-openapi.json
+summary:
+  schemas: 37
+  entities: 20
+  relationships: 35
+  note: >-
+    Derived from components.schemas $ref links and id-reference fields in the OnPay API 2.0.0 spec.
+    OnPay's model is company-scoped: the OAuth token is issued for one company (the token response
+    carries company_id), so every resource below is implicitly a child of that single Company. Ids are
+    bare integers — OnPay publishes no prefixed/typed identifiers.
+identifiers:
+  style: integer
+  prefixed: false
+  primary_keys: [id, employee_id, runid, chkid, deduction_id, grouping_id, pay_schedule_id]
+  concurrency_token: version
+entities:
+- name: Company
+  schema: Company
+  path: /company
+  key: id
+  fields_of_note: [name, dba, address, city, state, zip, email, contact_name, company_number]
+- name: Employee
+  schema: Employee
+  path: /employees
+  key: employee_id
+  fields_of_note: [first_name, last_name, employee_number, address, state, zip]
+- name: EmployeePost
+  schema: EmployeePost
+  path: /employees
+  note: composite create payload bundling employee + wages + deductions + bank_accounts
+- name: EmployeeNote
+  schema: EmployeeNote
+  path: /employees/recent-notes-and-comments
+  key: id
+- name: EmployeeDeductionItem
+  schema: EmployeeDeductionItem
+  path: /employees/{employee_id}/deductions
+  key: id
+- name: EmployeeDeductionItemBatch
+  schema: EmployeeDeductionItemBatch
+  path: /employees/{employee_id}/deductions/{deduction_id}
+  key: id
+- name: DeductionGroupingItem
+  schema: DeductionGroupingItem
+  path: /company/deduction-groupings
+  key: id
+- name: EmployeeAchAccountItem
+  schema: EmployeeAchAccountItem
+  path: /employees/{employee_id}/bank-accounts
+  key: id
+- name: PayItem
+  schema: PayItem
+  path: /employees/{employee_id}/wages
+  key: id
+- name: LeaveItem
+  schema: LeaveItem
+  path: /employees/{employee_id}/leave
+  key: id
+- name: TaxFields
+  schema: TaxFields
+  path: /employees/{employee_id}/tax-fields
+- name: WorksiteItem
+  schema: WorksiteItem
+  path: /company/worksites
+  key: id
+- name: LocationItem
+  schema: LocationItem
+  path: /company/locations
+  key: id
+- name: DepartmentItem
+  schema: DepartmentItem
+  path: /company/departments
+  key: id
+- name: PositionItem
+  schema: PositionItem
+  path: /company/positions
+  key: id
+- name: PaySchedule
+  schema: PaySchedule
+  path: /company/pay-schedules
+  key: id
+- name: PayrollCheck
+  schema: PayrollCheck
+  path: /reports/listing
+  key: chkid
+- name: ApprovedPayRunsItem
+  schema: ApprovedPayRunsItem
+  path: /reports/approved-pay-runs
+  key: runid
+- name: RetirementSummaryItem
+  schema: RetirementSummaryItem
+  path: /reports/retirement-summary
+- name: UserItem
+  schema: UserItem
+  path: /user
+  key: id
+relationships:
+- {from: Company, to: Employee, kind: has_many, via: 'company scope of the access token'}
+- {from: Company, to: PaySchedule, kind: has_many, via: /company/pay-schedules}
+- {from: Company, to: WorksiteItem, kind: has_many, via: /company/worksites}
+- {from: Company, to: LocationItem, kind: has_many, via: /company/locations}
+- {from: Company, to: DepartmentItem, kind: has_many, via: /company/departments}
+- {from: Company, to: PositionItem, kind: has_many, via: /company/positions}
+- {from: Company, to: DeductionGroupingItem, kind: has_many, via: /company/deduction-groupings}
+- {from: Employee, to: EmployeeDeductionItem, kind: has_many, via: employee_id}
+- {from: EmployeeDeductionItem, to: EmployeeDeductionItemBatch, kind: has_many, via: batch ($ref)}
+- {from: EmployeeDeductionItemBatch, to: Employee, kind: belongs_to, via: employee_id}
+- {from: EmployeeDeductionItem, to: DeductionGroupingItem, kind: belongs_to, via: grouping_id}
+- {from: EmployeeDeductionItem, to: DeductionType, kind: has_one, via: type ($ref)}
+- {from: Employee, to: EmployeeAchAccountItem, kind: has_many, via: employee_id}
+- {from: Employee, to: PayItem, kind: has_many, via: employee_id}
+- {from: Employee, to: LeaveItem, kind: has_many, via: '/employees/{employee_id}/leave'}
+- {from: Employee, to: TaxFields, kind: has_one, via: '/employees/{employee_id}/tax-fields'}
+- {from: TaxFields, to: StateDisplayFieldsObject, kind: has_many, via: work_location_display_fields ($ref)}
+- {from: StateDisplayFieldsObject, to: StateInformationObject, kind: has_one, via: state_information ($ref)}
+- {from: StateDisplayFieldsObject, to: DisplayFieldsObject, kind: has_many, via: display_fields ($ref)}
+- {from: Employee, to: EmployeeNote, kind: has_many, via: employee_id}
+- {from: Employee, to: WorksiteItem, kind: belongs_to, via: 'PATCH /employees/{employee_id}/tax-fields/worksite'}
+- {from: PayrollCheck, to: Employee, kind: belongs_to, via: employee_id}
+- {from: PayrollCheck, to: ApprovedPayRunsItem, kind: belongs_to, via: runid}
+- {from: PayrollCheck, to: WageListItem, kind: has_many, via: wages ($ref)}
+- {from: PayrollCheck, to: EmployeeTaxListItem, kind: has_many, via: employee_taxes ($ref)}
+- {from: PayrollCheck, to: EmployerTaxListItem, kind: has_many, via: employer_taxes ($ref)}
+- {from: PayrollCheck, to: DeductionListItem, kind: has_many, via: deductions ($ref)}
+- {from: PayrollCheck, to: BenefitsListItem, kind: has_many, via: benefits ($ref)}
+- {from: PayrollCheck, to: GarnishmentsListItem, kind: has_many, via: garnishments ($ref)}
+- {from: PayrollCheck, to: LeaveAccrualsListItem, kind: has_many, via: leave_accruals ($ref)}
+- {from: EmployeePost, to: Employee, kind: has_one, via: employee}
+- {from: EmployeePost, to: WageListItem, kind: has_many, via: wages ($ref)}
+- {from: EmployeePost, to: DeductionListItem, kind: has_many, via: deductions ($ref)}
+- {from: EmployeePost, to: EmployeeAchAccountItem, kind: has_many, via: bank_accounts ($ref)}
+- {from: RetirementSummaryItem, to: Employee, kind: belongs_to, via: employee_id}
+value_objects: [WageListItem, EmployeeTaxListItem, EmployerTaxListItem, DeductionListItem,
+  BenefitsListItem, GarnishmentsListItem, LeaveAccrualsListItem, DeductionType,
+  DeductionIncludedIn401kReports, EmployeeAchAccountPutItem, StateInformationObject,
+  DisplayFieldsObject]
+response_envelopes: [PatchSuccessful, InsertSuccessful, DeleteSuccessful, ErrorBadRequest]

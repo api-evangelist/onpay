@@ -1,0 +1,84 @@
+generated: '2026-08-04'
+method: searched
+source: openapi/onpay-api-openapi.json
+docs: https://onpay.readme.io/reference/authorization
+access:
+  model: partner-only
+  self_serve: false
+  quoted: 'The OnPay API has access limited to approved partners only. To partner, please contact us.'
+summary:
+  types:
+  - apiKey
+  - oauth2
+  api_key_in:
+  - header
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: OAuth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://app.onpay.com/app/oauth/authorize
+    tokenUrl: https://app.onpay.com/app/oauth/authorize
+    tokenUrl_documented: https://app.onpay.com/app/oauth/token
+    tokenUrl_note: >-
+      The published OpenAPI sets tokenUrl identical to authorizationUrl. The authorization guide
+      documents the token endpoint as /app/oauth/token. The spec value is wrong and will break any
+      generated client; captured as a correction in overlays/onpay-api-overlay.yaml.
+    scopes: 6
+  sources:
+  - openapi/onpay-api-openapi.json
+- name: Bearer
+  type: apiKey
+  in: header
+  parameter: Authorization
+  format: 'Bearer {access_token}'
+  sources:
+  - openapi/onpay-api-openapi.json
+flow:
+  grant: authorization_code
+  steps:
+  - Redirect the user to /app/oauth/authorize with client_id, redirect_uri and state.
+  - The user approves access to their OnPay company.
+  - OnPay redirects back to redirect_uri with an authorization code.
+  - Server-side POST to /app/oauth/token (application/x-www-form-urlencoded) with client_id,
+    client_secret, redirect_uri, code and grant_type=authorization_code.
+  - Send Authorization "Bearer {access_token}" on every API request.
+  - Exchange the refresh token for a new access/refresh pair with grant_type=refresh_token.
+  token:
+    type: bearer
+    lifetime_seconds: 7200
+    response_fields: [access_token, token_type, expires_in, refresh_token, company_id, access_type,
+      company_name]
+    company_scoped: true
+    note: >-
+      The token response carries company_id and company_name — one token authorizes exactly one OnPay
+      company, and access_type carries the numeric role (see scopes/onpay-scopes.yml).
+  refresh_token:
+    single_use: true
+    note: >-
+      "You can exchange your refresh token for a new access token, only once." Each exchange returns a
+      NEW refresh token; failing to persist it loses the connection.
+  failure: >-
+    The docs state that a missing or expired access token results in a 401. Observed live, a request
+    with no Authorization header returns HTTP 400 with error_code 100 "Missing token"; an invalid
+    bearer token can return 401 or 403 with "expired token".
+gaps:
+- No OAuth 2.0 Authorization Server Metadata (RFC 8414) — /.well-known/oauth-authorization-server 404s.
+- No OpenID Connect discovery document.
+- No PKCE guidance, and no documented state/nonce requirements beyond the example link.
+- No token-revocation or introspection endpoint is published.
+- No mTLS, no API-key alternative, and no service-to-service credential for backend integrations.
+- The authorization guide still instructs partners to send client_id, client_secret and authorization
+  codes to onpaydev.com, a domain that is now parked (see sandbox/onpay-sandbox.yml).
+x-evidence:
+- url: https://onpay.readme.io/reference/authorization.md
+  http_status: 200
+  fetched: '2026-08-04'
+- url: https://app.onpay.com/app/oauth/authorize
+  http_status: 302
+  fetched: '2026-08-04'
+- url: https://api.onpay.com/v2/employees
+  http_status: 400
+  fetched: '2026-08-04'

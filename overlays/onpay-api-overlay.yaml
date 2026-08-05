@@ -1,0 +1,63 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the OnPay API
+  version: 1.0.0
+extends: openapi/onpay-api-openapi.json
+x-provenance:
+  generated: '2026-08-04'
+  method: generated
+  source: >-
+    Enhancements derived from live probes of https://api.onpay.com/v2 and the published docs at
+    https://onpay.readme.io. The harvested OpenAPI is never mutated; every correction below is an
+    Overlay action so the provider's original document stays verbatim.
+  findings:
+  - The only servers[] entry is https://onpaydev.com/v2. That domain is parked (GoDaddy lander) and
+    is not an OnPay API host. The live production host is https://api.onpay.com/v2, verified by the
+    real error envelope it returns.
+  - securitySchemes.OAuth2.flows.authorizationCode.tokenUrl is identical to authorizationUrl
+    (.../app/oauth/authorize). The docs state the token endpoint is .../app/oauth/token. The spec's
+    tokenUrl is wrong and would break any generated client.
+  - The six oauth2 "scopes" are role names whose descriptions are the numeric access_type codes
+    ("1".."6") returned in the token response, not human-readable scope descriptions.
+  - All 58 operations lack an operationId, so no generated SDK, Arazzo workflow, or MCP tool can bind
+    to a stable identifier.
+  - ErrorBadRequest omits error_code, error_message and more_info, all of which the live API returns.
+actions:
+- target: $.info
+  update:
+    x-apievangelist-profile: https://apis.io/provider/onpay/
+    x-apievangelist-enriched: '2026-08-04'
+    x-api-access: partner-only
+- target: $.servers
+  update:
+  - url: https://api.onpay.com/v2
+    description: >-
+      Production (verified live 2026-08-04). Added by API Evangelist — the document's only declared
+      server, https://onpaydev.com/v2, resolves to a parked domain.
+    x-apievangelist-added: true
+- target: $.components.securitySchemes.OAuth2.flows.authorizationCode
+  update:
+    x-apievangelist-corrected-tokenUrl: https://app.onpay.com/app/oauth/token
+    x-apievangelist-note: >-
+      The document's tokenUrl duplicates authorizationUrl. https://onpay.readme.io/reference/authorization
+      documents the token endpoint as /app/oauth/token.
+    x-token-lifetime-seconds: 7200
+    x-refresh-token: single-use
+- target: $.components.securitySchemes.OAuth2
+  update:
+    x-scope-semantics: >-
+      Scopes are OnPay role names; the description value on each is the numeric access_type code
+      returned in the OAuth token response (Owner=1, Approver=2, Controller=3, Manager=4,
+      Accountant=5, Employee=6).
+- target: $.components.schemas.ErrorBadRequest
+  update:
+    x-apievangelist-observed-fields: [resp, error_code, error_message, message, more_info]
+    x-apievangelist-note: >-
+      The live API returns error_code, error_message and more_info in addition to the two declared
+      properties. more_info points at https://docs.onpay.com, which does not resolve.
+- target: $.components.schemas.PaySchedule.properties.version
+  update:
+    x-concurrency-token: true
+    x-apievangelist-note: >-
+      OnPay uses `version` for optimistic concurrency — a PATCH without the latest version is rejected
+      with a version mismatch. See https://onpay.readme.io/reference/versioning.

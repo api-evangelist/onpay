@@ -1,23 +1,135 @@
 aid: onpay
 name: OnPay
-description: 'OnPay is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  OnPay is an Atlanta, Georgia based provider of full-service online payroll, HR, and employee benefits
+  software for small and mid-size US businesses, founded in 2011 and funded by Carrick Capital Partners.
+  The platform runs payroll and direct deposit, files federal, state, and local payroll taxes, and handles
+  onboarding, PTO, org charts, health insurance, 401(k), and workers' compensation. For developers, OnPay
+  publishes a partner-only REST API (v2) documented on a public ReadMe hub, covering employees, employee
+  deductions, wages, leave, tax fields, bank accounts, terminations and rehires, company worksites,
+  locations, departments and positions, pay schedules, and payroll reporting. Access is limited to
+  approved partners, authorized with OAuth 2.0 authorization-code grants against app.onpay.com and
+  role-scoped bearer tokens.
+image: https://onpay.com/wp-content/uploads/2017/08/d9fo84j1zi.jpg
 url: https://raw.githubusercontent.com/api-evangelist/onpay/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
-specificationVersion: '0.20'
+specificationVersion: '0.21'
 created: '2026-08-04'
 modified: '2026-08-04'
 tags:
-- Company
-apis: []
+- payroll
+- human-resources
+- employee-benefits
+- payroll-tax
+- small-business
+- workforce-management
+- fintech
+- hr-tech
+- time-and-attendance
+- retirement-401k
+apis:
+- name: OnPay API
+  description: >-
+    Partner-only REST API (version 2.0.0) for OnPay's payroll and HR platform. 58 operations across six
+    tags — Employees, Company, Deductions, Pay-runs, Reports, and User — covering employee CRUD, employee
+    deductions and scheduled deduction changes, wages and scheduled wage changes, leave, tax fields, bank
+    accounts, terminations and rehires, company worksites, locations, departments, positions, deduction
+    groupings, pay schedules and pay-schedule dates, unprocessed hours, and payroll/retirement reporting.
+    Authorization is OAuth 2.0 authorization code with six role scopes; every request carries a bearer
+    access token valid for two hours. Object writes use an optimistic-concurrency `version` field.
+  humanURL: https://onpay.readme.io/reference/authorization
+  baseURL: https://api.onpay.com/v2
+  tags:
+  - payroll
+  - human-resources
+  - employee-benefits
+  - payroll-tax
+  - workforce-management
+  - hr-tech
+  properties:
+  - type: OpenAPI
+    url: openapi/onpay-api-openapi.json
+  - type: Documentation
+    url: https://onpay.readme.io/
+  - type: APIReference
+    url: https://onpay.readme.io/reference/authorization
+  - type: Authentication
+    url: authentication/onpay-authentication.yml
+  - type: OAuthScopes
+    url: scopes/onpay-scopes.yml
+  - type: ErrorCatalog
+    url: errors/onpay-problem-types.yml
+  - type: Conventions
+    url: conventions/onpay-conventions.yml
+  - type: DataModel
+    url: data-model/onpay-data-model.yml
+  - type: Overlay
+    url: overlays/onpay-api-overlay.yaml
+  - type: LLMsTxt
+    url: https://onpay.readme.io/llms.txt
+common:
+- type: DomainSecurity
+  url: security/onpay-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/onpay-agentic-access.yml
+- type: Website
+  url: https://onpay.com/
+- type: DeveloperPortal
+  url: https://onpay.readme.io/
+- type: Documentation
+  url: https://onpay.readme.io/
+- type: APIReference
+  url: https://onpay.readme.io/reference/authorization
+- type: GettingStarted
+  url: https://onpay.readme.io/docs/getting-started
+- type: Support
+  url: https://help.onpay.com/hc/en-us
+- type: Blog
+  url: https://onpay.com/insights/
+- type: Pricing
+  url: https://onpay.com/payroll/software/costs-pricing/
+- type: SignUp
+  url: https://onpay.com/get-started/
+- type: Login
+  url: https://app.onpay.com/app/login
+- type: TermsOfService
+  url: https://onpay.com/terms-of-service/
+- type: PrivacyPolicy
+  url: https://onpay.com/privacy/
+- type: Security
+  url: https://onpay.com/security/
+- type: Compliance
+  url: https://onpay.com/security/
+- type: Integrations
+  url: https://onpay.com/app-directory/
+- type: LLMsTxt
+  url: llms/onpay-llms.txt
+- type: Authentication
+  url: authentication/onpay-authentication.yml
+- type: OAuthScopes
+  url: scopes/onpay-scopes.yml
+- type: Conventions
+  url: conventions/onpay-conventions.yml
+- type: ErrorCatalog
+  url: errors/onpay-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/onpay-lifecycle.yml
+- type: Conformance
+  url: conformance/onpay-conformance.yml
+- type: DataModel
+  url: data-model/onpay-data-model.yml
+- type: VulnerabilityDisclosure
+  url: security/onpay-vulnerability-disclosure.yml
+- type: AgentSkill
+  url: skills/_index.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
-common:
-- type: Website
-  url: https://forgeglobal.com/onpay_stock/
+x-enrichment:
+  date: '2026-08-04'
+  status: enriched
+  artifacts_added: 20
+  pass: local-v1

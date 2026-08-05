@@ -1,0 +1,77 @@
+generated: '2026-08-04'
+method: searched
+source: openapi/onpay-api-openapi.json
+docs: https://onpay.readme.io/reference/authorization
+model: role-based
+note: >-
+  OnPay's OAuth 2.0 "scopes" are not permission strings — they are the platform's six USER ROLES, and
+  the description on each in the OpenAPI is the numeric `access_type` code that the token response
+  returns (Owner=1, Approver=2, Controller=3, Manager=4, Accountant=5, Employee=6). There is no
+  read/write split, no resource-scoped grant, and no published scopes reference page: a partner
+  receives whatever the authorizing user's role allows. The operation counts below are derived from
+  the per-operation security[] requirements across all 58 operations.
+schemes:
+- name: OAuth2
+  source: openapi/onpay-api-openapi.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://app.onpay.com/app/oauth/authorize
+    tokenUrl: https://app.onpay.com/app/oauth/authorize
+    tokenUrl_documented: https://app.onpay.com/app/oauth/token
+scopes:
+- scope: Owner
+  access_type: 1
+  description: OnPay company owner. Accepted on all 58 operations.
+  operations: 58
+  flows: [authorizationCode]
+  sources: [openapi/onpay-api-openapi.json]
+- scope: Approver
+  access_type: 2
+  description: Payroll approver. Accepted on all 58 operations, same reach as Owner in this spec.
+  operations: 58
+  flows: [authorizationCode]
+  sources: [openapi/onpay-api-openapi.json]
+- scope: Controller
+  access_type: 3
+  description: >-
+    Restricted role. Accepted on 8 operations only — employee deduction reads, recent notes,
+    termination and rehire, worksite reads, and pay-schedule dates.
+  operations: 8
+  flows: [authorizationCode]
+  sources: [openapi/onpay-api-openapi.json]
+- scope: Manager
+  access_type: 4
+  description: Restricted role. Accepted on the same 8 operations as Controller.
+  operations: 8
+  flows: [authorizationCode]
+  sources: [openapi/onpay-api-openapi.json]
+- scope: Accountant
+  access_type: 5
+  description: >-
+    Declared in the securityScheme but required by ZERO operations in the published spec — an
+    accountant-scoped token authorizes nothing the document describes.
+  operations: 0
+  flows: [authorizationCode]
+  sources: [openapi/onpay-api-openapi.json]
+- scope: Employee
+  access_type: 6
+  description: >-
+    Self-service role. Accepted on 2 operations only — GET /employees/{employee_id}/deductions and
+    GET /user.
+  operations: 2
+  flows: [authorizationCode]
+  sources: [openapi/onpay-api-openapi.json]
+gaps:
+- No scopes/permissions reference page exists in the docs; the ReadMe hub's llms.txt lists every page
+  it has and there is no permissions article.
+- Roles are coarse — Owner and Approver both unlock every write in the API, including
+  POST /employees/{employee_id}/termination and PUT /employees/{employee_id}/bank-accounts. There is
+  no read-only grant an integration can request.
+- The Accountant role is declared but unused, so its meaning cannot be verified from the contract.
+x-evidence:
+- url: https://onpay.readme.io/reference/authorization.md
+  http_status: 200
+  fetched: '2026-08-04'
+- url: https://onpay.readme.io/llms.txt
+  http_status: 200
+  fetched: '2026-08-04'

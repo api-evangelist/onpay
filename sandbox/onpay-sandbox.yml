@@ -1,0 +1,69 @@
+generated: '2026-08-04'
+method: probed
+source: https://onpay.readme.io/reference/authorization
+status: documented-but-unreachable
+summary: >-
+  OnPay's authorization documentation tells partners to develop against the demo domain onpaydev.com.
+  That domain is no longer OnPay's: it now serves a GoDaddy domain-parking lander on every path. The
+  same dead host is the only entry in the published OpenAPI's servers[] array
+  (https://onpaydev.com/v2), so a developer or agent that reads the spec and calls the declared server
+  reaches a parking page rather than an API. No Sandbox pointer is wired into apis.yml, because there
+  is no reachable sandbox to point at.
+documented_sandbox:
+  host: https://onpaydev.com
+  quoted: >-
+    "We will use the domain `onpaydev.com` for demonstration purposes. If partnered, you will be
+    provided with a domain to test against."
+  authorization_url: https://onpaydev.com/app/oauth/authorize
+  token_url: https://onpaydev.com/app/oauth/token
+  declared_in_openapi_servers: https://onpaydev.com/v2
+  reachable: false
+  observed: >-
+    HTTP 200 on every path with a 114-byte HTML body whose only content is
+    window.location.href="/lander"; /lander is a GoDaddy parking-lander bundle
+    (window.LANDER_SYSTEM="PW", parking-lander/static/js/main.*.js). DNS is on Cloudflare nameservers
+    pointing at parking IPs.
+partner_sandbox:
+  model: per-partner domain issued after partner onboarding
+  self_serve: false
+  note: >-
+    An approved partner is "provided with a domain to test against". That domain is not published, so
+    there is no publicly discoverable test environment.
+test_credentials:
+  published: false
+  test_key_prefixes: none
+  test_data_fixtures: none
+  time_simulation: none
+  note: OnPay publishes no test employee records, no seeded company, and no fixture or trigger tooling.
+production_host:
+  host: https://api.onpay.com/v2
+  reachable: true
+  note: >-
+    Verified live and answering with the real API error envelope, so the production base URL recorded
+    in apis.yml is api.onpay.com/v2 rather than the dead onpaydev.com host in the spec.
+provider_action:
+  - Republish the OpenAPI servers[] entry against a host OnPay controls; onpaydev.com is parked and
+    anyone can register a lookalike flow on it.
+  - Correct the authorization guide, which still instructs partners to send client_id, client_secret
+    and authorization codes to onpaydev.com.
+x-evidence:
+- url: https://onpaydev.com/
+  http_status: 200
+  content_type: text/html
+  fetched: '2026-08-04'
+  note: 114-byte redirect stub to /lander
+- url: https://onpaydev.com/lander
+  http_status: 200
+  fetched: '2026-08-04'
+  note: GoDaddy parking-lander bundle
+- url: https://onpaydev.com/app/oauth/authorize
+  http_status: 200
+  fetched: '2026-08-04'
+  note: parking stub, not an OAuth authorize endpoint
+- url: https://app.onpay.com/app/oauth/authorize
+  http_status: 302
+  fetched: '2026-08-04'
+  note: redirects to https://app.onpay.com/app/login — the real authorize endpoint
+- url: https://api.onpay.com/v2/employees
+  http_status: 400
+  fetched: '2026-08-04'

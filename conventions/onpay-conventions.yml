@@ -1,0 +1,112 @@
+generated: '2026-08-04'
+method: searched
+source: https://onpay.readme.io/reference/versioning
+docs:
+- https://onpay.readme.io/reference/authorization
+- https://onpay.readme.io/reference/versioning
+derived_from: openapi/onpay-api-openapi.json
+authentication:
+  style: OAuth 2.0 authorization code, bearer access token
+  header: 'Authorization: Bearer {access_token}'
+  access_token_ttl_seconds: 7200
+  refresh: Refresh tokens are single-use; each exchange returns a new access/refresh pair.
+  authorization_url: https://app.onpay.com/app/oauth/authorize
+  token_url: https://app.onpay.com/app/oauth/token
+  gating: API access is limited to approved partners; partners must contact OnPay to be onboarded.
+  see: authentication/onpay-authentication.yml
+idempotency:
+  supported: false
+  header: null
+  note: >-
+    OnPay publishes NO idempotency mechanism. There is no Idempotency-Key header in the docs or in any
+    of the 58 OpenAPI operations, and no retry-safety guidance for POST operations such as
+    POST /employees, POST /employees/{employee_id}/termination or POST /company/deductions. A retried
+    write is not deduplicated. No `Idempotency` pointer is wired into apis.yml because the contract
+    does not exist.
+concurrency:
+  supported: true
+  mechanism: optimistic-concurrency version field
+  field: version
+  scope: Per data object. 9 schemas carry a `version` property (PaySchedule, EmployeeDeductionItem,
+    DeductionGroupingItem, WorksiteItem, DepartmentItem, LocationItem, PositionItem, LeaveItem,
+    plus the PatchSuccessful/InsertSuccessful responses that return the new version).
+  behavior: >-
+    A PATCH sent without the current (latest) `version` is rejected with a version mismatch. The client
+    must re-read the object to obtain the latest `version` before retrying. This prevents a stale write
+    from silently reverting a field another integration just changed — OnPay's docs illustrate it with
+    a pay-rate reversal scenario.
+  docs: https://onpay.readme.io/reference/versioning
+pagination:
+  supported: partial
+  style: offset/limit
+  applies_to:
+  - GET /reports/listing
+  - GET /reports/retirement-summary
+  params:
+  - name: limit
+    in: query
+    required: true
+    type: integer
+  - name: start
+    in: query
+    required: true
+    type: integer
+  note: >-
+    Only the two reporting endpoints paginate, and both make `limit` and `start` REQUIRED. Collection
+    endpoints such as GET /employees, GET /company/departments and GET /company/positions declare no
+    pagination parameters at all and return a bare JSON array — there is no documented behavior for a
+    company with a large employee count.
+  response_fields: none — responses are bare arrays with no envelope, total count, or next cursor.
+filtering:
+  applies_to:
+  - GET /reports/listing
+  - GET /reports/pagination/listing
+  - GET /reports/retirement-summary
+  - GET /reports/approved-pay-runs
+  - GET /company/pay-schedule-dates
+  params: [company_id, from, to, employee_ids, position_id, department_id, location_id, runid,
+    pay_schedule_id, number_of_periods, first_date]
+field_expansion:
+  supported: false
+  note: No expand/include/fields parameter is published on any operation.
+metadata:
+  supported: false
+  note: No customer-defined metadata object is exposed on any resource.
+request_tracing:
+  request_id_header: null
+  note: No X-Request-Id or correlation-id header is documented, and none was returned on any probed
+    response.
+versioning:
+  scheme: uri-path
+  current: v2
+  pattern: https://api.onpay.com/{version}/{resource}
+  policy: >-
+    "Changes that would break an existing version utilization will be applied to a new version." OnPay
+    commits that behavior of a supported version will not change, but publishes no support window,
+    sunset date, or deprecation schedule for older versions.
+  docs: https://onpay.readme.io/reference/versioning
+  see: lifecycle/onpay-lifecycle.yml
+error_envelope:
+  format: proprietary JSON (not RFC 9457)
+  shape: '{resp, error_code, error_message, message, more_info}'
+  see: errors/onpay-problem-types.yml
+rate_limiting:
+  documented: false
+  headers_observed: none
+  note: >-
+    No rate-limit policy is published and no RateLimit / X-RateLimit / Retry-After header appeared on
+    any probed response from https://api.onpay.com/v2. Agents have no signal to back off on.
+content_types:
+  request: application/json (OAuth token exchange uses application/x-www-form-urlencoded)
+  response: application/json
+x-evidence:
+- url: https://onpay.readme.io/reference/versioning.md
+  http_status: 200
+  fetched: '2026-08-04'
+- url: https://onpay.readme.io/reference/authorization.md
+  http_status: 200
+  fetched: '2026-08-04'
+- url: https://api.onpay.com/v2/employees
+  http_status: 400
+  fetched: '2026-08-04'
+  note: no rate-limit or request-id headers present on the response

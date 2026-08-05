@@ -1,0 +1,98 @@
+generated: '2026-08-04'
+method: derived
+source: openapi/onpay-api-openapi.json
+docs:
+- https://onpay.readme.io/reference/authorization
+- https://onpay.com/security/
+standards:
+- id: openapi-3.0
+  conforms: true
+  evidence: Published OpenAPI 3.0.0 document, 36 paths / 58 operations, served from the ReadMe API
+    registry backing https://onpay.readme.io
+- id: oauth2
+  conforms: true
+  evidence: components.securitySchemes.OAuth2 declares an authorizationCode flow with six scopes;
+    the docs describe the full authorization-code + refresh-token exchange
+- id: oauth2-authorization-code
+  conforms: true
+  evidence: openapi flows.authorizationCode; docs document code -> token -> refresh exchange
+- id: rfc8414-oauth-authorization-server-metadata
+  conforms: false
+  evidence: /.well-known/oauth-authorization-server returns 404 on onpay.com and does not exist on
+    app.onpay.com or api.onpay.com
+- id: oidc
+  conforms: false
+  evidence: no openIdConnect security scheme; /.well-known/openid-configuration 404
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: errors are application/json with a proprietary {resp, error_code, error_message, message,
+    more_info} envelope, not application/problem+json
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on onpay.com, help.onpay.com; app.onpay.com and
+    api.onpay.com 301 to the app login
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: no deprecation or sunset policy published
+- id: idempotency-key
+  conforms: false
+  evidence: no Idempotency-Key header in the docs or in any of the 58 operations
+- id: optimistic-concurrency
+  conforms: true
+  evidence: '`version` field required on PATCH; version mismatch rejects the write (documented at
+    https://onpay.readme.io/reference/versioning)'
+- id: pagination
+  conforms: partial
+  evidence: offset/limit (start, limit) on GET /reports/listing and GET /reports/retirement-summary
+    only; collection endpoints have no pagination parameters
+- id: json-api
+  conforms: false
+  evidence: bare JSON arrays and objects, no JSON:API document structure
+- id: odata
+  conforms: false
+- id: scim2
+  conforms: false
+  evidence: employee/HR resources are OnPay-proprietary shapes, not SCIM Core/Enterprise User schemas
+- id: fhir-r4
+  conforms: false
+- id: psd2
+  conforms: false
+- id: fapi
+  conforms: false
+compliance:
+  published: true
+  page: https://onpay.com/security/
+  updated: '2026-06-03'
+  certifications:
+  - name: SOC 2 Type II
+    body: AICPA SOC program
+    claim: >-
+      "Third-party Certification: OnPay holds third-party auditor certification with the AICPA's SOC
+      program and is SOC 2 Type II compliant."
+    evidence_url: https://onpay.com/security/
+  controls_claimed:
+  - AES-256 encryption at rest, TLS 1.2 in transit (stated on
+    https://onpay.com/payroll/software/secure-payroll/)
+  - AWS-hosted infrastructure with daily backups
+  - Multi-factor authentication mandated for all internal systems
+  - Role-based access controls
+  - Regular vulnerability scanning and 24/7 monitoring
+  - Employee security training and awareness program
+  not_claimed:
+  - ISO 27001
+  - PCI DSS
+  - HIPAA
+  - FedRAMP
+x-evidence:
+- url: https://onpay.com/security/
+  http_status: 200
+  fetched: '2026-08-04'
+- url: https://onpay.com/payroll/software/secure-payroll/
+  http_status: 200
+  fetched: '2026-08-04'
+- url: https://onpay.com/.well-known/security.txt
+  http_status: 404
+  fetched: '2026-08-04'
+- url: https://onpay.com/.well-known/openid-configuration
+  http_status: 404
+  fetched: '2026-08-04'

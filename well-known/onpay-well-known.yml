@@ -1,0 +1,71 @@
+generated: '2026-08-04'
+method: probed
+source: live probes of every OnPay host in apis.yml + the OpenAPI servers[] host
+summary: >-
+  OnPay publishes NO /.well-known/ discovery surface. Every canonical path was probed on all five
+  hosts and none returned a usable document, so no raw files were saved and no WellKnown or SecurityTxt
+  pointer is wired into apis.yml. Two false-positive shapes are recorded below so a later round does
+  not re-litigate them: app.onpay.com and api.onpay.com answer 301 to the application login for every
+  /.well-known/* path, and onpaydev.com answers HTTP 200 with a domain-parking HTML stub for every
+  path (see sandbox/onpay-sandbox.yml — that host is parked).
+hosts:
+- host: https://onpay.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/oauth-protected-resource, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: https://app.onpay.com
+  note: every /.well-known/* path 301s to https://app.onpay.com/app/login — application catch-all,
+    not a discovery document
+  documents:
+  - {path: /.well-known/security.txt, status: 301}
+  - {path: /.well-known/openid-configuration, status: 301}
+  - {path: /.well-known/oauth-authorization-server, status: 301}
+  - {path: /.well-known/oauth-protected-resource, status: 301}
+  - {path: /.well-known/api-catalog, status: 301}
+  - {path: /.well-known/ai-plugin.json, status: 301}
+  - {path: /.well-known/agent-card.json, status: 301}
+  - {path: /.well-known/agent.json, status: 301}
+- host: https://api.onpay.com
+  note: same application catch-all as app.onpay.com — 301 to /app/login
+  documents:
+  - {path: /.well-known/security.txt, status: 301}
+  - {path: /.well-known/openid-configuration, status: 301}
+  - {path: /.well-known/oauth-authorization-server, status: 301}
+  - {path: /.well-known/oauth-protected-resource, status: 301}
+  - {path: /.well-known/api-catalog, status: 301}
+  - {path: /.well-known/ai-plugin.json, status: 301}
+  - {path: /.well-known/agent-card.json, status: 301}
+  - {path: /.well-known/agent.json, status: 301}
+- host: https://help.onpay.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: https://onpaydev.com
+  note: >-
+    REJECTED as false positives. This is the demo host named in the OpenAPI servers[] and the
+    authorization docs. It answers HTTP 200 to every path with a 114-byte HTML stub that redirects to
+    /lander, a GoDaddy domain-parking page. None of these 200s is a discovery document.
+  documents:
+  - {path: /.well-known/security.txt, status: 200, content_type: text/html, accepted: false}
+  - {path: /.well-known/openid-configuration, status: 200, content_type: text/html, accepted: false}
+  - {path: /.well-known/oauth-authorization-server, status: 200, content_type: text/html, accepted: false}
+  - {path: /.well-known/oauth-protected-resource, status: 200, content_type: text/html, accepted: false}
+  - {path: /.well-known/api-catalog, status: 200, content_type: text/html, accepted: false}
+  - {path: /.well-known/ai-plugin.json, status: 200, content_type: text/html, accepted: false}
+  - {path: /.well-known/agent-card.json, status: 200, content_type: text/html, accepted: false}
+  - {path: /.well-known/agent.json, status: 200, content_type: text/html, accepted: false}
+a2a_agent_card:
+  found: false
+  note: >-
+    No A2A agent card exists on any OnPay host. Nothing was written to a2a/ — an agent card is the one
+    artifact this pipeline never authors on a provider's behalf.
+fetched: '2026-08-04'

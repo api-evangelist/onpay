@@ -1,0 +1,65 @@
+# OnPay Documentation
+
+> Documentation for OnPay
+
+## Guides
+- [Documentation](https://onpay.readme.io/docs.md): OnPay documentation
+
+## API Reference
+- [Authorization](https://onpay.readme.io/reference/authorization.md)
+- [Versioning](https://onpay.readme.io/reference/versioning.md)
+- [/employees](https://onpay.readme.io/reference/get_employees.md): Get list of employees
+- [/employees](https://onpay.readme.io/reference/post_employees.md): Insert employee
+- [/employees/{employee_id}](https://onpay.readme.io/reference/get_employees-employee-id.md): Get employee by employee_id
+- [/employees/{employee_id}](https://onpay.readme.io/reference/patch_employees-employee-id.md): Update an employee
+- [/employees/{employee_id}/deductions](https://onpay.readme.io/reference/get_employees-employee-id-deductions.md): Get deductions for an employee
+- [/employees/{employee_id}/deductions/{deduction_id}](https://onpay.readme.io/reference/patch_employees-employee-id-deductions-deduction-id.md): Update an employee deduction batch by employee ID and deduction ID
+- [/employees/{employee_id}/deductions/{deduction_id}](https://onpay.readme.io/reference/post_employees-employee-id-deductions-deduction-id.md): Insert deduction batch for an employee by employee ID and deduction ID
+- [/employees/{employee_id}/deductions/{deduction_id}/schedule](https://onpay.readme.io/reference/get_employees-employee-id-deductions-deduction-id-schedule.md): List scheduled changes to employee deductions
+- [/employees/{employee_id}/deductions/{deduction_id}/schedule](https://onpay.readme.io/reference/post_employees-employee-id-deductions-deduction-id-schedule.md): Submit a scheduled change to a deduction batch for an employee by employee ID and deduction ID
+- [/employees/{employee_id}/bank-accounts](https://onpay.readme.io/reference/get_employees-employee-id-bank-accounts.md): list employee bank accounts
+- [/employees/{employee_id}/bank-accounts](https://onpay.readme.io/reference/put_employees-employee-id-bank-accounts.md): put employee bank accounts
+- [/employees/{employee_id}/wages](https://onpay.readme.io/reference/get_employees-employee-id-wages.md): List employee pay items
+- [/employees/{employee_id}/wages](https://onpay.readme.io/reference/patch_employees-employee-id-wages.md): Update employee pay items
+- [/employees/{employee_id}/wages/schedule](https://onpay.readme.io/reference/get_employees-employee-id-wages-schedule.md): List scheduled changes to employee pay items
+- [/employees/{employee_id}/wages/schedule](https://onpay.readme.io/reference/post_employees-employee-id-wages-schedule.md): Schedule changes to employee wages for approval.
+- [/employees/{employee_id}/leave](https://onpay.readme.io/reference/get_employees-employee-id-leave.md): List employee leave items
+- [/employees/{employee_id}/leave](https://onpay.readme.io/reference/patch_employees-employee-id-leave.md): Update employee leave items
+- [/employees/{employee_id}/tax-fields](https://onpay.readme.io/reference/get_employees-employee-id-tax-fields.md): List employee tax fields
+- [/employees/{employee_id}/tax-fields](https://onpay.readme.io/reference/patch_employees-employee-id-tax-fields.md): Patch employee tax fields
+- [/employees/{employee_id}/tax-fields/worksite](https://onpay.readme.io/reference/patch_employees-employee-id-tax-fields-worksite.md): Update employee worksite id
+- [/employees/{employee_id}/termination](https://onpay.readme.io/reference/post_employees-employee-id-termination.md): Terminate employee
+- [/employees/{employee_id}/rehire](https://onpay.readme.io/reference/post_employees-employee-id-rehire.md): Rehire employee
+- [/employees/recent-notes-and-comments](https://onpay.readme.io/reference/get_employees-recent-notes-and-comments.md): Get recent notes and or comments from an employees account.
+- [/company](https://onpay.readme.io/reference/get_company.md): Get company information
+- [/company/pay-schedules](https://onpay.readme.io/reference/get_company-pay-schedules.md): list pay schedules for company
+- [/company/deductions](https://onpay.readme.io/reference/get_company-deductions.md): Get all deductions for company
+- [/company/deductions](https://onpay.readme.io/reference/post_company-deductions.md): create a new deduction
+- [/company/deductions/{deduction_id}](https://onpay.readme.io/reference/patch_company-deductions-deduction-id.md): Patch deduction
+- [/company/deductions/{deduction_id}](https://onpay.readme.io/reference/delete_company-deductions-deduction-id.md): Delete deduction by Id.
+- [/company/deduction-groupings](https://onpay.readme.io/reference/get_company-deduction-groupings.md)
+- [/company/deduction-groupings](https://onpay.readme.io/reference/post_company-deduction-groupings.md)
+- [/company/deduction-groupings/{id}](https://onpay.readme.io/reference/patch_company-deduction-groupings-id.md)
+- [/company/worksites](https://onpay.readme.io/reference/get_company-worksites.md)
+- [/company/worksites](https://onpay.readme.io/reference/post_company-worksites.md)
+- [/company/worksites/{id}](https://onpay.readme.io/reference/get_company-worksites-id.md)
+- [/company/worksites/{id}](https://onpay.readme.io/reference/patch_company-worksites-id.md)
+- [/company/locations](https://onpay.readme.io/reference/get_company-locations.md)
+- [/company/locations](https://onpay.readme.io/reference/post_company-locations.md)
+- [/company/locations/{id}](https://onpay.readme.io/reference/get_company-locations-id.md)
+- [/company/locations/{id}](https://onpay.readme.io/reference/patch_company-locations-id.md)
+- [/company/departments](https://onpay.readme.io/reference/get_company-departments.md): Get all departments for company
+- [/company/departments](https://onpay.readme.io/reference/post_company-departments.md)
+- [/company/departments/{id}](https://onpay.readme.io/reference/get_company-departments-id.md): Get department by ID
+- [/company/departments/{id}](https://onpay.readme.io/reference/patch_company-departments-id.md)
+- [/company/positions](https://onpay.readme.io/reference/get_company-positions.md): List all positions for company
+- [/company/positions](https://onpay.readme.io/reference/post_company-positions.md): Add a PositionItem to company
+- [/company/positions/{id}](https://onpay.readme.io/reference/get_company-positions-id.md): Get Position by ID
+- [/company/positions/{id}](https://onpay.readme.io/reference/patch_company-positions-id.md)
+- [/company/state-tax-fields/{fips}](https://onpay.readme.io/reference/get_company-state-tax-fields-fips.md): Get state tax fields by fips code
+- [/company/pay-schedule-dates](https://onpay.readme.io/reference/get_company-pay-schedule-dates.md): Get important dates for a pay schedule
+- [/user](https://onpay.readme.io/reference/get_user.md)
+- [/reports/listing](https://onpay.readme.io/reference/get_reports-listing.md)
+- [/reports/pagination/listing](https://onpay.readme.io/reference/get_reports-pagination-listing.md)
+- [/reports/approved-pay-runs](https://onpay.readme.io/reference/get_reports-approved-pay-runs.md)
+- [/reports/retirement-summary](https://onpay.readme.io/reference/get_reports-retirement-summary.md)
