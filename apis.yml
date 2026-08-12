@@ -29,27 +29,16 @@ tags:
 - time-and-attendance
 - retirement-401k
 apis:
-- name: OnPay API
-  description: >-
-    Partner-only REST API (version 2.0.0) for OnPay's payroll and HR platform. 58 operations across six
-    tags — Employees, Company, Deductions, Pay-runs, Reports, and User — covering employee CRUD, employee
-    deductions and scheduled deduction changes, wages and scheduled wage changes, leave, tax fields, bank
-    accounts, terminations and rehires, company worksites, locations, departments, positions, deduction
-    groupings, pay schedules and pay-schedule dates, unprocessed hours, and payroll/retirement reporting.
-    Authorization is OAuth 2.0 authorization code with six role scopes; every request carries a bearer
-    access token valid for two hours. Object writes use an optimistic-concurrency `version` field.
+- aid: onpay:onpay-company-api
+  name: OnPay Company API
+  description: The Company API from OnPay — 17 operation(s) for company.
   humanURL: https://onpay.readme.io/reference/authorization
   baseURL: https://api.onpay.com/v2
   tags:
-  - payroll
-  - human-resources
-  - employee-benefits
-  - payroll-tax
-  - workforce-management
-  - hr-tech
+  - Company
   properties:
   - type: OpenAPI
-    url: openapi/onpay-api-openapi.json
+    url: openapi/onpay-company-api-openapi.yml
   - type: Documentation
     url: https://onpay.readme.io/
   - type: APIReference
@@ -64,11 +53,143 @@ apis:
     url: conventions/onpay-conventions.yml
   - type: DataModel
     url: data-model/onpay-data-model.yml
-  - type: Overlay
-    url: overlays/onpay-api-overlay.yaml
+  - type: LLMsTxt
+    url: https://onpay.readme.io/llms.txt
+- aid: onpay:onpay-deductions-api
+  name: OnPay Deductions API
+  description: The Deductions API from OnPay — 7 operation(s) for deductions.
+  humanURL: https://onpay.readme.io/reference/authorization
+  baseURL: https://api.onpay.com/v2
+  tags:
+  - Deductions
+  properties:
+  - type: OpenAPI
+    url: openapi/onpay-deductions-api-openapi.yml
+  - type: Documentation
+    url: https://onpay.readme.io/
+  - type: APIReference
+    url: https://onpay.readme.io/reference/authorization
+  - type: Authentication
+    url: authentication/onpay-authentication.yml
+  - type: OAuthScopes
+    url: scopes/onpay-scopes.yml
+  - type: ErrorCatalog
+    url: errors/onpay-problem-types.yml
+  - type: Conventions
+    url: conventions/onpay-conventions.yml
+  - type: DataModel
+    url: data-model/onpay-data-model.yml
+  - type: LLMsTxt
+    url: https://onpay.readme.io/llms.txt
+- aid: onpay:onpay-employees-api
+  name: OnPay Employees API
+  description: The Employees API from OnPay — 14 operation(s) for employees.
+  humanURL: https://onpay.readme.io/reference/authorization
+  baseURL: https://api.onpay.com/v2
+  tags:
+  - Employees
+  properties:
+  - type: OpenAPI
+    url: openapi/onpay-employees-api-openapi.yml
+  - type: Documentation
+    url: https://onpay.readme.io/
+  - type: APIReference
+    url: https://onpay.readme.io/reference/authorization
+  - type: Authentication
+    url: authentication/onpay-authentication.yml
+  - type: OAuthScopes
+    url: scopes/onpay-scopes.yml
+  - type: ErrorCatalog
+    url: errors/onpay-problem-types.yml
+  - type: Conventions
+    url: conventions/onpay-conventions.yml
+  - type: DataModel
+    url: data-model/onpay-data-model.yml
+  - type: LLMsTxt
+    url: https://onpay.readme.io/llms.txt
+- aid: onpay:onpay-pay-runs-api
+  name: OnPay Pay Runs API
+  description: The Pay-runs API from OnPay — 2 operation(s) for pay-runs.
+  humanURL: https://onpay.readme.io/reference/authorization
+  baseURL: https://api.onpay.com/v2
+  tags:
+  - Pay-runs
+  properties:
+  - type: OpenAPI
+    url: openapi/onpay-pay-runs-api-openapi.yml
+  - type: Documentation
+    url: https://onpay.readme.io/
+  - type: APIReference
+    url: https://onpay.readme.io/reference/authorization
+  - type: Authentication
+    url: authentication/onpay-authentication.yml
+  - type: OAuthScopes
+    url: scopes/onpay-scopes.yml
+  - type: ErrorCatalog
+    url: errors/onpay-problem-types.yml
+  - type: Conventions
+    url: conventions/onpay-conventions.yml
+  - type: DataModel
+    url: data-model/onpay-data-model.yml
+  - type: LLMsTxt
+    url: https://onpay.readme.io/llms.txt
+- aid: onpay:onpay-reports-api
+  name: OnPay Reports API
+  description: The Reports API from OnPay — 2 operation(s) for reports.
+  humanURL: https://onpay.readme.io/reference/authorization
+  baseURL: https://api.onpay.com/v2
+  tags:
+  - Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/onpay-reports-api-openapi.yml
+  - type: Documentation
+    url: https://onpay.readme.io/
+  - type: APIReference
+    url: https://onpay.readme.io/reference/authorization
+  - type: Authentication
+    url: authentication/onpay-authentication.yml
+  - type: OAuthScopes
+    url: scopes/onpay-scopes.yml
+  - type: ErrorCatalog
+    url: errors/onpay-problem-types.yml
+  - type: Conventions
+    url: conventions/onpay-conventions.yml
+  - type: DataModel
+    url: data-model/onpay-data-model.yml
+  - type: LLMsTxt
+    url: https://onpay.readme.io/llms.txt
+- aid: onpay:onpay-user-api
+  name: OnPay User API
+  description: The User API from OnPay — 1 operation(s) for user.
+  humanURL: https://onpay.readme.io/reference/authorization
+  baseURL: https://api.onpay.com/v2
+  tags:
+  - User
+  properties:
+  - type: OpenAPI
+    url: openapi/onpay-user-api-openapi.yml
+  - type: Documentation
+    url: https://onpay.readme.io/
+  - type: APIReference
+    url: https://onpay.readme.io/reference/authorization
+  - type: Authentication
+    url: authentication/onpay-authentication.yml
+  - type: OAuthScopes
+    url: scopes/onpay-scopes.yml
+  - type: ErrorCatalog
+    url: errors/onpay-problem-types.yml
+  - type: Conventions
+    url: conventions/onpay-conventions.yml
+  - type: DataModel
+    url: data-model/onpay-data-model.yml
   - type: LLMsTxt
     url: https://onpay.readme.io/llms.txt
 common:
+- type: MCPServer
+  url: mcp/onpay-mcp.yml
+- type: Overlay
+  url: overlays/onpay-api-overlay.yaml
 - type: DomainSecurity
   url: security/onpay-domain-security.yml
 - type: AgenticAccess
