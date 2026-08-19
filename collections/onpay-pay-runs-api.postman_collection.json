@@ -1,0 +1,345 @@
+{
+  "item": [
+    {
+      "id": "608c5b51-1ee2-47c5-aaa5-0783804dad66",
+      "name": "Pay-runs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "abe5275f-fb1c-4294-b793-8c43fd6f47b7",
+          "name": "/reports/approved-pay-runs",
+          "request": {
+            "name": "/reports/approved-pay-runs",
+            "description": {},
+            "url": {
+              "path": [
+                "reports",
+                "approved-pay-runs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "runid",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8d7d0417-4767-48b0-a67a-4371e59041ca",
+              "name": "Sucessful Response\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "approved-pay-runs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "runid",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"runid\": 5851,\n    \"check_date\": \"string\",\n    \"timestamp\": \"string\",\n    \"period_start\": \"string\",\n    \"period_end\": \"string\",\n    \"user_id\": 8328,\n    \"tax_sweep_date\": \"string\",\n    \"tax_sweep_amount\": 6352.654136901342,\n    \"direct_deposit_sweep_date\": \"string\",\n    \"direct_deposit_sweep_amount\": 1289.7625030237814,\n    \"direct_despoit_date\": \"string\",\n    \"direct_deposit_amount\": 7990.119943145752,\n    \"total_wages\": 4838.62004493971,\n    \"total_cash_requirement\": 5300.000545000401\n  },\n  {\n    \"runid\": 7002,\n    \"check_date\": \"string\",\n    \"timestamp\": \"string\",\n    \"period_start\": \"string\",\n    \"period_end\": \"string\",\n    \"user_id\": 1240,\n    \"tax_sweep_date\": \"string\",\n    \"tax_sweep_amount\": 3409.922807579535,\n    \"direct_deposit_sweep_date\": \"string\",\n    \"direct_deposit_sweep_amount\": 5257.621066029686,\n    \"direct_despoit_date\": \"string\",\n    \"direct_deposit_amount\": 3625.927956083057,\n    \"total_wages\": 21.10157240150845,\n    \"total_cash_requirement\": 1765.830144775884\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "faab5f6d-b0c4-47e5-8fa5-2da9e426fd7c",
+          "name": "/reports/retirement-summary",
+          "request": {
+            "name": "/reports/retirement-summary",
+            "description": {},
+            "url": {
+              "path": [
+                "reports",
+                "retirement-summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "company_id",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "employee_ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "position_id",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "department_id",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b251f026-d85c-4faf-a131-71b4bf68ed70",
+              "name": "Sucessful Response\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "retirement-summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "company_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "employee_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "position_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "department_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"employee_id\": 5317,\n    \"to\": \"string\",\n    \"from\": \"string\",\n    \"wages_in_retirement_calculation\": 9037.441071975034,\n    \"employee_401k_loan_amount\": 8021.327301628459,\n    \"employee_deferral_amount\": 9299.776815231733,\n    \"employer_retirement_contribution\": 9754.473955338548,\n    \"total_retirement_contribution\": 2806.904688984095,\n    \"employee_pretax_deferral_amount\": 3312.92741061074,\n    \"employee_roth_deferral_amount\": 1006.2192551631477,\n    \"simple_ira_amount\": 7011.210959720416,\n    \"safe_harbor_deferral_amount\": 6987.122918513633,\n    \"safe_harbor_nonelective_contribution\": 1725.9956183542756,\n    \"safe_harbor_employer_contribution\": 584.1290793536391,\n    \"deductions_list\": [\n      {\n        \"id\": 6964,\n        \"name\": \"string\",\n        \"deduction_type\": 1,\n        \"amount\": 9039.182929925297,\n        \"benefit_name\": \"string\",\n        \"benefit_amount\": 6072.124920284979,\n        \"nonelective_portion_of_benefit\": 6637.598822684039\n      },\n      {\n        \"id\": 75,\n        \"name\": \"string\",\n        \"deduction_type\": 10,\n        \"amount\": 9803.277288179992,\n        \"benefit_name\": \"string\",\n        \"benefit_amount\": 3575.391144421769,\n        \"nonelective_portion_of_benefit\": 2785.8834007070222\n      }\n    ]\n  },\n  {\n    \"employee_id\": 7882,\n    \"to\": \"string\",\n    \"from\": \"string\",\n    \"wages_in_retirement_calculation\": 8148.503675298189,\n    \"employee_401k_loan_amount\": 7259.597973805502,\n    \"employee_deferral_amount\": 6931.506315447702,\n    \"employer_retirement_contribution\": 42.170699743221405,\n    \"total_retirement_contribution\": 7321.115453228068,\n    \"employee_pretax_deferral_amount\": 8756.308362773792,\n    \"employee_roth_deferral_amount\": 9547.355240928573,\n    \"simple_ira_amount\": 1719.0635246495367,\n    \"safe_harbor_deferral_amount\": 6896.832307541545,\n    \"safe_harbor_nonelective_contribution\": 2959.297298402357,\n    \"safe_harbor_employer_contribution\": 3767.333614206033,\n    \"deductions_list\": [\n      {\n        \"id\": 3546,\n        \"name\": \"string\",\n        \"deduction_type\": 6,\n        \"amount\": 6558.012376465015,\n        \"benefit_name\": \"string\",\n        \"benefit_amount\": 678.5967808153348,\n        \"nonelective_portion_of_benefit\": 4578.1137355568735\n      },\n      {\n        \"id\": 8451,\n        \"name\": \"string\",\n        \"deduction_type\": 1,\n        \"amount\": 2275.4027372512164,\n        \"benefit_name\": \"string\",\n        \"benefit_amount\": 6903.924327852518,\n        \"nonelective_portion_of_benefit\": 6875.826906975139\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://onpaydev.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e7490579-5fb2-4cdd-869e-08f5f2fd65ff",
+    "name": "OnPay Pay Runs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Must present a valid Bearer token.",
+      "type": "text/plain"
+    }
+  }
+}

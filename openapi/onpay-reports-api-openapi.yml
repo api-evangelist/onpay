@@ -1,0 +1,393 @@
+openapi: 3.2.0
+info:
+  version: 2.0.0
+  title: OnPay Reports API
+  description: Must present a valid Bearer token.
+servers:
+- url: https://onpaydev.com/v2
+tags:
+- name: Reports
+paths:
+  /reports/listing:
+    get:
+      tags:
+      - Reports
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      parameters:
+      - name: company_id
+        in: query
+        required: true
+        schema:
+          type: integer
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: true
+        schema:
+          type: integer
+      - name: start
+        in: query
+        required: true
+        schema:
+          type: integer
+      - name: employee_ids
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: position_id
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: department_id
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: location_id
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: 'Payroll Listing Resopnse
+
+            '
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PayrollCheck'
+  /reports/pagination/listing:
+    get:
+      tags:
+      - Reports
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      parameters:
+      - name: company_id
+        in: query
+        required: true
+        schema:
+          type: integer
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: employee_ids
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: position_id
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: department_id
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: location_id
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: 'Sucessful Response
+
+            '
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+components:
+  schemas:
+    BenefitsListItem:
+      type: object
+      properties:
+        name:
+          type: string
+        amount:
+          type: number
+        nonelective_portion_of_benefit:
+          type: number
+        ytd:
+          type: number
+    EmployeeTaxListItem:
+      type: object
+      properties:
+        name:
+          type: string
+        subject_wages:
+          type: number
+        amount:
+          type: number
+        ytd:
+          type: number
+    PayrollCheck:
+      type: object
+      properties:
+        employee_id:
+          type: integer
+        employee_type:
+          type: integer
+        employee_number:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        address:
+          type: string
+        address_2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+        ssn:
+          type: string
+        chkid:
+          type: integer
+        runid:
+          type: integer
+        check_date:
+          type: string
+        check_number:
+          type: string
+        memo:
+          type: string
+        period_start:
+          type: string
+        period_end:
+          type: string
+        location_id:
+          type: integer
+        department_id:
+          type: integer
+        position_id:
+          type: integer
+        note:
+          type: string
+        note_visible_to_employee:
+          type: boolean
+        pay_frequency:
+          type: integer
+        year_start:
+          type: string
+        qtr_start:
+          type: string
+        month_start:
+          type: string
+        net:
+          type: number
+        wages_amount:
+          type: string
+        wages_taxable:
+          type: string
+        subject_wages:
+          type: number
+        wages_list:
+          type: array
+          items:
+            $ref: '#/components/schemas/WageListItem'
+        employee_taxes_amount:
+          type: number
+        employee_taxes_list:
+          type: array
+          items:
+            $ref: '#/components/schemas/EmployeeTaxListItem'
+        employer_taxes_amount:
+          type: number
+        employer_taxes_list:
+          type: array
+          items:
+            $ref: '#/components/schemas/EmployerTaxListItem'
+        deductions_amount:
+          type: number
+        deductions_list:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeductionListItem'
+        employee_deferral_amount:
+          type: number
+        employee_401k_loan_amount:
+          type: number
+        employer_retirement_contribution:
+          type: number
+        total_retirement_contribution:
+          type: number
+        benefits_amount:
+          type: number
+        benefits_list:
+          type: array
+          items:
+            $ref: '#/components/schemas/BenefitsListItem'
+        garnishments_list:
+          type: array
+          items:
+            $ref: '#/components/schemas/GarnishmentsListItem'
+        leave_accruals_list:
+          type: array
+          items:
+            $ref: '#/components/schemas/LeaveAccrualsListItem'
+        direct_deposit_amount:
+          type: number
+        deductions_ach_amount:
+          type: number
+        include_ytd:
+          type: boolean
+        ytd_wages_amount:
+          type: number
+        ytd_employee_taxes_amount:
+          type: number
+        ytd_employer_taxes_amount:
+          type: number
+        ytd_deductions_amount:
+          type: number
+        ytd_benefits_amount:
+          type: number
+        workers_compensation_code:
+          type: string
+        workers_compensation_hours:
+          type: number
+        workers_compensation_id:
+          type: integer
+        workers_compensation_name:
+          type: string
+        workers_compensation_rate:
+          type: number
+        workers_compensation_premium_amount:
+          type: number
+        workers_compensation_amount:
+          type: number
+        tips_amount:
+          type: number
+        workers_compensation_gross:
+          type: number
+        workers_compensation_use_multiple:
+          type: boolean
+        show_only_voided_checks:
+          type: boolean
+        is_prior_wages:
+          type: boolean
+        employer_contribution_amount:
+          type: number
+    EmployerTaxListItem:
+      type: object
+      properties:
+        name:
+          type: string
+        subject_wages:
+          type: number
+        amount:
+          type: number
+        ytd:
+          type: number
+    LeaveAccrualsListItem:
+      type: object
+      properties:
+        pay_type:
+          type: integer
+        used:
+          type: number
+        accrued:
+          type: number
+        available:
+          type: number
+    GarnishmentsListItem:
+      type: object
+      properties:
+        name:
+          type: string
+        amount:
+          type: number
+        ytd:
+          type: number
+    DeductionListItem:
+      type: object
+      properties:
+        name:
+          type: string
+        amount:
+          type: number
+        ytd:
+          type: number
+        id:
+          type: number
+        ach:
+          type: boolean
+        include_match:
+          type: boolean
+        benefit_name:
+          type: string
+        benefit_amount:
+          type: number
+        nonelective_portion_of_benefit:
+          type: number
+        is_garnishment:
+          type: boolean
+    WageListItem:
+      type: object
+      properties:
+        name:
+          type: string
+        hours:
+          type: number
+        rate:
+          type: number
+        amount:
+          type: number
+        ytd:
+          type: number
+        pay_type_id:
+          type: number
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://app.onpay.com/app/oauth/authorize
+          tokenUrl: https://app.onpay.com/app/oauth/authorize
+          scopes:
+            Owner: '1'
+            Approver: '2'
+            Controller: '3'
+            Manager: '4'
+            Accountant: '5'
+            Employee: '6'
+    Bearer:
+      name: Authorization
+      type: apiKey
+      in: header

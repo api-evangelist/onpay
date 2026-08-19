@@ -1,0 +1,775 @@
+openapi: 3.2.0
+info:
+  version: 2.0.0
+  title: OnPay Deductions API
+  description: Must present a valid Bearer token.
+servers:
+- url: https://onpaydev.com/v2
+tags:
+- name: Deductions
+paths:
+  /employees/{employee_id}/deductions:
+    get:
+      tags:
+      - Deductions
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+        - Controller
+        - Manager
+        - Employee
+      description: 'Get deductions for an employee
+
+        '
+      parameters:
+      - name: employee_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  associated:
+                    description: Group of deductions that employee is currently or has been associated with
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/EmployeeDeductionItem'
+                  actions_pending_approval:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        verb:
+                          type: string
+                        route:
+                          type: string
+                        options:
+                          type: array
+                          items: {}
+                        description:
+                          type: string
+                        effective_date:
+                          type: string
+                        requested_date:
+                          type: string
+                        body:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            employee_id:
+                              type: integer
+                            employee_number:
+                              type: string
+                            deduction_type:
+                              $ref: '#/components/schemas/DeductionType'
+                            deduction_id:
+                              type: integer
+                            percent:
+                              type: number
+                            annual_limit:
+                              type: number
+                            amount:
+                              type: number
+                            override_amount:
+                              type: number
+                            active:
+                              type: boolean
+                            ach_active:
+                              type: boolean
+                            routing:
+                              type: integer
+                            account:
+                              type: integer
+                            savings:
+                              type: boolean
+                            memo:
+                              type: string
+                            include_benefit_amount_in_ach:
+                              type: boolean
+                            override_company_benefit_amount:
+                              type: number
+                            lifetime_limit:
+                              type: number
+        default:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+  /employees/{employee_id}/deductions/{deduction_id}:
+    parameters:
+    - name: employee_id
+      in: path
+      required: true
+      schema:
+        type: integer
+    - name: deduction_id
+      in: path
+      required: true
+      schema:
+        type: integer
+    patch:
+      tags:
+      - Deductions
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: 'Update an employee deduction batch by employee ID and deduction ID
+
+        '
+      requestBody:
+        $ref: '#/components/requestBodies/Parameters'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchSuccessful'
+        default:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+    post:
+      tags:
+      - Deductions
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: 'Insert deduction batch for an employee by employee ID and deduction ID
+
+        '
+      requestBody:
+        $ref: '#/components/requestBodies/Parameters'
+      responses:
+        '200':
+          description: Sucessful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InsertSuccessful'
+  /employees/{employee_id}/deductions/{deduction_id}/schedule:
+    parameters:
+    - name: employee_id
+      in: path
+      required: true
+      schema:
+        type: integer
+    - name: deduction_id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      tags:
+      - Deductions
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: List scheduled changes to employee deductions
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    verb:
+                      type: string
+                    options:
+                      type: array
+                      items: {}
+                    description:
+                      type: string
+                    requested_date:
+                      type: string
+                    effective_date:
+                      type: string
+                    body:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        employee_id:
+                          type: integer
+                        employee_number:
+                          type: string
+                        deduction_type:
+                          $ref: '#/components/schemas/DeductionType'
+                        deduction_id:
+                          type: integer
+                        percent:
+                          type: number
+                        annual_limit:
+                          type: number
+                        amount:
+                          type: number
+                        override_amount:
+                          type: number
+                        active:
+                          type: boolean
+                        ach_active:
+                          type: boolean
+                        routing:
+                          type: integer
+                        account:
+                          type: integer
+                        savings:
+                          type: boolean
+                        memo:
+                          type: string
+                        include_benefit_amount_in_ach:
+                          type: boolean
+                        override_company_benefit_amount:
+                          type: number
+                        lifetime_limit:
+                          type: number
+                    requested_version:
+                      type: string
+    post:
+      tags:
+      - Deductions
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: 'Submit a scheduled change to a deduction batch for an employee by employee ID and deduction ID
+
+        '
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - verb
+              - effective_date
+              - body
+              properties:
+                verb:
+                  type: string
+                options:
+                  type: array
+                  items: {}
+                effective_date:
+                  type: string
+                body:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    employee_id:
+                      type: integer
+                    employee_number:
+                      type: string
+                    deduction_type:
+                      $ref: '#/components/schemas/DeductionType'
+                    deduction_id:
+                      type: integer
+                    percent:
+                      type: number
+                    annual_limit:
+                      type: number
+                    amount:
+                      type: number
+                    override_amount:
+                      type: number
+                    active:
+                      type: boolean
+                    ach_active:
+                      type: boolean
+                    routing:
+                      type: integer
+                    account:
+                      type: integer
+                    savings:
+                      type: boolean
+                    memo:
+                      type: string
+                    include_benefit_amount_in_ach:
+                      type: boolean
+                    override_company_benefit_amount:
+                      type: number
+                    lifetime_limit:
+                      type: number
+                version:
+                  type: string
+      responses:
+        '200':
+          description: Sucessful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InsertSuccessful'
+  /company/deductions:
+    get:
+      tags:
+      - Deductions
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: 'Get all deductions for company
+
+        '
+      responses:
+        '200':
+          description: successful resopnse
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmployeeDeductionItem'
+        default:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+    post:
+      tags:
+      - Deductions
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: 'create a new deduction
+
+        '
+      requestBody:
+        $ref: '#/components/requestBodies/Parameters2'
+      responses:
+        '200':
+          description: successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InsertSuccessful'
+        default:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+  /company/deductions/{deduction_id}:
+    parameters:
+    - name: deduction_id
+      required: true
+      in: path
+      schema:
+        type: integer
+    patch:
+      tags:
+      - Deductions
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: 'Patch deduction
+
+        '
+      requestBody:
+        $ref: '#/components/requestBodies/Parameters2'
+      responses:
+        '200':
+          description: successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchSuccessful'
+        default:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+    delete:
+      tags:
+      - Deductions
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: 'Delete deduction by Id.
+
+        '
+      responses:
+        '200':
+          description: successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteSuccessful'
+        default:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+  /company/deduction-groupings:
+    get:
+      tags:
+      - Deductions
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      responses:
+        '200':
+          description: 'Sucessful Response
+
+            '
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeductionGroupingItem'
+        default:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+    post:
+      tags:
+      - Deductions
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      requestBody:
+        $ref: '#/components/requestBodies/DeductionGroupingItem'
+      responses:
+        '200':
+          description: 'Sucessful Response
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InsertSuccessful'
+        default:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+  /company/deduction-groupings/{id}:
+    parameters:
+    - name: id
+      required: true
+      in: path
+      schema:
+        type: integer
+    patch:
+      tags:
+      - Deductions
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      requestBody:
+        $ref: '#/components/requestBodies/DeductionGroupingItem'
+      responses:
+        '200':
+          description: 'Sucessful Response
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchSuccessful'
+        default:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+components:
+  schemas:
+    EmployeeDeductionItemBatch:
+      type: object
+      properties:
+        id:
+          type: integer
+        employee_id:
+          type: integer
+        employee_number:
+          type: string
+        deduction_type:
+          $ref: '#/components/schemas/DeductionType'
+        deduction_id:
+          type: integer
+        percent:
+          type: number
+        annual_limit:
+          type: number
+        amount:
+          type: number
+        override_amount:
+          type: number
+        active:
+          type: boolean
+        ach_active:
+          type: boolean
+        routing:
+          type: integer
+        account:
+          type: integer
+        savings:
+          type: boolean
+        memo:
+          type: string
+        include_benefit_amount_in_ach:
+          type: boolean
+        override_company_benefit_amount:
+          type: number
+        lifetime_limit:
+          type: number
+        version:
+          type: string
+    InsertSuccessful:
+      type: object
+      properties:
+        version:
+          type: string
+          description: new version
+        id:
+          type: integer
+          description: id of inserted object
+    EmployeeDeductionItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        type:
+          $ref: '#/components/schemas/DeductionType'
+        name:
+          type: string
+        annual_limit:
+          type: number
+        included_in_401k_reports:
+          $ref: '#/components/schemas/DeductionIncludedIn401kReports'
+        company_match_percent:
+          type: number
+        company_match_percent_of_gross:
+          type: number
+        company_match_percent_2:
+          type: number
+        company_match_percent_of_gross_2:
+          type: number
+        ignore_deferral:
+          type: boolean
+        nonelective_percent_of_gross:
+          type: number
+        grouping_id:
+          type: integer
+        version:
+          type: string
+        batch:
+          $ref: '#/components/schemas/EmployeeDeductionItemBatch'
+    DeductionType:
+      type: integer
+      description: '1 Section 125
+
+        2 401K
+
+        3 403B
+
+        4 457
+
+        6 Roth 401K
+
+        7 Roth 403B
+
+        8 FSA
+
+        9 HSA
+
+        10 Simple IRA
+
+        21 Post-tax
+
+        22 Cash tips imputed
+
+        23 Union dues
+
+        24 Imputed
+
+        25 Union dues based on hours
+
+        102 Section 132
+
+        '
+      enum:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 102
+    DeleteSuccessful:
+      type: object
+      properties:
+        deleted_id:
+          type: integer
+          description: id of deleted object
+    DeductionGroupingItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        nonelective_cap:
+          type: number
+        company_match_percent_cap:
+          type: number
+        company_match_percent_of_gross_cap:
+          type: number
+        company_match_percent_2_cap:
+          type: number
+        company_match_percent_of_gross_2_cap:
+          type: number
+        version:
+          type: string
+    DeductionIncludedIn401kReports:
+      type: string
+      description: 'L For Standard Deductions: include as loan in 401k reports
+
+        S report as safe harbor
+
+        Y include in deferral amounts
+
+        N exclude
+
+        '
+      enum:
+      - L
+      - S
+      - Y
+      - N
+    PatchSuccessful:
+      type: object
+      properties:
+        version:
+          type: string
+          description: new version
+    ErrorBadRequest:
+      type: object
+      properties:
+        resp:
+          type: string
+          description: error
+        message:
+          type: string
+          description: error message
+  requestBodies:
+    Parameters2:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              type:
+                $ref: '#/components/schemas/DeductionType'
+              company_match_percent_of_gross:
+                type: number
+              company_match_percent_of_gross_2:
+                type: number
+              company_match_percent:
+                type: number
+              company_match_percent_2:
+                type: number
+              annual_limit:
+                type: number
+              non_elective_percent_of_gross:
+                type: number
+              ignore_deferral:
+                type: boolean
+              grouping_id:
+                type: integer
+              included_in_401k_reports:
+                $ref: '#/components/schemas/DeductionIncludedIn401kReports'
+    Parameters:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              percent:
+                type: number
+              annual_limit:
+                type: number
+              amount:
+                type: number
+              override_amount:
+                type: number
+              active:
+                type: boolean
+              ach_active:
+                type: boolean
+              routing:
+                type: integer
+              account:
+                type: integer
+              savings:
+                type: boolean
+              memo:
+                type: string
+              include_benefit_amount_in_ach:
+                type: boolean
+              override_company_benefit_amount:
+                type: number
+              lifetime_limit:
+                type: number
+    DeductionGroupingItem:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DeductionGroupingItem'
+      description: JSON Merge Patch [RFC 7396]
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://app.onpay.com/app/oauth/authorize
+          tokenUrl: https://app.onpay.com/app/oauth/authorize
+          scopes:
+            Owner: '1'
+            Approver: '2'
+            Controller: '3'
+            Manager: '4'
+            Accountant: '5'
+            Employee: '6'
+    Bearer:
+      name: Authorization
+      type: apiKey
+      in: header

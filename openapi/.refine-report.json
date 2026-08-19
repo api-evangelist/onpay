@@ -1,0 +1,32 @@
+{
+  "provider": "onpay",
+  "sources": [
+    "onpay-company-api-openapi.yml",
+    "onpay-deductions-api-openapi.yml",
+    "onpay-employees-api-openapi.yml",
+    "onpay-pay-runs-api-openapi.yml",
+    "onpay-reports-api-openapi.yml",
+    "onpay-user-api-openapi.yml"
+  ],
+  "outputs": [
+    "onpay-company-api-openapi.yml",
+    "onpay-deductions-api-openapi.yml",
+    "onpay-employees-api-openapi.yml",
+    "onpay-pay-runs-api-openapi.yml",
+    "onpay-reports-api-openapi.yml",
+    "onpay-user-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "onpay-company-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "onpay-deductions-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "onpay-employees-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "onpay-pay-runs-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "onpay-reports-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "onpay-user-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": []
+}

@@ -2,16 +2,15 @@ generated: '2026-08-04'
 method: derived
 status: candidate
 source: openapi/onpay-api-openapi.json
-note: >-
-  OnPay publishes NO MCP server. Searched the docs hub (its own llms.txt enumerates every page — one guide
-  and the API reference, nothing agent-related), npm (the only "onpay" MCP package, @fatomate/onpay-mcp,
-  is an unofficial community server for a DIFFERENT company's OnPay API and says so in its own README),
+note: 'OnPay publishes NO MCP server. Searched the docs hub (its own llms.txt enumerates every page —
+  one guide and the API reference, nothing agent-related), npm (the only "onpay" MCP package, @fatomate/onpay-mcp,
+  is an unofficial community server for a DIFFERENT company''s OnPay API and says so in its own README),
   PyPI, RubyGems and Packagist, plus /mcp and /sse on onpay.com, api.onpay.com, app.onpay.com and mcp.onpay.com
   — nothing answered. The tool set below is a CANDIDATE surface derived one-per-operation from the live
-  OnPay API 2.0.0 OpenAPI: what an MCP server for this API could expose, each tool's real input schema
-  inherited from the referenced operation's parameters and requestBody. This is a design artifact, not
+  OnPay API 2.0.0 OpenAPI: what an MCP server for this API could expose, each tool''s real input schema
+  inherited from the referenced operation''s parameters and requestBody. This is a design artifact, not
   a provider claim. No MCPServer pointer is wired into apis.yml and none should be until OnPay actually
-  ships one.
+  ships one.'
 server:
   published: false
   url: null
@@ -41,10 +40,9 @@ auth_if_built:
   - Manager
   - Accountant
   - Employee
-binding_caveat: >-
-  None of the 58 OnPay operations declares an operationId, so each candidate tool below binds to METHOD
-  + path rather than a stable identifier. A real MCP server cannot be generated reliably from this spec
-  until OnPay adds operationIds.
+binding_caveat: None of the 58 OnPay operations declares an operationId, so each candidate tool below
+  binds to METHOD + path rather than a stable identifier. A real MCP server cannot be generated reliably
+  from this spec until OnPay adds operationIds.
 candidate_tools:
 - name: list_employees
   maps_to: GET /employees
@@ -225,3 +223,8 @@ coverage:
   rest_operations: 58
   candidate_tools: 58
   published_tools: 0
+deployment:
+  mode: none
+  verified: derived
+  checked: '2026-08-12'
+  source: catalog MCP census

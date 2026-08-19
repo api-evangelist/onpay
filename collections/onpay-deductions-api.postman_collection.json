@@ -1,0 +1,1983 @@
+{
+  "item": [
+    {
+      "id": "d367e78c-289d-472a-a6bc-a238094673ca",
+      "name": "Deductions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7c00416f-a563-4bbd-883c-037fb47a58fe",
+          "name": "Get deductions for an employee\n",
+          "request": {
+            "name": "Get deductions for an employee\n",
+            "description": {
+              "content": "Get deductions for an employee\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id",
+                "deductions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5f1616d1-96ac-4236-b082-a00b07174e27",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "deductions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"associated\": [\n    {\n      \"id\": 8191,\n      \"type\": 22,\n      \"name\": \"string\",\n      \"annual_limit\": 8141.548552735364,\n      \"included_in_401k_reports\": \"Y\",\n      \"company_match_percent\": 9639.573469179617,\n      \"company_match_percent_of_gross\": 1747.5489944052158,\n      \"company_match_percent_2\": 2617.9561797643737,\n      \"company_match_percent_of_gross_2\": 1412.1511152143262,\n      \"ignore_deferral\": true,\n      \"nonelective_percent_of_gross\": 7938.143900922836,\n      \"grouping_id\": 3523,\n      \"version\": \"string\",\n      \"batch\": {\n        \"id\": 160,\n        \"employee_id\": 7492,\n        \"employee_number\": \"string\",\n        \"deduction_type\": 21,\n        \"deduction_id\": 1252,\n        \"percent\": 8365.18043612246,\n        \"annual_limit\": 3605.714460311399,\n        \"amount\": 8611.612873182665,\n        \"override_amount\": 5602.650522348298,\n        \"active\": true,\n        \"ach_active\": false,\n        \"routing\": 6404,\n        \"account\": 1383,\n        \"savings\": true,\n        \"memo\": \"string\",\n        \"include_benefit_amount_in_ach\": false,\n        \"override_company_benefit_amount\": 2435.1046700928123,\n        \"lifetime_limit\": 1926.1286277974,\n        \"version\": \"string\"\n      }\n    },\n    {\n      \"id\": 1392,\n      \"type\": 3,\n      \"name\": \"string\",\n      \"annual_limit\": 3382.0056048755655,\n      \"included_in_401k_reports\": \"L\",\n      \"company_match_percent\": 9433.978345190353,\n      \"company_match_percent_of_gross\": 2336.824773016375,\n      \"company_match_percent_2\": 9231.920670119938,\n      \"company_match_percent_of_gross_2\": 2732.5289512260943,\n      \"ignore_deferral\": false,\n      \"nonelective_percent_of_gross\": 5236.989268880653,\n      \"grouping_id\": 1241,\n      \"version\": \"string\",\n      \"batch\": {\n        \"id\": 5550,\n        \"employee_id\": 3487,\n        \"employee_number\": \"string\",\n        \"deduction_type\": 22,\n        \"deduction_id\": 5684,\n        \"percent\": 9397.527374039462,\n        \"annual_limit\": 5302.16469154297,\n        \"amount\": 5134.339163060238,\n        \"override_amount\": 7800.994873944375,\n        \"active\": true,\n        \"ach_active\": true,\n        \"routing\": 2401,\n        \"account\": 835,\n        \"savings\": false,\n        \"memo\": \"string\",\n        \"include_benefit_amount_in_ach\": true,\n        \"override_company_benefit_amount\": 4624.106399157288,\n        \"lifetime_limit\": 9193.973458406253,\n        \"version\": \"string\"\n      }\n    }\n  ],\n  \"actions_pending_approval\": [\n    {\n      \"verb\": \"string\",\n      \"route\": \"string\",\n      \"description\": \"string\",\n      \"effective_date\": \"string\",\n      \"requested_date\": \"string\",\n      \"body\": {\n        \"id\": 8895,\n        \"employee_id\": 5995,\n        \"employee_number\": \"string\",\n        \"deduction_type\": 4,\n        \"deduction_id\": 2618,\n        \"percent\": 4762.892306174247,\n        \"annual_limit\": 7516.552591318163,\n        \"amount\": 7316.50800652465,\n        \"override_amount\": 1955.6668453083958,\n        \"active\": false,\n        \"ach_active\": false,\n        \"routing\": 276,\n        \"account\": 9972,\n        \"savings\": false,\n        \"memo\": \"string\",\n        \"include_benefit_amount_in_ach\": true,\n        \"override_company_benefit_amount\": 5823.445654221278,\n        \"lifetime_limit\": 7787.823968779979\n      }\n    },\n    {\n      \"verb\": \"string\",\n      \"route\": \"string\",\n      \"description\": \"string\",\n      \"effective_date\": \"string\",\n      \"requested_date\": \"string\",\n      \"body\": {\n        \"id\": 3981,\n        \"employee_id\": 7978,\n        \"employee_number\": \"string\",\n        \"deduction_type\": 25,\n        \"deduction_id\": 3637,\n        \"percent\": 9815.54053981905,\n        \"annual_limit\": 7424.831460369223,\n        \"amount\": 3807.103980760751,\n        \"override_amount\": 5806.256991603621,\n        \"active\": true,\n        \"ach_active\": true,\n        \"routing\": 2140,\n        \"account\": 42,\n        \"savings\": false,\n        \"memo\": \"string\",\n        \"include_benefit_amount_in_ach\": false,\n        \"override_company_benefit_amount\": 2727.32946489313,\n        \"lifetime_limit\": 6777.426184017538\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0f2ff2f7-781a-47ac-b444-db92a503df11",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "deductions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resp\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "91a36aa0-a3d0-4b03-8791-20cb9c39db59",
+          "name": "Update an employee deduction batch by employee ID and deduction ID\n",
+          "request": {
+            "name": "Update an employee deduction batch by employee ID and deduction ID\n",
+            "description": {
+              "content": "Update an employee deduction batch by employee ID and deduction ID\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id",
+                "deductions",
+                ":deduction_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "deduction_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"percent\": \"<number>\",\n  \"annual_limit\": \"<number>\",\n  \"amount\": \"<number>\",\n  \"override_amount\": \"<number>\",\n  \"active\": \"<boolean>\",\n  \"ach_active\": \"<boolean>\",\n  \"routing\": \"<integer>\",\n  \"account\": \"<integer>\",\n  \"savings\": \"<boolean>\",\n  \"memo\": \"<string>\",\n  \"include_benefit_amount_in_ach\": \"<boolean>\",\n  \"override_company_benefit_amount\": \"<number>\",\n  \"lifetime_limit\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "50606e45-47a3-43fc-b930-d7506c03c138",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "deductions",
+                    ":deduction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deduction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5794a1de-588f-4e6b-a9c9-0e0c3f4ed8aa",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "deductions",
+                    ":deduction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deduction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resp\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b7f4762-caa9-43ed-a47e-cf66ebc3c7f6",
+          "name": "Insert deduction batch for an employee by employee ID and deduction ID\n",
+          "request": {
+            "name": "Insert deduction batch for an employee by employee ID and deduction ID\n",
+            "description": {
+              "content": "Insert deduction batch for an employee by employee ID and deduction ID\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id",
+                "deductions",
+                ":deduction_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "deduction_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"percent\": \"<number>\",\n  \"annual_limit\": \"<number>\",\n  \"amount\": \"<number>\",\n  \"override_amount\": \"<number>\",\n  \"active\": \"<boolean>\",\n  \"ach_active\": \"<boolean>\",\n  \"routing\": \"<integer>\",\n  \"account\": \"<integer>\",\n  \"savings\": \"<boolean>\",\n  \"memo\": \"<string>\",\n  \"include_benefit_amount_in_ach\": \"<boolean>\",\n  \"override_company_benefit_amount\": \"<number>\",\n  \"lifetime_limit\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cf68b094-267a-44ef-a2c8-51e608db24f2",
+              "name": "Sucessful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "deductions",
+                    ":deduction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deduction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"id\": 2480\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7dc7aa63-893a-4c53-8548-06e8119d282a",
+          "name": "List scheduled changes to employee deductions",
+          "request": {
+            "name": "List scheduled changes to employee deductions",
+            "description": {
+              "content": "List scheduled changes to employee deductions",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id",
+                "deductions",
+                ":deduction_id",
+                "schedule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "deduction_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ed3bd031-1d3e-4780-a22e-4e94df68d564",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "deductions",
+                    ":deduction_id",
+                    "schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deduction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"verb\": \"string\",\n    \"description\": \"string\",\n    \"requested_date\": \"string\",\n    \"effective_date\": \"string\",\n    \"body\": {\n      \"id\": 3552,\n      \"employee_id\": 5210,\n      \"employee_number\": \"string\",\n      \"deduction_type\": 22,\n      \"deduction_id\": 8610,\n      \"percent\": 2217.1016636319996,\n      \"annual_limit\": 2862.530807914735,\n      \"amount\": 394.24745298064835,\n      \"override_amount\": 7905.780922472371,\n      \"active\": false,\n      \"ach_active\": false,\n      \"routing\": 1453,\n      \"account\": 6340,\n      \"savings\": false,\n      \"memo\": \"string\",\n      \"include_benefit_amount_in_ach\": true,\n      \"override_company_benefit_amount\": 8300.493437666702,\n      \"lifetime_limit\": 8056.023042849114\n    },\n    \"requested_version\": \"string\"\n  },\n  {\n    \"verb\": \"string\",\n    \"description\": \"string\",\n    \"requested_date\": \"string\",\n    \"effective_date\": \"string\",\n    \"body\": {\n      \"id\": 258,\n      \"employee_id\": 4666,\n      \"employee_number\": \"string\",\n      \"deduction_type\": 22,\n      \"deduction_id\": 1594,\n      \"percent\": 5016.403078063631,\n      \"annual_limit\": 8905.596203890445,\n      \"amount\": 7333.883363175857,\n      \"override_amount\": 7868.060934968374,\n      \"active\": true,\n      \"ach_active\": true,\n      \"routing\": 4526,\n      \"account\": 6584,\n      \"savings\": false,\n      \"memo\": \"string\",\n      \"include_benefit_amount_in_ach\": true,\n      \"override_company_benefit_amount\": 764.5232506107658,\n      \"lifetime_limit\": 1552.527836523806\n    },\n    \"requested_version\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cfbb800b-63c7-4c6b-a688-271a51f71cc3",
+          "name": "Submit a scheduled change to a deduction batch for an employee by employee ID and deduction ID\n",
+          "request": {
+            "name": "Submit a scheduled change to a deduction batch for an employee by employee ID and deduction ID\n",
+            "description": {
+              "content": "Submit a scheduled change to a deduction batch for an employee by employee ID and deduction ID\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id",
+                "deductions",
+                ":deduction_id",
+                "schedule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "deduction_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"verb\": \"<string>\",\n  \"effective_date\": \"<string>\",\n  \"body\": {\n    \"id\": \"<integer>\",\n    \"employee_id\": \"<integer>\",\n    \"employee_number\": \"<string>\",\n    \"deduction_type\": \"<integer>\",\n    \"deduction_id\": \"<integer>\",\n    \"percent\": \"<number>\",\n    \"annual_limit\": \"<number>\",\n    \"amount\": \"<number>\",\n    \"override_amount\": \"<number>\",\n    \"active\": \"<boolean>\",\n    \"ach_active\": \"<boolean>\",\n    \"routing\": \"<integer>\",\n    \"account\": \"<integer>\",\n    \"savings\": \"<boolean>\",\n    \"memo\": \"<string>\",\n    \"include_benefit_amount_in_ach\": \"<boolean>\",\n    \"override_company_benefit_amount\": \"<number>\",\n    \"lifetime_limit\": \"<number>\"\n  },\n  \"version\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1b76b932-3f6c-4431-8250-3029b260c876",
+              "name": "Sucessful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "deductions",
+                    ":deduction_id",
+                    "schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deduction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"verb\": \"<string>\",\n  \"effective_date\": \"<string>\",\n  \"body\": {\n    \"id\": \"<integer>\",\n    \"employee_id\": \"<integer>\",\n    \"employee_number\": \"<string>\",\n    \"deduction_type\": \"<integer>\",\n    \"deduction_id\": \"<integer>\",\n    \"percent\": \"<number>\",\n    \"annual_limit\": \"<number>\",\n    \"amount\": \"<number>\",\n    \"override_amount\": \"<number>\",\n    \"active\": \"<boolean>\",\n    \"ach_active\": \"<boolean>\",\n    \"routing\": \"<integer>\",\n    \"account\": \"<integer>\",\n    \"savings\": \"<boolean>\",\n    \"memo\": \"<string>\",\n    \"include_benefit_amount_in_ach\": \"<boolean>\",\n    \"override_company_benefit_amount\": \"<number>\",\n    \"lifetime_limit\": \"<number>\"\n  },\n  \"version\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"id\": 2480\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "602fc1e1-2f7e-4916-83fa-7c01fb137735",
+          "name": "Get all deductions for company\n",
+          "request": {
+            "name": "Get all deductions for company\n",
+            "description": {
+              "content": "Get all deductions for company\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "company",
+                "deductions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a04e5986-3550-437f-b5c8-96cced8832e2",
+              "name": "successful resopnse",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company",
+                    "deductions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 3009,\n    \"type\": \"<integer>\",\n    \"name\": \"string\",\n    \"annual_limit\": 2603.0130670414974,\n    \"included_in_401k_reports\": \"Y\",\n    \"company_match_percent\": 299.57126497476617,\n    \"company_match_percent_of_gross\": 6106.888435242213,\n    \"company_match_percent_2\": 625.6752673500488,\n    \"company_match_percent_of_gross_2\": 6517.525738612046,\n    \"ignore_deferral\": true,\n    \"nonelective_percent_of_gross\": 5803.504438857177,\n    \"grouping_id\": 8454,\n    \"version\": \"string\",\n    \"batch\": {\n      \"id\": 6826,\n      \"employee_id\": 3663,\n      \"employee_number\": \"string\",\n      \"deduction_type\": \"<integer>\",\n      \"deduction_id\": 3339,\n      \"percent\": 3986.6082689405557,\n      \"annual_limit\": 6672.969219769013,\n      \"amount\": 2138.8977412409436,\n      \"override_amount\": 1808.3133936431861,\n      \"active\": false,\n      \"ach_active\": true,\n      \"routing\": 2604,\n      \"account\": 3706,\n      \"savings\": true,\n      \"memo\": \"string\",\n      \"include_benefit_amount_in_ach\": false,\n      \"override_company_benefit_amount\": 5156.0350639072,\n      \"lifetime_limit\": 3077.463204829567,\n      \"version\": \"string\"\n    }\n  },\n  {\n    \"id\": 8673,\n    \"type\": \"<integer>\",\n    \"name\": \"string\",\n    \"annual_limit\": 6514.996731630229,\n    \"included_in_401k_reports\": \"Y\",\n    \"company_match_percent\": 8476.550735508785,\n    \"company_match_percent_of_gross\": 8984.933449642178,\n    \"company_match_percent_2\": 4613.701910668618,\n    \"company_match_percent_of_gross_2\": 7408.495070458778,\n    \"ignore_deferral\": false,\n    \"nonelective_percent_of_gross\": 1536.2326362047274,\n    \"grouping_id\": 6427,\n    \"version\": \"string\",\n    \"batch\": {\n      \"id\": 8148,\n      \"employee_id\": 5690,\n      \"employee_number\": \"string\",\n      \"deduction_type\": \"<integer>\",\n      \"deduction_id\": 8787,\n      \"percent\": 5823.394595678687,\n      \"annual_limit\": 8853.074779477078,\n      \"amount\": 808.9155114550672,\n      \"override_amount\": 2068.5073222495976,\n      \"active\": true,\n      \"ach_active\": true,\n      \"routing\": 2900,\n      \"account\": 3286,\n      \"savings\": false,\n      \"memo\": \"string\",\n      \"include_benefit_amount_in_ach\": true,\n      \"override_company_benefit_amount\": 9754.501277808225,\n      \"lifetime_limit\": 7506.961482896923,\n      \"version\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68c074cd-9c7a-40d0-bbcf-8a1e8aed18d3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company",
+                    "deductions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resp\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "95f56304-604f-47ea-9c0b-c904f39f5ac4",
+          "name": "create a new deduction\n",
+          "request": {
+            "name": "create a new deduction\n",
+            "description": {
+              "content": "create a new deduction\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "company",
+                "deductions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<integer>\",\n  \"company_match_percent_of_gross\": \"<number>\",\n  \"company_match_percent_of_gross_2\": \"<number>\",\n  \"company_match_percent\": \"<number>\",\n  \"company_match_percent_2\": \"<number>\",\n  \"annual_limit\": \"<number>\",\n  \"non_elective_percent_of_gross\": \"<number>\",\n  \"ignore_deferral\": \"<boolean>\",\n  \"grouping_id\": \"<integer>\",\n  \"included_in_401k_reports\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b2dffdee-af5b-4cc1-810b-85c5e803d79c",
+              "name": "successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company",
+                    "deductions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"id\": 2480\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b5335834-7b1e-49a5-8f07-d0dfb5e189d5",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company",
+                    "deductions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resp\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7f6a502-0a8b-4cc7-9a77-e74df2f2a16a",
+          "name": "Patch deduction\n",
+          "request": {
+            "name": "Patch deduction\n",
+            "description": {
+              "content": "Patch deduction\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "company",
+                "deductions",
+                ":deduction_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "deduction_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<integer>\",\n  \"company_match_percent_of_gross\": \"<number>\",\n  \"company_match_percent_of_gross_2\": \"<number>\",\n  \"company_match_percent\": \"<number>\",\n  \"company_match_percent_2\": \"<number>\",\n  \"annual_limit\": \"<number>\",\n  \"non_elective_percent_of_gross\": \"<number>\",\n  \"ignore_deferral\": \"<boolean>\",\n  \"grouping_id\": \"<integer>\",\n  \"included_in_401k_reports\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "19961a9d-227b-466f-8a8c-88cde8a94ad2",
+              "name": "successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company",
+                    "deductions",
+                    ":deduction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deduction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3a59fb7a-366a-4ddc-b68b-be11db21860e",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company",
+                    "deductions",
+                    ":deduction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deduction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resp\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93250dad-b340-4662-8bb6-b8afb8c81b21",
+          "name": "Delete deduction by Id.\n",
+          "request": {
+            "name": "Delete deduction by Id.\n",
+            "description": {
+              "content": "Delete deduction by Id.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "company",
+                "deductions",
+                ":deduction_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "deduction_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4cb6cb20-241c-49fc-bfb0-ce482e61ad36",
+              "name": "successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company",
+                    "deductions",
+                    ":deduction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deduction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"deleted_id\": 3730\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2d257ac9-1d67-4bd4-80c2-4bdf94052351",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company",
+                    "deductions",
+                    ":deduction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deduction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resp\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a43f2d03-7da1-4dae-89df-6f312b2ecb87",
+          "name": "/company/deduction-groupings",
+          "request": {
+            "name": "/company/deduction-groupings",
+            "description": {},
+            "url": {
+              "path": [
+                "company",
+                "deduction-groupings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e6ba9d48-24bf-40c1-a5c5-62ef4b9337b9",
+              "name": "Sucessful Response\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company",
+                    "deduction-groupings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 6384,\n    \"nonelective_cap\": 5073.796208494356,\n    \"company_match_percent_cap\": 1727.9593815389571,\n    \"company_match_percent_of_gross_cap\": 6218.419759299149,\n    \"company_match_percent_2_cap\": 8129.6806446839755,\n    \"company_match_percent_of_gross_2_cap\": 7430.820749747402,\n    \"version\": \"string\"\n  },\n  {\n    \"id\": 7747,\n    \"nonelective_cap\": 2434.497181040164,\n    \"company_match_percent_cap\": 2077.681062630491,\n    \"company_match_percent_of_gross_cap\": 3123.8407586293824,\n    \"company_match_percent_2_cap\": 3196.377755652876,\n    \"company_match_percent_of_gross_2_cap\": 7513.004507763833,\n    \"version\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3cad04e8-e925-4ac1-8310-c1b102d30acb",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company",
+                    "deduction-groupings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resp\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88ae1969-0845-4c18-af5a-d0e162fa6e62",
+          "name": "/company/deduction-groupings",
+          "request": {
+            "name": "/company/deduction-groupings",
+            "description": {},
+            "url": {
+              "path": [
+                "company",
+                "deduction-groupings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"nonelective_cap\": \"<number>\",\n  \"company_match_percent_cap\": \"<number>\",\n  \"company_match_percent_of_gross_cap\": \"<number>\",\n  \"company_match_percent_2_cap\": \"<number>\",\n  \"company_match_percent_of_gross_2_cap\": \"<number>\",\n  \"version\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b36143d7-596b-4dad-8666-5e8fc58a4a09",
+              "name": "Sucessful Response\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company",
+                    "deduction-groupings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"id\": 2480\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "40ba7299-fe77-401f-9c53-7efbb44e544e",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company",
+                    "deduction-groupings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resp\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7dbdc030-d2e9-4573-81e9-22e89b6d0bc0",
+          "name": "/company/deduction-groupings/:id",
+          "request": {
+            "name": "/company/deduction-groupings/:id",
+            "description": {},
+            "url": {
+              "path": [
+                "company",
+                "deduction-groupings",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"nonelective_cap\": \"<number>\",\n  \"company_match_percent_cap\": \"<number>\",\n  \"company_match_percent_of_gross_cap\": \"<number>\",\n  \"company_match_percent_2_cap\": \"<number>\",\n  \"company_match_percent_of_gross_2_cap\": \"<number>\",\n  \"version\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "20d133b2-b59a-4228-9f7c-773a856a1e72",
+              "name": "Sucessful Response\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company",
+                    "deduction-groupings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "04a3bd87-dee7-417f-9dfd-e6fc8074dbc3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company",
+                    "deduction-groupings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resp\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://onpaydev.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5abeba37-0818-43ab-8a8e-c919796a1569",
+    "name": "OnPay Deductions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Must present a valid Bearer token.",
+      "type": "text/plain"
+    }
+  }
+}

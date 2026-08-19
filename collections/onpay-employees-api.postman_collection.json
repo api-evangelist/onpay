@@ -1,0 +1,3502 @@
+{
+  "item": [
+    {
+      "id": "b9f39c8e-b034-4093-977e-aefc7ee21868",
+      "name": "Employees",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1bb7c5d2-f40e-448c-98a0-1977ff87233e",
+          "name": "Get list of employees\n",
+          "request": {
+            "name": "Get list of employees\n",
+            "description": {
+              "content": "Get list of employees\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3c67ef3c-aab8-41ad-a4e8-2619f80448ec",
+              "name": "Sucessful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"employee_id\": 2450,\n    \"home_phone_number\": \"string\",\n    \"cell_phone_number\": \"string\",\n    \"employee_number\": \"string\",\n    \"first_name\": \"string\",\n    \"middle_initial\": \"string\",\n    \"last_name\": \"string\",\n    \"address\": \"string\",\n    \"address_2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip\": \"string\",\n    \"mail_address\": \"string\",\n    \"mail_address_2\": \"string\",\n    \"mail_city\": \"string\",\n    \"mail_state\": \"string\",\n    \"mail_zip\": \"string\",\n    \"email\": \"string\",\n    \"ssn\": \"string\",\n    \"gender\": \"F\",\n    \"birthday\": \"string\",\n    \"direct_deposit_active\": \"string\",\n    \"type\": 9394,\n    \"pay_frequency\": 2280,\n    \"wage\": \"string\",\n    \"rate\": \"string\",\n    \"pay_schedule_id\": 6213,\n    \"employment_status\": 1,\n    \"part_time\": 0,\n    \"seasonal\": 8395,\n    \"department_id\": 6827,\n    \"location_id\": 7349,\n    \"position_id\": 9936,\n    \"manager_id\": 1255,\n    \"workers_compensation_id\": 9984,\n    \"hire_date\": \"string\",\n    \"termination_date\": \"string\",\n    \"rehire_date\": \"string\",\n    \"supplemental_calculation_method\": 5611,\n    \"use_401k_catchup\": 885,\n    \"date_added\": \"string\",\n    \"commit_id\": 687,\n    \"version\": \"string\",\n    \"compid\": 5644,\n    \"profile_image\": \"string\"\n  },\n  {\n    \"employee_id\": 5677,\n    \"home_phone_number\": \"string\",\n    \"cell_phone_number\": \"string\",\n    \"employee_number\": \"string\",\n    \"first_name\": \"string\",\n    \"middle_initial\": \"string\",\n    \"last_name\": \"string\",\n    \"address\": \"string\",\n    \"address_2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip\": \"string\",\n    \"mail_address\": \"string\",\n    \"mail_address_2\": \"string\",\n    \"mail_city\": \"string\",\n    \"mail_state\": \"string\",\n    \"mail_zip\": \"string\",\n    \"email\": \"string\",\n    \"ssn\": \"string\",\n    \"gender\": \"M\",\n    \"birthday\": \"string\",\n    \"direct_deposit_active\": \"string\",\n    \"type\": 9222,\n    \"pay_frequency\": 1509,\n    \"wage\": \"string\",\n    \"rate\": \"string\",\n    \"pay_schedule_id\": 6770,\n    \"employment_status\": 1,\n    \"part_time\": 1,\n    \"seasonal\": 9683,\n    \"department_id\": 7562,\n    \"location_id\": 7902,\n    \"position_id\": 2185,\n    \"manager_id\": 1796,\n    \"workers_compensation_id\": 8863,\n    \"hire_date\": \"string\",\n    \"termination_date\": \"string\",\n    \"rehire_date\": \"string\",\n    \"supplemental_calculation_method\": 8151,\n    \"use_401k_catchup\": 7522,\n    \"date_added\": \"string\",\n    \"commit_id\": 5087,\n    \"version\": \"string\",\n    \"compid\": 9848,\n    \"profile_image\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b7ea285b-6b04-4ad1-815f-f6a338e1bbac",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resp\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7dc019d5-2c78-4c9e-b314-96f556f9bf1e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resp\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c8a1b38-89d1-473e-9e59-797e82263ece",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resp\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "981de9b8-6d6c-44ec-aa10-60811c1163fe",
+          "name": "Insert employee\n",
+          "request": {
+            "name": "Insert employee\n",
+            "description": {
+              "content": "Insert employee\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"employee\": {\n    \"birthday\": \"<string>\",\n    \"hire_date\": \"<string>\",\n    \"rehire_date\": \"<string>\",\n    \"termination_date\": \"<string>\",\n    \"accrual_vacation_policy_id\": \"<integer>\",\n    \"accrual_sick_policy_id\": \"<integer>\",\n    \"accrual_pto_policy_id\": \"<integer>\",\n    \"can_revoke_online_access\": \"<boolean>\",\n    \"cell_phone_number\": \"<string>\",\n    \"department_id\": \"<integer>\",\n    \"email\": \"<string>\",\n    \"address\": \"<string>\",\n    \"address_2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"middle_initial\": \"<string>\",\n    \"employee_notes\": \"<string>\",\n    \"employee_number\": \"<string>\",\n    \"ssn\": \"<string>\",\n    \"gender\": \"<integer>\",\n    \"home_phone_number\": \"<string>\",\n    \"mail_address\": \"<string>\",\n    \"mail_address_2\": \"<string>\",\n    \"mail_city\": \"<string>\",\n    \"mail_state\": \"<string>\",\n    \"use_mail_address\": \"<boolean>\",\n    \"mail_zip\": \"<string>\",\n    \"manager_id\": \"<string>\",\n    \"part_time\": \"<boolean>\",\n    \"pay_schedule_id\": \"<integer>\",\n    \"position_id\": \"<integer>\",\n    \"seasonal\": \"<boolean>\",\n    \"supplemental_calculation_method\": \"<integer>\",\n    \"type\": \"<integer>\",\n    \"tipped\": \"<boolean>\",\n    \"use_401k_catchup\": \"<boolean>\",\n    \"use_hsa_catchup\": \"<boolean>\",\n    \"use_hsa_family\": \"<boolean>\",\n    \"workers_compensation_id\": \"<integer>\",\n    \"work_phone_number\": \"<string>\"\n  },\n  \"wages\": [\n    {\n      \"name\": \"<string>\",\n      \"hours\": \"<number>\",\n      \"rate\": \"<number>\",\n      \"amount\": \"<number>\",\n      \"ytd\": \"<number>\",\n      \"pay_type_id\": \"<number>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"hours\": \"<number>\",\n      \"rate\": \"<number>\",\n      \"amount\": \"<number>\",\n      \"ytd\": \"<number>\",\n      \"pay_type_id\": \"<number>\"\n    }\n  ],\n  \"deductions\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"ytd\": \"<number>\",\n      \"id\": \"<number>\",\n      \"ach\": \"<boolean>\",\n      \"include_match\": \"<boolean>\",\n      \"benefit_name\": \"<string>\",\n      \"benefit_amount\": \"<number>\",\n      \"nonelective_portion_of_benefit\": \"<number>\",\n      \"is_garnishment\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"ytd\": \"<number>\",\n      \"id\": \"<number>\",\n      \"ach\": \"<boolean>\",\n      \"include_match\": \"<boolean>\",\n      \"benefit_name\": \"<string>\",\n      \"benefit_amount\": \"<number>\",\n      \"nonelective_portion_of_benefit\": \"<number>\",\n      \"is_garnishment\": \"<boolean>\"\n    }\n  ],\n  \"bank_accounts\": [\n    {\n      \"id\": \"<integer>\",\n      \"employee_id\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"ach_order\": \"<integer>\",\n      \"percent\": \"<string>\",\n      \"amount\": \"<string>\",\n      \"routing\": \"<string>\",\n      \"account\": \"<string>\",\n      \"savings\": \"<integer>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"employee_id\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"ach_order\": \"<integer>\",\n      \"percent\": \"<string>\",\n      \"amount\": \"<string>\",\n      \"routing\": \"<string>\",\n      \"account\": \"<string>\",\n      \"savings\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a042199a-fb01-4208-9ea1-76a5ac634610",
+              "name": "Sucessful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"employee\": {\n    \"birthday\": \"<string>\",\n    \"hire_date\": \"<string>\",\n    \"rehire_date\": \"<string>\",\n    \"termination_date\": \"<string>\",\n    \"accrual_vacation_policy_id\": \"<integer>\",\n    \"accrual_sick_policy_id\": \"<integer>\",\n    \"accrual_pto_policy_id\": \"<integer>\",\n    \"can_revoke_online_access\": \"<boolean>\",\n    \"cell_phone_number\": \"<string>\",\n    \"department_id\": \"<integer>\",\n    \"email\": \"<string>\",\n    \"address\": \"<string>\",\n    \"address_2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"middle_initial\": \"<string>\",\n    \"employee_notes\": \"<string>\",\n    \"employee_number\": \"<string>\",\n    \"ssn\": \"<string>\",\n    \"gender\": \"<integer>\",\n    \"home_phone_number\": \"<string>\",\n    \"mail_address\": \"<string>\",\n    \"mail_address_2\": \"<string>\",\n    \"mail_city\": \"<string>\",\n    \"mail_state\": \"<string>\",\n    \"use_mail_address\": \"<boolean>\",\n    \"mail_zip\": \"<string>\",\n    \"manager_id\": \"<string>\",\n    \"part_time\": \"<boolean>\",\n    \"pay_schedule_id\": \"<integer>\",\n    \"position_id\": \"<integer>\",\n    \"seasonal\": \"<boolean>\",\n    \"supplemental_calculation_method\": \"<integer>\",\n    \"type\": \"<integer>\",\n    \"tipped\": \"<boolean>\",\n    \"use_401k_catchup\": \"<boolean>\",\n    \"use_hsa_catchup\": \"<boolean>\",\n    \"use_hsa_family\": \"<boolean>\",\n    \"workers_compensation_id\": \"<integer>\",\n    \"work_phone_number\": \"<string>\"\n  },\n  \"wages\": [\n    {\n      \"name\": \"<string>\",\n      \"hours\": \"<number>\",\n      \"rate\": \"<number>\",\n      \"amount\": \"<number>\",\n      \"ytd\": \"<number>\",\n      \"pay_type_id\": \"<number>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"hours\": \"<number>\",\n      \"rate\": \"<number>\",\n      \"amount\": \"<number>\",\n      \"ytd\": \"<number>\",\n      \"pay_type_id\": \"<number>\"\n    }\n  ],\n  \"deductions\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"ytd\": \"<number>\",\n      \"id\": \"<number>\",\n      \"ach\": \"<boolean>\",\n      \"include_match\": \"<boolean>\",\n      \"benefit_name\": \"<string>\",\n      \"benefit_amount\": \"<number>\",\n      \"nonelective_portion_of_benefit\": \"<number>\",\n      \"is_garnishment\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"ytd\": \"<number>\",\n      \"id\": \"<number>\",\n      \"ach\": \"<boolean>\",\n      \"include_match\": \"<boolean>\",\n      \"benefit_name\": \"<string>\",\n      \"benefit_amount\": \"<number>\",\n      \"nonelective_portion_of_benefit\": \"<number>\",\n      \"is_garnishment\": \"<boolean>\"\n    }\n  ],\n  \"bank_accounts\": [\n    {\n      \"id\": \"<integer>\",\n      \"employee_id\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"ach_order\": \"<integer>\",\n      \"percent\": \"<string>\",\n      \"amount\": \"<string>\",\n      \"routing\": \"<string>\",\n      \"account\": \"<string>\",\n      \"savings\": \"<integer>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"employee_id\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"ach_order\": \"<integer>\",\n      \"percent\": \"<string>\",\n      \"amount\": \"<string>\",\n      \"routing\": \"<string>\",\n      \"account\": \"<string>\",\n      \"savings\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"id\": 7293\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "275b887d-6c4d-4de4-8549-b57237201ba2",
+          "name": "Get employee by employee_id\n",
+          "request": {
+            "name": "Get employee by employee_id\n",
+            "description": {
+              "content": "Get employee by employee_id\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "35c3040d-665b-4e79-930c-f148d582f007",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"employee_id\": 5750,\n  \"home_phone_number\": \"string\",\n  \"cell_phone_number\": \"string\",\n  \"employee_number\": \"string\",\n  \"first_name\": \"string\",\n  \"middle_initial\": \"string\",\n  \"last_name\": \"string\",\n  \"address\": \"string\",\n  \"address_2\": \"string\",\n  \"city\": \"string\",\n  \"state\": \"string\",\n  \"zip\": \"string\",\n  \"mail_address\": \"string\",\n  \"mail_address_2\": \"string\",\n  \"mail_city\": \"string\",\n  \"mail_state\": \"string\",\n  \"mail_zip\": \"string\",\n  \"email\": \"string\",\n  \"ssn\": \"string\",\n  \"gender\": \"F\",\n  \"birthday\": \"string\",\n  \"direct_deposit_active\": \"string\",\n  \"type\": 5033,\n  \"pay_frequency\": 5423,\n  \"wage\": \"string\",\n  \"rate\": \"string\",\n  \"pay_schedule_id\": 3777,\n  \"employment_status\": 1,\n  \"part_time\": 0,\n  \"seasonal\": 2633,\n  \"department_id\": 6173,\n  \"location_id\": 6487,\n  \"position_id\": 5223,\n  \"manager_id\": 7727,\n  \"workers_compensation_id\": 2742,\n  \"hire_date\": \"string\",\n  \"termination_date\": \"string\",\n  \"rehire_date\": \"string\",\n  \"supplemental_calculation_method\": 2650,\n  \"use_401k_catchup\": 4073,\n  \"date_added\": \"string\",\n  \"commit_id\": 9816,\n  \"version\": \"string\",\n  \"compid\": 1107,\n  \"profile_image\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "726d7a4d-ea6e-4839-939b-0d8efd263c1b",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resp\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2bb65965-204b-41b7-ab1e-88a6432b8b31",
+          "name": "Update an employee\n",
+          "request": {
+            "name": "Update an employee\n",
+            "description": {
+              "content": "Update an employee\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"employee_id\": \"<integer>\",\n  \"home_phone_number\": \"<string>\",\n  \"cell_phone_number\": \"<string>\",\n  \"employee_number\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"middle_initial\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"address\": \"<string>\",\n  \"address_2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"zip\": \"<string>\",\n  \"mail_address\": \"<string>\",\n  \"mail_address_2\": \"<string>\",\n  \"mail_city\": \"<string>\",\n  \"mail_state\": \"<string>\",\n  \"mail_zip\": \"<string>\",\n  \"email\": \"<string>\",\n  \"ssn\": \"<string>\",\n  \"gender\": \"<string>\",\n  \"birthday\": \"<string>\",\n  \"direct_deposit_active\": \"<string>\",\n  \"type\": \"<integer>\",\n  \"pay_schedule_id\": \"<integer>\",\n  \"employment_status\": \"<integer>\",\n  \"part_time\": \"<integer>\",\n  \"seasonal\": \"<integer>\",\n  \"department_id\": \"<integer>\",\n  \"location_id\": \"<integer>\",\n  \"position_id\": \"<integer>\",\n  \"manager_id\": \"<integer>\",\n  \"workers_compensation_id\": \"<integer>\",\n  \"hire_date\": \"<string>\",\n  \"termination_date\": \"<string>\",\n  \"rehire_date\": \"<string>\",\n  \"supplemental_calculation_method\": \"<integer>\",\n  \"use_401k_catchup\": \"<integer>\",\n  \"date_added\": \"<string>\",\n  \"commit_id\": \"<integer>\",\n  \"version\": \"<string>\",\n  \"compid\": \"<integer>\",\n  \"profile_image\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "edab0480-ac91-4366-b844-d9c642987e54",
+              "name": "Successful resopnse",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"employee_id\": \"<integer>\",\n  \"home_phone_number\": \"<string>\",\n  \"cell_phone_number\": \"<string>\",\n  \"employee_number\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"middle_initial\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"address\": \"<string>\",\n  \"address_2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"zip\": \"<string>\",\n  \"mail_address\": \"<string>\",\n  \"mail_address_2\": \"<string>\",\n  \"mail_city\": \"<string>\",\n  \"mail_state\": \"<string>\",\n  \"mail_zip\": \"<string>\",\n  \"email\": \"<string>\",\n  \"ssn\": \"<string>\",\n  \"gender\": \"<string>\",\n  \"birthday\": \"<string>\",\n  \"direct_deposit_active\": \"<string>\",\n  \"type\": \"<integer>\",\n  \"pay_schedule_id\": \"<integer>\",\n  \"employment_status\": \"<integer>\",\n  \"part_time\": \"<integer>\",\n  \"seasonal\": \"<integer>\",\n  \"department_id\": \"<integer>\",\n  \"location_id\": \"<integer>\",\n  \"position_id\": \"<integer>\",\n  \"manager_id\": \"<integer>\",\n  \"workers_compensation_id\": \"<integer>\",\n  \"hire_date\": \"<string>\",\n  \"termination_date\": \"<string>\",\n  \"rehire_date\": \"<string>\",\n  \"supplemental_calculation_method\": \"<integer>\",\n  \"use_401k_catchup\": \"<integer>\",\n  \"date_added\": \"<string>\",\n  \"commit_id\": \"<integer>\",\n  \"version\": \"<string>\",\n  \"compid\": \"<integer>\",\n  \"profile_image\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc164f06-208e-45bd-a3b0-a4bd23e39472",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"employee_id\": \"<integer>\",\n  \"home_phone_number\": \"<string>\",\n  \"cell_phone_number\": \"<string>\",\n  \"employee_number\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"middle_initial\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"address\": \"<string>\",\n  \"address_2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"zip\": \"<string>\",\n  \"mail_address\": \"<string>\",\n  \"mail_address_2\": \"<string>\",\n  \"mail_city\": \"<string>\",\n  \"mail_state\": \"<string>\",\n  \"mail_zip\": \"<string>\",\n  \"email\": \"<string>\",\n  \"ssn\": \"<string>\",\n  \"gender\": \"<string>\",\n  \"birthday\": \"<string>\",\n  \"direct_deposit_active\": \"<string>\",\n  \"type\": \"<integer>\",\n  \"pay_schedule_id\": \"<integer>\",\n  \"employment_status\": \"<integer>\",\n  \"part_time\": \"<integer>\",\n  \"seasonal\": \"<integer>\",\n  \"department_id\": \"<integer>\",\n  \"location_id\": \"<integer>\",\n  \"position_id\": \"<integer>\",\n  \"manager_id\": \"<integer>\",\n  \"workers_compensation_id\": \"<integer>\",\n  \"hire_date\": \"<string>\",\n  \"termination_date\": \"<string>\",\n  \"rehire_date\": \"<string>\",\n  \"supplemental_calculation_method\": \"<integer>\",\n  \"use_401k_catchup\": \"<integer>\",\n  \"date_added\": \"<string>\",\n  \"commit_id\": \"<integer>\",\n  \"version\": \"<string>\",\n  \"compid\": \"<integer>\",\n  \"profile_image\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resp\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1cbaf128-aa9e-4dcd-b27e-eb9ef8f933ba",
+          "name": "Get deductions for an employee\n",
+          "request": {
+            "name": "Get deductions for an employee\n",
+            "description": {
+              "content": "Get deductions for an employee\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id",
+                "deductions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "67d08f7a-4684-449c-bcd5-e685be229707",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "deductions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"associated\": [\n    {\n      \"id\": 1035,\n      \"type\": 21,\n      \"name\": \"string\",\n      \"annual_limit\": 7639.729696872538,\n      \"included_in_401k_reports\": \"S\",\n      \"company_match_percent\": 76.58158194084663,\n      \"company_match_percent_of_gross\": 5523.215776499287,\n      \"company_match_percent_2\": 8289.858484662722,\n      \"company_match_percent_of_gross_2\": 5292.153789904881,\n      \"ignore_deferral\": false,\n      \"nonelective_percent_of_gross\": 1810.3786250117182,\n      \"grouping_id\": 7611,\n      \"version\": \"string\",\n      \"batch\": {\n        \"id\": 6688,\n        \"employee_id\": 1350,\n        \"employee_number\": \"string\",\n        \"deduction_type\": 23,\n        \"deduction_id\": 6291,\n        \"percent\": 4639.381599375464,\n        \"annual_limit\": 3265.5531267940264,\n        \"amount\": 8430.322297130322,\n        \"override_amount\": 8419.333263442239,\n        \"active\": true,\n        \"ach_active\": false,\n        \"routing\": 9060,\n        \"account\": 1353,\n        \"savings\": false,\n        \"memo\": \"string\",\n        \"include_benefit_amount_in_ach\": true,\n        \"override_company_benefit_amount\": 1086.4905065399832,\n        \"lifetime_limit\": 1487.1133777945556,\n        \"version\": \"string\"\n      }\n    },\n    {\n      \"id\": 5590,\n      \"type\": 22,\n      \"name\": \"string\",\n      \"annual_limit\": 3020.6974552762354,\n      \"included_in_401k_reports\": \"L\",\n      \"company_match_percent\": 628.3633887706197,\n      \"company_match_percent_of_gross\": 2707.9319140518364,\n      \"company_match_percent_2\": 6635.728692268681,\n      \"company_match_percent_of_gross_2\": 8330.357328386266,\n      \"ignore_deferral\": false,\n      \"nonelective_percent_of_gross\": 8733.833763661538,\n      \"grouping_id\": 9725,\n      \"version\": \"string\",\n      \"batch\": {\n        \"id\": 2956,\n        \"employee_id\": 5201,\n        \"employee_number\": \"string\",\n        \"deduction_type\": 7,\n        \"deduction_id\": 3111,\n        \"percent\": 15.957766349717906,\n        \"annual_limit\": 6760.419588706935,\n        \"amount\": 5323.390427253754,\n        \"override_amount\": 1025.2261881677061,\n        \"active\": false,\n        \"ach_active\": false,\n        \"routing\": 1389,\n        \"account\": 7147,\n        \"savings\": false,\n        \"memo\": \"string\",\n        \"include_benefit_amount_in_ach\": true,\n        \"override_company_benefit_amount\": 6679.086952559612,\n        \"lifetime_limit\": 5333.6817532946325,\n        \"version\": \"string\"\n      }\n    }\n  ],\n  \"actions_pending_approval\": [\n    {\n      \"verb\": \"string\",\n      \"route\": \"string\",\n      \"description\": \"string\",\n      \"effective_date\": \"string\",\n      \"requested_date\": \"string\",\n      \"body\": {\n        \"id\": 1117,\n        \"employee_id\": 5153,\n        \"employee_number\": \"string\",\n        \"deduction_type\": 10,\n        \"deduction_id\": 803,\n        \"percent\": 7898.078654330874,\n        \"annual_limit\": 3615.3904821624674,\n        \"amount\": 795.8708184102203,\n        \"override_amount\": 3095.869317119132,\n        \"active\": false,\n        \"ach_active\": true,\n        \"routing\": 944,\n        \"account\": 3452,\n        \"savings\": false,\n        \"memo\": \"string\",\n        \"include_benefit_amount_in_ach\": true,\n        \"override_company_benefit_amount\": 3278.121519748133,\n        \"lifetime_limit\": 6114.6930116779195\n      }\n    },\n    {\n      \"verb\": \"string\",\n      \"route\": \"string\",\n      \"description\": \"string\",\n      \"effective_date\": \"string\",\n      \"requested_date\": \"string\",\n      \"body\": {\n        \"id\": 4068,\n        \"employee_id\": 7543,\n        \"employee_number\": \"string\",\n        \"deduction_type\": 22,\n        \"deduction_id\": 4769,\n        \"percent\": 37.4256203680956,\n        \"annual_limit\": 2187.4926556485407,\n        \"amount\": 7895.0609757395905,\n        \"override_amount\": 3963.123367009932,\n        \"active\": false,\n        \"ach_active\": false,\n        \"routing\": 956,\n        \"account\": 3127,\n        \"savings\": false,\n        \"memo\": \"string\",\n        \"include_benefit_amount_in_ach\": false,\n        \"override_company_benefit_amount\": 5890.2506509713585,\n        \"lifetime_limit\": 8700.19548899895\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77227ede-65c8-4589-87fd-7ef888c36db5",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "deductions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resp\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cc9fd9c8-3893-4ab4-95e7-380e814ca84f",
+          "name": "Update an employee deduction batch by employee ID and deduction ID\n",
+          "request": {
+            "name": "Update an employee deduction batch by employee ID and deduction ID\n",
+            "description": {
+              "content": "Update an employee deduction batch by employee ID and deduction ID\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id",
+                "deductions",
+                ":deduction_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "deduction_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"percent\": \"<number>\",\n  \"annual_limit\": \"<number>\",\n  \"amount\": \"<number>\",\n  \"override_amount\": \"<number>\",\n  \"active\": \"<boolean>\",\n  \"ach_active\": \"<boolean>\",\n  \"routing\": \"<integer>\",\n  \"account\": \"<integer>\",\n  \"savings\": \"<boolean>\",\n  \"memo\": \"<string>\",\n  \"include_benefit_amount_in_ach\": \"<boolean>\",\n  \"override_company_benefit_amount\": \"<number>\",\n  \"lifetime_limit\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d288c4d6-ef41-42cc-a9f4-b16774921149",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "deductions",
+                    ":deduction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deduction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e4c8c83e-dc13-4015-826a-4a98924196e2",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "deductions",
+                    ":deduction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deduction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resp\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "47231ccb-2079-40b4-ba21-7de7f24c6fa6",
+          "name": "Insert deduction batch for an employee by employee ID and deduction ID\n",
+          "request": {
+            "name": "Insert deduction batch for an employee by employee ID and deduction ID\n",
+            "description": {
+              "content": "Insert deduction batch for an employee by employee ID and deduction ID\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id",
+                "deductions",
+                ":deduction_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "deduction_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"percent\": \"<number>\",\n  \"annual_limit\": \"<number>\",\n  \"amount\": \"<number>\",\n  \"override_amount\": \"<number>\",\n  \"active\": \"<boolean>\",\n  \"ach_active\": \"<boolean>\",\n  \"routing\": \"<integer>\",\n  \"account\": \"<integer>\",\n  \"savings\": \"<boolean>\",\n  \"memo\": \"<string>\",\n  \"include_benefit_amount_in_ach\": \"<boolean>\",\n  \"override_company_benefit_amount\": \"<number>\",\n  \"lifetime_limit\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0a715f04-63f4-4c53-8eaf-7390bca02cce",
+              "name": "Sucessful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "deductions",
+                    ":deduction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deduction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"id\": 7293\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "edf9532d-c482-41e6-950c-68a21d92e78d",
+          "name": "List scheduled changes to employee deductions",
+          "request": {
+            "name": "List scheduled changes to employee deductions",
+            "description": {
+              "content": "List scheduled changes to employee deductions",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id",
+                "deductions",
+                ":deduction_id",
+                "schedule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "deduction_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cd0c13c8-3b1a-43be-8713-72fd02e2d2f6",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "deductions",
+                    ":deduction_id",
+                    "schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deduction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"verb\": \"string\",\n    \"description\": \"string\",\n    \"requested_date\": \"string\",\n    \"effective_date\": \"string\",\n    \"body\": {\n      \"id\": 4960,\n      \"employee_id\": 7,\n      \"employee_number\": \"string\",\n      \"deduction_type\": 21,\n      \"deduction_id\": 2668,\n      \"percent\": 8655.281208337283,\n      \"annual_limit\": 5026.687227965073,\n      \"amount\": 9127.16008541781,\n      \"override_amount\": 3709.004984922385,\n      \"active\": true,\n      \"ach_active\": true,\n      \"routing\": 7923,\n      \"account\": 948,\n      \"savings\": true,\n      \"memo\": \"string\",\n      \"include_benefit_amount_in_ach\": true,\n      \"override_company_benefit_amount\": 6879.141901035398,\n      \"lifetime_limit\": 8773.036118265718\n    },\n    \"requested_version\": \"string\"\n  },\n  {\n    \"verb\": \"string\",\n    \"description\": \"string\",\n    \"requested_date\": \"string\",\n    \"effective_date\": \"string\",\n    \"body\": {\n      \"id\": 350,\n      \"employee_id\": 1307,\n      \"employee_number\": \"string\",\n      \"deduction_type\": 9,\n      \"deduction_id\": 9246,\n      \"percent\": 6771.223687512102,\n      \"annual_limit\": 676.4578663706045,\n      \"amount\": 4233.535049558497,\n      \"override_amount\": 4781.234111386582,\n      \"active\": true,\n      \"ach_active\": false,\n      \"routing\": 5002,\n      \"account\": 8889,\n      \"savings\": false,\n      \"memo\": \"string\",\n      \"include_benefit_amount_in_ach\": true,\n      \"override_company_benefit_amount\": 7397.952808506476,\n      \"lifetime_limit\": 3511.939797029289\n    },\n    \"requested_version\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "28f588e3-876e-40ba-91f9-b44db0a7436a",
+          "name": "Submit a scheduled change to a deduction batch for an employee by employee ID and deduction ID\n",
+          "request": {
+            "name": "Submit a scheduled change to a deduction batch for an employee by employee ID and deduction ID\n",
+            "description": {
+              "content": "Submit a scheduled change to a deduction batch for an employee by employee ID and deduction ID\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id",
+                "deductions",
+                ":deduction_id",
+                "schedule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "deduction_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"verb\": \"<string>\",\n  \"effective_date\": \"<string>\",\n  \"body\": {\n    \"id\": \"<integer>\",\n    \"employee_id\": \"<integer>\",\n    \"employee_number\": \"<string>\",\n    \"deduction_type\": \"<integer>\",\n    \"deduction_id\": \"<integer>\",\n    \"percent\": \"<number>\",\n    \"annual_limit\": \"<number>\",\n    \"amount\": \"<number>\",\n    \"override_amount\": \"<number>\",\n    \"active\": \"<boolean>\",\n    \"ach_active\": \"<boolean>\",\n    \"routing\": \"<integer>\",\n    \"account\": \"<integer>\",\n    \"savings\": \"<boolean>\",\n    \"memo\": \"<string>\",\n    \"include_benefit_amount_in_ach\": \"<boolean>\",\n    \"override_company_benefit_amount\": \"<number>\",\n    \"lifetime_limit\": \"<number>\"\n  },\n  \"version\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b8e51235-eb9c-4f90-8e79-5dd789af6e6a",
+              "name": "Sucessful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "deductions",
+                    ":deduction_id",
+                    "schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deduction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"verb\": \"<string>\",\n  \"effective_date\": \"<string>\",\n  \"body\": {\n    \"id\": \"<integer>\",\n    \"employee_id\": \"<integer>\",\n    \"employee_number\": \"<string>\",\n    \"deduction_type\": \"<integer>\",\n    \"deduction_id\": \"<integer>\",\n    \"percent\": \"<number>\",\n    \"annual_limit\": \"<number>\",\n    \"amount\": \"<number>\",\n    \"override_amount\": \"<number>\",\n    \"active\": \"<boolean>\",\n    \"ach_active\": \"<boolean>\",\n    \"routing\": \"<integer>\",\n    \"account\": \"<integer>\",\n    \"savings\": \"<boolean>\",\n    \"memo\": \"<string>\",\n    \"include_benefit_amount_in_ach\": \"<boolean>\",\n    \"override_company_benefit_amount\": \"<number>\",\n    \"lifetime_limit\": \"<number>\"\n  },\n  \"version\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"id\": 7293\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa78368c-9ddf-416c-a57b-1840ede996eb",
+          "name": "list employee bank accounts\n",
+          "request": {
+            "name": "list employee bank accounts\n",
+            "description": {
+              "content": "list employee bank accounts\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id",
+                "bank-accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e20f7f8b-a725-45f9-84f2-3187020b3667",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "bank-accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<integer>\",\n  \"employee_id\": \"<integer>\",\n  \"type\": \"<string>\",\n  \"ach_order\": \"<integer>\",\n  \"percent\": \"<string>\",\n  \"amount\": \"<string>\",\n  \"routing\": \"<string>\",\n  \"account\": \"<string>\",\n  \"savings\": \"<integer>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2301f45b-24c9-4c85-b063-09cae14e1b67",
+          "name": "put employee bank accounts",
+          "request": {
+            "name": "put employee bank accounts",
+            "description": {
+              "content": "put employee bank accounts",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id",
+                "bank-accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bank_accounts\": [\n    {\n      \"routing\": \"<string>\",\n      \"account\": \"<string>\",\n      \"percent\": \"<string>\",\n      \"amount\": \"<string>\",\n      \"savings\": \"<integer>\"\n    },\n    {\n      \"routing\": \"<string>\",\n      \"account\": \"<string>\",\n      \"percent\": \"<string>\",\n      \"amount\": \"<string>\",\n      \"savings\": \"<integer>\"\n    }\n  ],\n  \"version\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "91dd6982-ca2b-4976-921a-da86a8cf4162",
+              "name": "Sucessful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "bank-accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bank_accounts\": [\n    {\n      \"routing\": \"<string>\",\n      \"account\": \"<string>\",\n      \"percent\": \"<string>\",\n      \"amount\": \"<string>\",\n      \"savings\": \"<integer>\"\n    },\n    {\n      \"routing\": \"<string>\",\n      \"account\": \"<string>\",\n      \"percent\": \"<string>\",\n      \"amount\": \"<string>\",\n      \"savings\": \"<integer>\"\n    }\n  ],\n  \"version\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bank_accounts\": [\n    {\n      \"id\": \"<integer>\",\n      \"employee_id\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"ach_order\": \"<integer>\",\n      \"percent\": \"<string>\",\n      \"amount\": \"<string>\",\n      \"routing\": \"<string>\",\n      \"account\": \"<string>\",\n      \"savings\": \"<integer>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"employee_id\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"ach_order\": \"<integer>\",\n      \"percent\": \"<string>\",\n      \"amount\": \"<string>\",\n      \"routing\": \"<string>\",\n      \"account\": \"<string>\",\n      \"savings\": \"<integer>\"\n    }\n  ],\n  \"version\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1a1dbadb-5d69-492c-bbc9-46026f9ec7de",
+          "name": "List employee pay items",
+          "request": {
+            "name": "List employee pay items",
+            "description": {
+              "content": "List employee pay items",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id",
+                "wages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "69606a4f-6390-41b7-a5c3-ca6e69f1144d",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "wages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pay_items\": [\n    {\n      \"id\": 7046,\n      \"pay_type_id\": 3246,\n      \"employee_id\": 9304,\n      \"hours\": 3929.489140419552,\n      \"rate\": 4392.056889089725,\n      \"override_amount\": 9860.711935692312\n    },\n    {\n      \"id\": 49,\n      \"pay_type_id\": 7377,\n      \"employee_id\": 5062,\n      \"hours\": 8595.783991936365,\n      \"rate\": 1694.4454087895056,\n      \"override_amount\": 4626.024075695256\n    }\n  ],\n  \"actions_pending_approval\": [\n    {\n      \"verb\": \"string\",\n      \"route\": \"string\",\n      \"description\": \"string\",\n      \"effective_date\": \"string\",\n      \"requested_date\": \"string\",\n      \"body\": {\n        \"pay_items\": [\n          {\n            \"id\": 7669,\n            \"pay_type_id\": 2330,\n            \"employee_id\": 7259,\n            \"hours\": 7552.113519636137,\n            \"rate\": 7104.768454333531,\n            \"override_amount\": 9362.404816352424\n          },\n          {\n            \"id\": 7827,\n            \"pay_type_id\": 7406,\n            \"employee_id\": 6410,\n            \"hours\": 9198.980621295002,\n            \"rate\": 8600.25696967623,\n            \"override_amount\": 5995.568183545451\n          }\n        ]\n      },\n      \"version\": \"string\"\n    },\n    {\n      \"verb\": \"string\",\n      \"route\": \"string\",\n      \"description\": \"string\",\n      \"effective_date\": \"string\",\n      \"requested_date\": \"string\",\n      \"body\": {\n        \"pay_items\": [\n          {\n            \"id\": 8851,\n            \"pay_type_id\": 8876,\n            \"employee_id\": 4790,\n            \"hours\": 334.84423610412483,\n            \"rate\": 3818.238970167832,\n            \"override_amount\": 9937.938110707977\n          },\n          {\n            \"id\": 549,\n            \"pay_type_id\": 1451,\n            \"employee_id\": 13,\n            \"hours\": 4384.272883211704,\n            \"rate\": 2188.6754187969705,\n            \"override_amount\": 7133.192005039313\n          }\n        ]\n      },\n      \"version\": \"string\"\n    }\n  ],\n  \"version\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4a963dd1-0cdc-435c-8b60-fb6f61622bd8",
+          "name": "Update employee pay items",
+          "request": {
+            "name": "Update employee pay items",
+            "description": {
+              "content": "Update employee pay items",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id",
+                "wages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pay_items\": [\n    {\n      \"id\": \"<integer>\",\n      \"pay_type_id\": \"<integer>\",\n      \"employee_id\": \"<integer>\",\n      \"hours\": \"<number>\",\n      \"rate\": \"<number>\",\n      \"override_amount\": \"<number>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"pay_type_id\": \"<integer>\",\n      \"employee_id\": \"<integer>\",\n      \"hours\": \"<number>\",\n      \"rate\": \"<number>\",\n      \"override_amount\": \"<number>\"\n    }\n  ],\n  \"version\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0977f807-0997-4db0-a7b8-10aee295a40f",
+              "name": "Sucessful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "wages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pay_items\": [\n    {\n      \"id\": \"<integer>\",\n      \"pay_type_id\": \"<integer>\",\n      \"employee_id\": \"<integer>\",\n      \"hours\": \"<number>\",\n      \"rate\": \"<number>\",\n      \"override_amount\": \"<number>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"pay_type_id\": \"<integer>\",\n      \"employee_id\": \"<integer>\",\n      \"hours\": \"<number>\",\n      \"rate\": \"<number>\",\n      \"override_amount\": \"<number>\"\n    }\n  ],\n  \"version\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pay_items\": [\n    {\n      \"id\": \"<integer>\",\n      \"pay_type_id\": \"<integer>\",\n      \"employee_id\": \"<integer>\",\n      \"hours\": \"<number>\",\n      \"rate\": \"<number>\",\n      \"override_amount\": \"<number>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"pay_type_id\": \"<integer>\",\n      \"employee_id\": \"<integer>\",\n      \"hours\": \"<number>\",\n      \"rate\": \"<number>\",\n      \"override_amount\": \"<number>\"\n    }\n  ],\n  \"version\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9224b0ff-8d48-4e79-ac37-719309c3f9b1",
+          "name": "List scheduled changes to employee pay items",
+          "request": {
+            "name": "List scheduled changes to employee pay items",
+            "description": {
+              "content": "List scheduled changes to employee pay items",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id",
+                "wages",
+                "schedule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b6cd11b6-4c6e-44d8-ad44-428da1b4acfe",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "wages",
+                    "schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"verb\": \"string\",\n    \"route\": \"string\",\n    \"description\": \"string\",\n    \"requested_date\": \"string\",\n    \"effective_date\": \"string\",\n    \"body\": {\n      \"pay_items\": [\n        {\n          \"id\": \"<integer>\",\n          \"pay_type_id\": \"<integer>\",\n          \"employee_id\": \"<integer>\",\n          \"hours\": \"<number>\",\n          \"rate\": \"<number>\",\n          \"override_amount\": \"<number>\"\n        },\n        {\n          \"id\": \"<integer>\",\n          \"pay_type_id\": \"<integer>\",\n          \"employee_id\": \"<integer>\",\n          \"hours\": \"<number>\",\n          \"rate\": \"<number>\",\n          \"override_amount\": \"<number>\"\n        }\n      ]\n    }\n  },\n  {\n    \"verb\": \"string\",\n    \"route\": \"string\",\n    \"description\": \"string\",\n    \"requested_date\": \"string\",\n    \"effective_date\": \"string\",\n    \"body\": {\n      \"pay_items\": [\n        {\n          \"id\": \"<integer>\",\n          \"pay_type_id\": \"<integer>\",\n          \"employee_id\": \"<integer>\",\n          \"hours\": \"<number>\",\n          \"rate\": \"<number>\",\n          \"override_amount\": \"<number>\"\n        },\n        {\n          \"id\": \"<integer>\",\n          \"pay_type_id\": \"<integer>\",\n          \"employee_id\": \"<integer>\",\n          \"hours\": \"<number>\",\n          \"rate\": \"<number>\",\n          \"override_amount\": \"<number>\"\n        }\n      ]\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9eb390dd-a6bd-496c-877b-c889e835b48d",
+          "name": "Schedule changes to employee wages for approval.\n",
+          "request": {
+            "name": "Schedule changes to employee wages for approval.\n",
+            "description": {
+              "content": "Schedule changes to employee wages for approval.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id",
+                "wages",
+                "schedule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"verb\": \"<string>\",\n  \"effective_date\": \"<string>\",\n  \"body\": {\n    \"pay_items\": [\n      {\n        \"id\": \"<integer>\",\n        \"pay_type_id\": \"<integer>\",\n        \"employee_id\": \"<integer>\",\n        \"hours\": \"<number>\",\n        \"rate\": \"<number>\",\n        \"override_amount\": \"<number>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"pay_type_id\": \"<integer>\",\n        \"employee_id\": \"<integer>\",\n        \"hours\": \"<number>\",\n        \"rate\": \"<number>\",\n        \"override_amount\": \"<number>\"\n      }\n    ]\n  },\n  \"version\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ebe87e2b-7ae4-4e02-a3a0-a340359a9503",
+              "name": "Sucessful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "wages",
+                    "schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"verb\": \"<string>\",\n  \"effective_date\": \"<string>\",\n  \"body\": {\n    \"pay_items\": [\n      {\n        \"id\": \"<integer>\",\n        \"pay_type_id\": \"<integer>\",\n        \"employee_id\": \"<integer>\",\n        \"hours\": \"<number>\",\n        \"rate\": \"<number>\",\n        \"override_amount\": \"<number>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"pay_type_id\": \"<integer>\",\n        \"employee_id\": \"<integer>\",\n        \"hours\": \"<number>\",\n        \"rate\": \"<number>\",\n        \"override_amount\": \"<number>\"\n      }\n    ]\n  },\n  \"version\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"id\": 7293\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ecf8b9d4-a87c-4c99-8568-d120000792c7",
+          "name": "List employee leave items",
+          "request": {
+            "name": "List employee leave items",
+            "description": {
+              "content": "List employee leave items",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id",
+                "leave"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "86a81d73-7b37-42ed-92d5-1c02233fdb10",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "leave"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 9212,\n    \"available\": 9245,\n    \"version\": \"string\"\n  },\n  {\n    \"id\": 4851,\n    \"available\": 2247,\n    \"version\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2e1b30a-2f5c-4ad2-a243-04be3c877ccb",
+          "name": "Update employee leave items",
+          "request": {
+            "name": "Update employee leave items",
+            "description": {
+              "content": "Update employee leave items",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id",
+                "leave"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": \"<integer>\",\n    \"available\": \"<integer>\",\n    \"version\": \"<string>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"available\": \"<integer>\",\n    \"version\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a3c9bcde-25e9-4159-a0f5-59fc24c1b08f",
+              "name": "Sucessful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "leave"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<integer>\",\n    \"available\": \"<integer>\",\n    \"version\": \"<string>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"available\": \"<integer>\",\n    \"version\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"<integer>\",\n    \"available\": \"<integer>\",\n    \"version\": \"<string>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"available\": \"<integer>\",\n    \"version\": \"<string>\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12127937-1870-473f-9316-b17f08d2f158",
+          "name": "List employee tax fields",
+          "request": {
+            "name": "List employee tax fields",
+            "description": {
+              "content": "List employee tax fields",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id",
+                "tax-fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3f12610c-655e-4a01-8c5b-fa91026e0cda",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "tax-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"worksite_id\": 9776,\n  \"federal_status\": 1104,\n  \"federal_allowances\": 4982,\n  \"fica_exempt\": true,\n  \"fit_exempt\": false,\n  \"fit_additional_amount\": 6093,\n  \"work_location_display_fields\": {\n    \"state_information\": {\n      \"name\": \"string\"\n    },\n    \"display_fields\": {\n      \"state_misc_1_value\": \"string\",\n      \"state_misc_2_value\": \"string\",\n      \"sit_additional_amount\": 9964,\n      \"sit_exempt\": false,\n      \"state_resident\": true\n    }\n  },\n  \"state_misc_1_value\": \"string\",\n  \"state_misc_3_value\": \"string\",\n  \"state_misc_2_value\": \"string\",\n  \"sit_additional_amount\": 6837,\n  \"sdi_exempt\": false,\n  \"state_misc_4_value\": \"string\",\n  \"sit_exempt\": true,\n  \"state_resident\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a5db1b6-3b2d-4948-bb7a-d31063a88b43",
+          "name": "Patch employee tax fields",
+          "request": {
+            "name": "Patch employee tax fields",
+            "description": {
+              "content": "Patch employee tax fields",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id",
+                "tax-fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"worksite_id\": \"<integer>\",\n  \"federal_status\": \"<integer>\",\n  \"federal_allowances\": \"<integer>\",\n  \"fica_exempt\": \"<boolean>\",\n  \"fit_exempt\": \"<boolean>\",\n  \"fit_additional_amount\": \"<integer>\",\n  \"work_location_display_fields\": {\n    \"state_information\": {\n      \"name\": \"<string>\"\n    },\n    \"display_fields\": {\n      \"state_misc_1_value\": \"<string>\",\n      \"state_misc_2_value\": \"<string>\",\n      \"sit_additional_amount\": \"<integer>\",\n      \"sit_exempt\": \"<boolean>\",\n      \"state_resident\": \"<boolean>\"\n    }\n  },\n  \"state_misc_1_value\": \"<string>\",\n  \"state_misc_3_value\": \"<string>\",\n  \"state_misc_2_value\": \"<string>\",\n  \"sit_additional_amount\": \"<integer>\",\n  \"sdi_exempt\": \"<boolean>\",\n  \"state_misc_4_value\": \"<string>\",\n  \"sit_exempt\": \"<boolean>\",\n  \"state_resident\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a3d26808-b080-4a28-be5b-a11f3b0797e9",
+              "name": "Sucessful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "tax-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"worksite_id\": \"<integer>\",\n  \"federal_status\": \"<integer>\",\n  \"federal_allowances\": \"<integer>\",\n  \"fica_exempt\": \"<boolean>\",\n  \"fit_exempt\": \"<boolean>\",\n  \"fit_additional_amount\": \"<integer>\",\n  \"work_location_display_fields\": {\n    \"state_information\": {\n      \"name\": \"<string>\"\n    },\n    \"display_fields\": {\n      \"state_misc_1_value\": \"<string>\",\n      \"state_misc_2_value\": \"<string>\",\n      \"sit_additional_amount\": \"<integer>\",\n      \"sit_exempt\": \"<boolean>\",\n      \"state_resident\": \"<boolean>\"\n    }\n  },\n  \"state_misc_1_value\": \"<string>\",\n  \"state_misc_3_value\": \"<string>\",\n  \"state_misc_2_value\": \"<string>\",\n  \"sit_additional_amount\": \"<integer>\",\n  \"sdi_exempt\": \"<boolean>\",\n  \"state_misc_4_value\": \"<string>\",\n  \"sit_exempt\": \"<boolean>\",\n  \"state_resident\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"worksite_id\": 4992,\n  \"federal_status\": 8719,\n  \"federal_allowances\": 3461,\n  \"fica_exempt\": true,\n  \"fit_exempt\": true,\n  \"fit_additional_amount\": 441,\n  \"work_location_display_fields\": {\n    \"state_information\": {\n      \"name\": \"<string>\"\n    },\n    \"display_fields\": {\n      \"state_misc_1_value\": \"<string>\",\n      \"state_misc_2_value\": \"<string>\",\n      \"sit_additional_amount\": \"<integer>\",\n      \"sit_exempt\": \"<boolean>\",\n      \"state_resident\": \"<boolean>\"\n    }\n  },\n  \"state_misc_1_value\": \"string\",\n  \"state_misc_3_value\": \"string\",\n  \"state_misc_2_value\": \"string\",\n  \"sit_additional_amount\": 1597,\n  \"sdi_exempt\": true,\n  \"state_misc_4_value\": \"string\",\n  \"sit_exempt\": true,\n  \"state_resident\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f755683a-2191-4979-b37a-e0cabaad1712",
+          "name": "Update employee worksite id",
+          "request": {
+            "name": "Update employee worksite id",
+            "description": {
+              "content": "Update employee worksite id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id",
+                "tax-fields",
+                "worksite"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"worksite_id\": \"<integer>\",\n  \"version\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "76a44176-edd4-4e63-90cb-d5dc8a46566e",
+              "name": "Sucessful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "tax-fields",
+                    "worksite"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"worksite_id\": \"<integer>\",\n  \"version\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"worksite_id\": 4992,\n  \"federal_status\": 8719,\n  \"federal_allowances\": 3461,\n  \"fica_exempt\": true,\n  \"fit_exempt\": true,\n  \"fit_additional_amount\": 441,\n  \"work_location_display_fields\": {\n    \"state_information\": {\n      \"name\": \"<string>\"\n    },\n    \"display_fields\": {\n      \"state_misc_1_value\": \"<string>\",\n      \"state_misc_2_value\": \"<string>\",\n      \"sit_additional_amount\": \"<integer>\",\n      \"sit_exempt\": \"<boolean>\",\n      \"state_resident\": \"<boolean>\"\n    }\n  },\n  \"state_misc_1_value\": \"string\",\n  \"state_misc_3_value\": \"string\",\n  \"state_misc_2_value\": \"string\",\n  \"sit_additional_amount\": 1597,\n  \"sdi_exempt\": true,\n  \"state_misc_4_value\": \"string\",\n  \"sit_exempt\": true,\n  \"state_resident\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54cef69a-2353-4cbc-b989-250e88172f29",
+          "name": "Terminate employee",
+          "request": {
+            "name": "Terminate employee",
+            "description": {
+              "content": "Terminate employee",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id",
+                "termination"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"termination_date\": \"<string>\",\n  \"termination_code\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cc6d123c-7802-4c4a-8234-c1916908fc8c",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "termination"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"termination_date\": \"<string>\",\n  \"termination_code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"employee_id\": \"<integer>\",\n  \"home_phone_number\": \"<string>\",\n  \"cell_phone_number\": \"<string>\",\n  \"employee_number\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"middle_initial\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"address\": \"<string>\",\n  \"address_2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"zip\": \"<string>\",\n  \"mail_address\": \"<string>\",\n  \"mail_address_2\": \"<string>\",\n  \"mail_city\": \"<string>\",\n  \"mail_state\": \"<string>\",\n  \"mail_zip\": \"<string>\",\n  \"email\": \"<string>\",\n  \"ssn\": \"<string>\",\n  \"gender\": \"<string>\",\n  \"birthday\": \"<string>\",\n  \"direct_deposit_active\": \"<string>\",\n  \"type\": \"<integer>\",\n  \"pay_frequency\": 6357,\n  \"wage\": \"string\",\n  \"rate\": \"string\",\n  \"pay_schedule_id\": \"<integer>\",\n  \"employment_status\": \"<integer>\",\n  \"part_time\": \"<integer>\",\n  \"seasonal\": \"<integer>\",\n  \"department_id\": \"<integer>\",\n  \"location_id\": \"<integer>\",\n  \"position_id\": \"<integer>\",\n  \"manager_id\": \"<integer>\",\n  \"workers_compensation_id\": \"<integer>\",\n  \"hire_date\": \"<string>\",\n  \"termination_date\": \"<string>\",\n  \"rehire_date\": \"<string>\",\n  \"supplemental_calculation_method\": \"<integer>\",\n  \"use_401k_catchup\": \"<integer>\",\n  \"date_added\": \"<string>\",\n  \"commit_id\": \"<integer>\",\n  \"version\": \"<string>\",\n  \"compid\": \"<integer>\",\n  \"profile_image\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0cf920d-d768-4726-b26d-07799f777b80",
+          "name": "Rehire employee",
+          "request": {
+            "name": "Rehire employee",
+            "description": {
+              "content": "Rehire employee",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                ":employee_id",
+                "rehire"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rehire_date\": \"<string>\",\n  \"version\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b9fc434f-14cd-4df2-8a69-8bff7e68381e",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    ":employee_id",
+                    "rehire"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rehire_date\": \"<string>\",\n  \"version\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"employee_id\": \"<integer>\",\n  \"home_phone_number\": \"<string>\",\n  \"cell_phone_number\": \"<string>\",\n  \"employee_number\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"middle_initial\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"address\": \"<string>\",\n  \"address_2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"zip\": \"<string>\",\n  \"mail_address\": \"<string>\",\n  \"mail_address_2\": \"<string>\",\n  \"mail_city\": \"<string>\",\n  \"mail_state\": \"<string>\",\n  \"mail_zip\": \"<string>\",\n  \"email\": \"<string>\",\n  \"ssn\": \"<string>\",\n  \"gender\": \"<string>\",\n  \"birthday\": \"<string>\",\n  \"direct_deposit_active\": \"<string>\",\n  \"type\": \"<integer>\",\n  \"pay_frequency\": 6357,\n  \"wage\": \"string\",\n  \"rate\": \"string\",\n  \"pay_schedule_id\": \"<integer>\",\n  \"employment_status\": \"<integer>\",\n  \"part_time\": \"<integer>\",\n  \"seasonal\": \"<integer>\",\n  \"department_id\": \"<integer>\",\n  \"location_id\": \"<integer>\",\n  \"position_id\": \"<integer>\",\n  \"manager_id\": \"<integer>\",\n  \"workers_compensation_id\": \"<integer>\",\n  \"hire_date\": \"<string>\",\n  \"termination_date\": \"<string>\",\n  \"rehire_date\": \"<string>\",\n  \"supplemental_calculation_method\": \"<integer>\",\n  \"use_401k_catchup\": \"<integer>\",\n  \"date_added\": \"<string>\",\n  \"commit_id\": \"<integer>\",\n  \"version\": \"<string>\",\n  \"compid\": \"<integer>\",\n  \"profile_image\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "27c3965e-d335-4ceb-bae9-397be9f5d9aa",
+          "name": "Get recent notes and or comments from an employees account.\n",
+          "request": {
+            "name": "Get recent notes and or comments from an employees account.\n",
+            "description": {
+              "content": "Get recent notes and or comments from an employees account.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employees",
+                "recent-notes-and-comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ee7e974d-2726-4ef8-bd74-6d219afea776",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    "recent-notes-and-comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 2212,\n    \"employee_id\": 8145,\n    \"user_id\": 8124,\n    \"public\": false,\n    \"note\": \"string\",\n    \"user_name\": \"string\",\n    \"user_image\": \"string\",\n    \"time\": \"1980-10-27T05:40:42.851Z\"\n  },\n  {\n    \"id\": 5637,\n    \"employee_id\": 6510,\n    \"user_id\": 7233,\n    \"public\": false,\n    \"note\": \"string\",\n    \"user_name\": \"string\",\n    \"user_image\": \"string\",\n    \"time\": \"1999-01-31T15:06:29.626Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bdcdd896-4e66-4103-9f2f-83ab5817f9f4",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    "recent-notes-and-comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resp\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "00f1cc21-ebe5-4ed2-8b66-e06d72992983",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    "recent-notes-and-comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resp\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "809dda9c-a756-44d7-92d5-79cae2391301",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    "recent-notes-and-comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resp\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://onpaydev.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cfd180cb-3060-4b91-8124-7a7f5bbbe55c",
+    "name": "OnPay Employees API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Must present a valid Bearer token.",
+      "type": "text/plain"
+    }
+  }
+}

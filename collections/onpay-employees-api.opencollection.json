@@ -1,0 +1,713 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OnPay Employees API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Employees",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /employees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://onpaydev.com/v2/employees",
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get list of employees\n"
+        },
+        {
+          "info": {
+            "name": "POST /employees",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://onpaydev.com/v2/employees",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Insert employee\n"
+        },
+        {
+          "info": {
+            "name": "GET /employees/{employee_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://onpaydev.com/v2/employees/:employee_id",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get employee by employee_id\n"
+        },
+        {
+          "info": {
+            "name": "PATCH /employees/{employee_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://onpaydev.com/v2/employees/:employee_id",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update an employee\n"
+        },
+        {
+          "info": {
+            "name": "GET /employees/{employee_id}/deductions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://onpaydev.com/v2/employees/:employee_id/deductions",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get deductions for an employee\n"
+        },
+        {
+          "info": {
+            "name": "POST /employees/{employee_id}/deductions/{deduction_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://onpaydev.com/v2/employees/:employee_id/deductions/:deduction_id",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deduction_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Insert deduction batch for an employee by employee ID and deduction ID\n"
+        },
+        {
+          "info": {
+            "name": "PATCH /employees/{employee_id}/deductions/{deduction_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://onpaydev.com/v2/employees/:employee_id/deductions/:deduction_id",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deduction_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update an employee deduction batch by employee ID and deduction ID\n"
+        },
+        {
+          "info": {
+            "name": "GET /employees/{employee_id}/deductions/{deduction_id}/schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://onpaydev.com/v2/employees/:employee_id/deductions/:deduction_id/schedule",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deduction_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List scheduled changes to employee deductions"
+        },
+        {
+          "info": {
+            "name": "POST /employees/{employee_id}/deductions/{deduction_id}/schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://onpaydev.com/v2/employees/:employee_id/deductions/:deduction_id/schedule",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deduction_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Submit a scheduled change to a deduction batch for an employee by employee ID and deduction ID\n"
+        },
+        {
+          "info": {
+            "name": "GET /employees/{employee_id}/bank-accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://onpaydev.com/v2/employees/:employee_id/bank-accounts",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "list employee bank accounts\n"
+        },
+        {
+          "info": {
+            "name": "PUT /employees/{employee_id}/bank-accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://onpaydev.com/v2/employees/:employee_id/bank-accounts",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "put employee bank accounts"
+        },
+        {
+          "info": {
+            "name": "GET /employees/{employee_id}/wages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://onpaydev.com/v2/employees/:employee_id/wages",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List employee pay items"
+        },
+        {
+          "info": {
+            "name": "PATCH /employees/{employee_id}/wages",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://onpaydev.com/v2/employees/:employee_id/wages",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update employee pay items"
+        },
+        {
+          "info": {
+            "name": "GET /employees/{employee_id}/wages/schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://onpaydev.com/v2/employees/:employee_id/wages/schedule",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List scheduled changes to employee pay items"
+        },
+        {
+          "info": {
+            "name": "POST /employees/{employee_id}/wages/schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://onpaydev.com/v2/employees/:employee_id/wages/schedule",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Schedule changes to employee wages for approval.\n"
+        },
+        {
+          "info": {
+            "name": "GET /employees/{employee_id}/leave",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://onpaydev.com/v2/employees/:employee_id/leave",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List employee leave items"
+        },
+        {
+          "info": {
+            "name": "PATCH /employees/{employee_id}/leave",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://onpaydev.com/v2/employees/:employee_id/leave",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update employee leave items"
+        },
+        {
+          "info": {
+            "name": "GET /employees/{employee_id}/tax-fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://onpaydev.com/v2/employees/:employee_id/tax-fields",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List employee tax fields"
+        },
+        {
+          "info": {
+            "name": "PATCH /employees/{employee_id}/tax-fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://onpaydev.com/v2/employees/:employee_id/tax-fields",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Patch employee tax fields"
+        },
+        {
+          "info": {
+            "name": "PATCH /employees/{employee_id}/tax-fields/worksite",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://onpaydev.com/v2/employees/:employee_id/tax-fields/worksite",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update employee worksite id"
+        },
+        {
+          "info": {
+            "name": "POST /employees/{employee_id}/termination",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://onpaydev.com/v2/employees/:employee_id/termination",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Terminate employee"
+        },
+        {
+          "info": {
+            "name": "POST /employees/{employee_id}/rehire",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://onpaydev.com/v2/employees/:employee_id/rehire",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Rehire employee"
+        },
+        {
+          "info": {
+            "name": "GET /employees/recent-notes-and-comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://onpaydev.com/v2/employees/recent-notes-and-comments",
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get recent notes and or comments from an employees account.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

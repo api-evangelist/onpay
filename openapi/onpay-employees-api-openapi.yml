@@ -1,0 +1,1618 @@
+openapi: 3.2.0
+info:
+  version: 2.0.0
+  title: OnPay Employees API
+  description: Must present a valid Bearer token.
+servers:
+- url: https://onpaydev.com/v2
+tags:
+- name: Employees
+paths:
+  /employees:
+    get:
+      tags:
+      - Employees
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: 'Get list of employees
+
+        '
+      responses:
+        '200':
+          description: Sucessful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Employee'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+        '402':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+    post:
+      tags:
+      - Employees
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: 'Insert employee
+
+        '
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmployeePost'
+      responses:
+        '200':
+          description: Sucessful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InsertSuccessful'
+  /employees/{employee_id}:
+    parameters:
+    - name: employee_id
+      required: true
+      in: path
+      schema:
+        type: integer
+    get:
+      tags:
+      - Employees
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: 'Get employee by employee_id
+
+        '
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+        default:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+    patch:
+      tags:
+      - Employees
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: 'Update an employee
+
+        '
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee'
+        description: JSON Merge Patch [RFC 7396]
+      responses:
+        '200':
+          description: Successful resopnse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchSuccessful'
+        default:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+  /employees/{employee_id}/deductions:
+    get:
+      tags:
+      - Employees
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+        - Controller
+        - Manager
+        - Employee
+      description: 'Get deductions for an employee
+
+        '
+      parameters:
+      - name: employee_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  associated:
+                    description: Group of deductions that employee is currently or has been associated with
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/EmployeeDeductionItem'
+                  actions_pending_approval:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        verb:
+                          type: string
+                        route:
+                          type: string
+                        options:
+                          type: array
+                          items: {}
+                        description:
+                          type: string
+                        effective_date:
+                          type: string
+                        requested_date:
+                          type: string
+                        body:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            employee_id:
+                              type: integer
+                            employee_number:
+                              type: string
+                            deduction_type:
+                              $ref: '#/components/schemas/DeductionType'
+                            deduction_id:
+                              type: integer
+                            percent:
+                              type: number
+                            annual_limit:
+                              type: number
+                            amount:
+                              type: number
+                            override_amount:
+                              type: number
+                            active:
+                              type: boolean
+                            ach_active:
+                              type: boolean
+                            routing:
+                              type: integer
+                            account:
+                              type: integer
+                            savings:
+                              type: boolean
+                            memo:
+                              type: string
+                            include_benefit_amount_in_ach:
+                              type: boolean
+                            override_company_benefit_amount:
+                              type: number
+                            lifetime_limit:
+                              type: number
+        default:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+  /employees/{employee_id}/deductions/{deduction_id}:
+    parameters:
+    - name: employee_id
+      in: path
+      required: true
+      schema:
+        type: integer
+    - name: deduction_id
+      in: path
+      required: true
+      schema:
+        type: integer
+    patch:
+      tags:
+      - Employees
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: 'Update an employee deduction batch by employee ID and deduction ID
+
+        '
+      requestBody:
+        $ref: '#/components/requestBodies/Parameters'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchSuccessful'
+        default:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+    post:
+      tags:
+      - Employees
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: 'Insert deduction batch for an employee by employee ID and deduction ID
+
+        '
+      requestBody:
+        $ref: '#/components/requestBodies/Parameters'
+      responses:
+        '200':
+          description: Sucessful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InsertSuccessful'
+  /employees/{employee_id}/deductions/{deduction_id}/schedule:
+    parameters:
+    - name: employee_id
+      in: path
+      required: true
+      schema:
+        type: integer
+    - name: deduction_id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      tags:
+      - Employees
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: List scheduled changes to employee deductions
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    verb:
+                      type: string
+                    options:
+                      type: array
+                      items: {}
+                    description:
+                      type: string
+                    requested_date:
+                      type: string
+                    effective_date:
+                      type: string
+                    body:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        employee_id:
+                          type: integer
+                        employee_number:
+                          type: string
+                        deduction_type:
+                          $ref: '#/components/schemas/DeductionType'
+                        deduction_id:
+                          type: integer
+                        percent:
+                          type: number
+                        annual_limit:
+                          type: number
+                        amount:
+                          type: number
+                        override_amount:
+                          type: number
+                        active:
+                          type: boolean
+                        ach_active:
+                          type: boolean
+                        routing:
+                          type: integer
+                        account:
+                          type: integer
+                        savings:
+                          type: boolean
+                        memo:
+                          type: string
+                        include_benefit_amount_in_ach:
+                          type: boolean
+                        override_company_benefit_amount:
+                          type: number
+                        lifetime_limit:
+                          type: number
+                    requested_version:
+                      type: string
+    post:
+      tags:
+      - Employees
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: 'Submit a scheduled change to a deduction batch for an employee by employee ID and deduction ID
+
+        '
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - verb
+              - effective_date
+              - body
+              properties:
+                verb:
+                  type: string
+                options:
+                  type: array
+                  items: {}
+                effective_date:
+                  type: string
+                body:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    employee_id:
+                      type: integer
+                    employee_number:
+                      type: string
+                    deduction_type:
+                      $ref: '#/components/schemas/DeductionType'
+                    deduction_id:
+                      type: integer
+                    percent:
+                      type: number
+                    annual_limit:
+                      type: number
+                    amount:
+                      type: number
+                    override_amount:
+                      type: number
+                    active:
+                      type: boolean
+                    ach_active:
+                      type: boolean
+                    routing:
+                      type: integer
+                    account:
+                      type: integer
+                    savings:
+                      type: boolean
+                    memo:
+                      type: string
+                    include_benefit_amount_in_ach:
+                      type: boolean
+                    override_company_benefit_amount:
+                      type: number
+                    lifetime_limit:
+                      type: number
+                version:
+                  type: string
+      responses:
+        '200':
+          description: Sucessful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InsertSuccessful'
+  /employees/{employee_id}/bank-accounts:
+    parameters:
+    - name: employee_id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      tags:
+      - Employees
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: 'list employee bank accounts
+
+        '
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmployeeAchAccountItem'
+    put:
+      tags:
+      - Employees
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: put employee bank accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bank_accounts:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/EmployeeAchAccountPutItem'
+                version:
+                  type: string
+      responses:
+        '200':
+          description: Sucessful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  bank_accounts:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/EmployeeAchAccountItem'
+                  version:
+                    type: string
+  /employees/{employee_id}/wages:
+    parameters:
+    - name: employee_id
+      required: true
+      in: path
+      schema:
+        type: integer
+    get:
+      tags:
+      - Employees
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: List employee pay items
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pay_items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PayItem'
+                  actions_pending_approval:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        verb:
+                          type: string
+                        route:
+                          type: string
+                        options:
+                          type: array
+                          items: {}
+                        description:
+                          type: string
+                        effective_date:
+                          type: string
+                        requested_date:
+                          type: string
+                        body:
+                          type: object
+                          properties:
+                            pay_items:
+                              type: array
+                              items:
+                                $ref: '#/components/schemas/PayItem'
+                        version:
+                          type: string
+                  version:
+                    type: string
+    patch:
+      tags:
+      - Employees
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: Update employee pay items
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pay_items:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/PayItem'
+                version:
+                  type: string
+      responses:
+        '200':
+          description: Sucessful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pay_items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PayItem'
+                  version:
+                    type: string
+  /employees/{employee_id}/wages/schedule:
+    parameters:
+    - name: employee_id
+      required: true
+      in: path
+      schema:
+        type: integer
+    get:
+      tags:
+      - Employees
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: List scheduled changes to employee pay items
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    verb:
+                      type: string
+                    route:
+                      type: string
+                    options:
+                      type: array
+                      items: {}
+                    description:
+                      type: string
+                    requested_date:
+                      type: string
+                    effective_date:
+                      type: string
+                    body:
+                      type: object
+                      properties:
+                        pay_items:
+                          type: array
+                          items:
+                            $ref: '#/components/schemas/PayItem'
+    post:
+      tags:
+      - Employees
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: 'Schedule changes to employee wages for approval.
+
+        '
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - verb
+              - effective_date
+              - body
+              properties:
+                verb:
+                  type: string
+                options:
+                  type: array
+                  items: {}
+                effective_date:
+                  type: string
+                body:
+                  type: object
+                  properties:
+                    pay_items:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/PayItem'
+                version:
+                  type: string
+      responses:
+        '200':
+          description: Sucessful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InsertSuccessful'
+  /employees/{employee_id}/leave:
+    parameters:
+    - name: employee_id
+      required: true
+      in: path
+      schema:
+        type: integer
+    get:
+      tags:
+      - Employees
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: List employee leave items
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LeaveItem'
+    patch:
+      tags:
+      - Employees
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: Update employee leave items
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/LeaveItem'
+      responses:
+        '200':
+          description: Sucessful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LeaveItem'
+  /employees/{employee_id}/tax-fields:
+    parameters:
+    - name: employee_id
+      required: true
+      in: path
+      schema:
+        type: integer
+    get:
+      tags:
+      - Employees
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: List employee tax fields
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  worksite_id:
+                    type: integer
+                  federal_status:
+                    type: integer
+                  federal_allowances:
+                    type: integer
+                  fica_exempt:
+                    type: boolean
+                  fit_exempt:
+                    type: boolean
+                  fit_additional_amount:
+                    type: integer
+                  work_location_display_fields:
+                    $ref: '#/components/schemas/StateDisplayFieldsObject'
+                  state_misc_1_value:
+                    type: string
+                  state_misc_3_value:
+                    type: string
+                  state_misc_2_value:
+                    type: string
+                  sit_additional_amount:
+                    type: integer
+                  sdi_exempt:
+                    type: boolean
+                  state_misc_4_value:
+                    type: string
+                  sit_exempt:
+                    type: boolean
+                  state_resident:
+                    type: boolean
+    patch:
+      tags:
+      - Employees
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: Patch employee tax fields
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                worksite_id:
+                  type: integer
+                federal_status:
+                  type: integer
+                federal_allowances:
+                  type: integer
+                fica_exempt:
+                  type: boolean
+                fit_exempt:
+                  type: boolean
+                fit_additional_amount:
+                  type: integer
+                work_location_display_fields:
+                  $ref: '#/components/schemas/StateDisplayFieldsObject'
+                state_misc_1_value:
+                  type: string
+                state_misc_3_value:
+                  type: string
+                state_misc_2_value:
+                  type: string
+                sit_additional_amount:
+                  type: integer
+                sdi_exempt:
+                  type: boolean
+                state_misc_4_value:
+                  type: string
+                sit_exempt:
+                  type: boolean
+                state_resident:
+                  type: boolean
+      responses:
+        '200':
+          description: Sucessful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  worksite_id:
+                    type: integer
+                  federal_status:
+                    type: integer
+                  federal_allowances:
+                    type: integer
+                  fica_exempt:
+                    type: boolean
+                  fit_exempt:
+                    type: boolean
+                  fit_additional_amount:
+                    type: integer
+                  work_location_display_fields:
+                    $ref: '#/components/schemas/StateDisplayFieldsObject'
+                  state_misc_1_value:
+                    type: string
+                  state_misc_3_value:
+                    type: string
+                  state_misc_2_value:
+                    type: string
+                  sit_additional_amount:
+                    type: integer
+                  sdi_exempt:
+                    type: boolean
+                  state_misc_4_value:
+                    type: string
+                  sit_exempt:
+                    type: boolean
+                  state_resident:
+                    type: boolean
+  /employees/{employee_id}/tax-fields/worksite:
+    parameters:
+    - name: employee_id
+      required: true
+      in: path
+      schema:
+        type: integer
+    patch:
+      tags:
+      - Employees
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: Update employee worksite id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                worksite_id:
+                  type: integer
+                version:
+                  type: string
+      responses:
+        '200':
+          description: Sucessful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  worksite_id:
+                    type: integer
+                  federal_status:
+                    type: integer
+                  federal_allowances:
+                    type: integer
+                  fica_exempt:
+                    type: boolean
+                  fit_exempt:
+                    type: boolean
+                  fit_additional_amount:
+                    type: integer
+                  work_location_display_fields:
+                    $ref: '#/components/schemas/StateDisplayFieldsObject'
+                  state_misc_1_value:
+                    type: string
+                  state_misc_3_value:
+                    type: string
+                  state_misc_2_value:
+                    type: string
+                  sit_additional_amount:
+                    type: integer
+                  sdi_exempt:
+                    type: boolean
+                  state_misc_4_value:
+                    type: string
+                  sit_exempt:
+                    type: boolean
+                  state_resident:
+                    type: boolean
+  /employees/{employee_id}/termination:
+    parameters:
+    - name: employee_id
+      required: true
+      in: path
+      schema:
+        type: integer
+    post:
+      tags:
+      - Employees
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+        - Controller
+        - Manager
+      description: Terminate employee
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - termination_date
+              - termination_code
+              properties:
+                termination_code:
+                  type: string
+                termination_date:
+                  type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+  /employees/{employee_id}/rehire:
+    parameters:
+    - name: employee_id
+      required: true
+      in: path
+      schema:
+        type: integer
+    post:
+      tags:
+      - Employees
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+        - Controller
+        - Manager
+      description: Rehire employee
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - rehire_date
+              - version
+              properties:
+                rehire_date:
+                  type: string
+                version:
+                  type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+  /employees/recent-notes-and-comments:
+    get:
+      tags:
+      - Employees
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+        - Controller
+        - Manager
+      description: 'Get recent notes and or comments from an employees account.
+
+        '
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmployeeNote'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+        '402':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+components:
+  schemas:
+    StateDisplayFieldsObject:
+      type: object
+      properties:
+        state_information:
+          $ref: '#/components/schemas/StateInformationObject'
+        display_fields:
+          $ref: '#/components/schemas/DisplayFieldsObject'
+    DisplayFieldsObject:
+      type: object
+      properties:
+        state_misc_1_value:
+          type: string
+        state_misc_2_value:
+          type: string
+        sit_additional_amount:
+          type: integer
+        sit_exempt:
+          type: boolean
+        state_resident:
+          type: boolean
+    EmployeeDeductionItemBatch:
+      type: object
+      properties:
+        id:
+          type: integer
+        employee_id:
+          type: integer
+        employee_number:
+          type: string
+        deduction_type:
+          $ref: '#/components/schemas/DeductionType'
+        deduction_id:
+          type: integer
+        percent:
+          type: number
+        annual_limit:
+          type: number
+        amount:
+          type: number
+        override_amount:
+          type: number
+        active:
+          type: boolean
+        ach_active:
+          type: boolean
+        routing:
+          type: integer
+        account:
+          type: integer
+        savings:
+          type: boolean
+        memo:
+          type: string
+        include_benefit_amount_in_ach:
+          type: boolean
+        override_company_benefit_amount:
+          type: number
+        lifetime_limit:
+          type: number
+        version:
+          type: string
+    EmployeeAchAccountPutItem:
+      type: object
+      properties:
+        routing:
+          type: string
+        account:
+          type: string
+        percent:
+          type: string
+        amount:
+          type: string
+        savings:
+          type: integer
+          enum:
+          - 0
+          - 1
+    Employee:
+      type: object
+      properties:
+        employee_id:
+          type: integer
+        home_phone_number:
+          type: string
+        cell_phone_number:
+          type: string
+        employee_number:
+          type: string
+        first_name:
+          type: string
+        middle_initial:
+          type: string
+        last_name:
+          type: string
+        address:
+          type: string
+        address_2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+        mail_address:
+          type: string
+        mail_address_2:
+          type: string
+        mail_city:
+          type: string
+        mail_state:
+          type: string
+        mail_zip:
+          type: string
+        email:
+          type: string
+        ssn:
+          type: string
+        gender:
+          type: string
+          enum:
+          - M
+          - F
+          description: 'M - Male > F - Female
+
+            '
+        birthday:
+          type: string
+        direct_deposit_active:
+          type: string
+        type:
+          type: integer
+        pay_frequency:
+          type: integer
+          readOnly: true
+        wage:
+          type: string
+          readOnly: true
+        rate:
+          type: string
+          readOnly: true
+        pay_schedule_id:
+          type: integer
+        employment_status:
+          type: integer
+          enum:
+          - 0
+          - 1
+        part_time:
+          type: integer
+          enum:
+          - 0
+          - 1
+        seasonal:
+          type: integer
+        department_id:
+          type: integer
+        location_id:
+          type: integer
+        position_id:
+          type: integer
+        manager_id:
+          type: integer
+        workers_compensation_id:
+          type: integer
+        hire_date:
+          type: string
+        termination_date:
+          type: string
+        rehire_date:
+          type: string
+        supplemental_calculation_method:
+          type: integer
+        use_401k_catchup:
+          type: integer
+        date_added:
+          type: string
+        commit_id:
+          type: integer
+        version:
+          type: string
+        compid:
+          type: integer
+        profile_image:
+          type: string
+    PayItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        pay_type_id:
+          type: integer
+        employee_id:
+          type: integer
+        hours:
+          type: number
+        rate:
+          type: number
+        override_amount:
+          type: number
+    WageListItem:
+      type: object
+      properties:
+        name:
+          type: string
+        hours:
+          type: number
+        rate:
+          type: number
+        amount:
+          type: number
+        ytd:
+          type: number
+        pay_type_id:
+          type: number
+    EmployeeAchAccountItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        employee_id:
+          type: integer
+        type:
+          type: string
+          enum:
+          - dd
+        ach_order:
+          type: integer
+        percent:
+          type: string
+        amount:
+          type: string
+        routing:
+          type: string
+        account:
+          type: string
+        savings:
+          type: integer
+          enum:
+          - 0
+          - 1
+    EmployeePost:
+      type: object
+      properties:
+        employee:
+          type: array
+          properties:
+            birthday:
+              type: string
+            hire_date:
+              type: string
+            rehire_date:
+              type: string
+            termination_date:
+              type: string
+            accrual_vacation_policy_id:
+              type: integer
+            accrual_sick_policy_id:
+              type: integer
+            accrual_pto_policy_id:
+              type: integer
+            can_revoke_online_access:
+              type: boolean
+            cell_phone_number:
+              type: string
+            department_id:
+              type: integer
+            email:
+              type: string
+            address:
+              type: string
+            address_2:
+              type: string
+            city:
+              type: string
+            state:
+              type: string
+            zip:
+              type: string
+            first_name:
+              type: string
+            last_name:
+              type: string
+            middle_initial:
+              type: string
+            employee_notes:
+              type: string
+            employee_number:
+              type: string
+            ssn:
+              type: string
+            gender:
+              type: integer
+              enum:
+              - M
+              - F
+            home_phone_number:
+              type: string
+            mail_address:
+              type: string
+            mail_address_2:
+              type: string
+            mail_city:
+              type: string
+            mail_state:
+              type: string
+            use_mail_address:
+              type: boolean
+            mail_zip:
+              type: string
+            manager_id:
+              type: string
+            part_time:
+              type: boolean
+            pay_schedule_id:
+              type: integer
+            position_id:
+              type: integer
+            seasonal:
+              type: boolean
+            supplemental_calculation_method:
+              type: integer
+              enum:
+              - 3
+              - 4
+            type:
+              type: integer
+              enum:
+              - 0
+              - 1
+            tipped:
+              type: boolean
+            use_401k_catchup:
+              type: boolean
+            use_hsa_catchup:
+              type: boolean
+            use_hsa_family:
+              type: boolean
+            workers_compensation_id:
+              type: integer
+            work_phone_number:
+              type: string
+          items: {}
+        wages:
+          type: array
+          items:
+            $ref: '#/components/schemas/WageListItem'
+        deductions:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeductionListItem'
+        bank_accounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/EmployeeAchAccountItem'
+    DeductionIncludedIn401kReports:
+      type: string
+      description: 'L For Standard Deductions: include as loan in 401k reports
+
+        S report as safe harbor
+
+        Y include in deferral amounts
+
+        N exclude
+
+        '
+      enum:
+      - L
+      - S
+      - Y
+      - N
+    DeductionListItem:
+      type: object
+      properties:
+        name:
+          type: string
+        amount:
+          type: number
+        ytd:
+          type: number
+        id:
+          type: number
+        ach:
+          type: boolean
+        include_match:
+          type: boolean
+        benefit_name:
+          type: string
+        benefit_amount:
+          type: number
+        nonelective_portion_of_benefit:
+          type: number
+        is_garnishment:
+          type: boolean
+    ErrorBadRequest:
+      type: object
+      properties:
+        resp:
+          type: string
+          description: error
+        message:
+          type: string
+          description: error message
+    PatchSuccessful:
+      type: object
+      properties:
+        version:
+          type: string
+          description: new version
+    StateInformationObject:
+      type: object
+      properties:
+        name:
+          type: string
+    InsertSuccessful:
+      type: object
+      properties:
+        version:
+          type: string
+          description: new version
+        id:
+          type: integer
+          description: id of inserted object
+    EmployeeDeductionItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        type:
+          $ref: '#/components/schemas/DeductionType'
+        name:
+          type: string
+        annual_limit:
+          type: number
+        included_in_401k_reports:
+          $ref: '#/components/schemas/DeductionIncludedIn401kReports'
+        company_match_percent:
+          type: number
+        company_match_percent_of_gross:
+          type: number
+        company_match_percent_2:
+          type: number
+        company_match_percent_of_gross_2:
+          type: number
+        ignore_deferral:
+          type: boolean
+        nonelective_percent_of_gross:
+          type: number
+        grouping_id:
+          type: integer
+        version:
+          type: string
+        batch:
+          $ref: '#/components/schemas/EmployeeDeductionItemBatch'
+    LeaveItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        available:
+          type: integer
+        version:
+          type: string
+    EmployeeNote:
+      type: object
+      properties:
+        id:
+          type: integer
+        employee_id:
+          type: integer
+        user_id:
+          type: integer
+        public:
+          type: boolean
+        note:
+          type: string
+        user_name:
+          type: string
+        user_image:
+          type: string
+        time:
+          type: string
+          format: date-time
+    DeductionType:
+      type: integer
+      description: '1 Section 125
+
+        2 401K
+
+        3 403B
+
+        4 457
+
+        6 Roth 401K
+
+        7 Roth 403B
+
+        8 FSA
+
+        9 HSA
+
+        10 Simple IRA
+
+        21 Post-tax
+
+        22 Cash tips imputed
+
+        23 Union dues
+
+        24 Imputed
+
+        25 Union dues based on hours
+
+        102 Section 132
+
+        '
+      enum:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 102
+  requestBodies:
+    Parameters:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              percent:
+                type: number
+              annual_limit:
+                type: number
+              amount:
+                type: number
+              override_amount:
+                type: number
+              active:
+                type: boolean
+              ach_active:
+                type: boolean
+              routing:
+                type: integer
+              account:
+                type: integer
+              savings:
+                type: boolean
+              memo:
+                type: string
+              include_benefit_amount_in_ach:
+                type: boolean
+              override_company_benefit_amount:
+                type: number
+              lifetime_limit:
+                type: number
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://app.onpay.com/app/oauth/authorize
+          tokenUrl: https://app.onpay.com/app/oauth/authorize
+          scopes:
+            Owner: '1'
+            Approver: '2'
+            Controller: '3'
+            Manager: '4'
+            Accountant: '5'
+            Employee: '6'
+    Bearer:
+      name: Authorization
+      type: apiKey
+      in: header

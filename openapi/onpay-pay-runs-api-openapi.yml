@@ -1,0 +1,260 @@
+openapi: 3.2.0
+info:
+  version: 2.0.0
+  title: OnPay Pay Runs API
+  description: Must present a valid Bearer token.
+servers:
+- url: https://onpaydev.com/v2
+tags:
+- name: Pay-runs
+paths:
+  /reports/approved-pay-runs:
+    get:
+      tags:
+      - Pay-runs
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      parameters:
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: runid
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: 'Sucessful Response
+
+            '
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ApprovedPayRunsItem'
+  /reports/retirement-summary:
+    get:
+      tags:
+      - Pay-runs
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      parameters:
+      - name: company_id
+        in: query
+        required: true
+        schema:
+          type: integer
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: true
+        schema:
+          type: integer
+      - name: start
+        in: query
+        required: true
+        schema:
+          type: integer
+      - name: employee_ids
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: position_id
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: department_id
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: location_id
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: 'Sucessful Response
+
+            '
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RetirementSummaryItem'
+components:
+  schemas:
+    RetirementSummaryItem:
+      type: object
+      properties:
+        employee_id:
+          type: integer
+        to:
+          type: string
+        from:
+          type: string
+        wages_in_retirement_calculation:
+          type: number
+        employee_401k_loan_amount:
+          type: number
+        employee_deferral_amount:
+          type: number
+        employer_retirement_contribution:
+          type: number
+        total_retirement_contribution:
+          type: number
+        employee_pretax_deferral_amount:
+          type: number
+        employee_roth_deferral_amount:
+          type: number
+        simple_ira_amount:
+          type: number
+        safe_harbor_deferral_amount:
+          type: number
+        safe_harbor_nonelective_contribution:
+          type: number
+        safe_harbor_employer_contribution:
+          type: number
+        deductions_list:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+              deduction_type:
+                $ref: '#/components/schemas/DeductionType'
+              amount:
+                type: number
+              benefit_name:
+                type: string
+              benefit_amount:
+                type: number
+              nonelective_portion_of_benefit:
+                type: number
+    DeductionType:
+      type: integer
+      description: '1 Section 125
+
+        2 401K
+
+        3 403B
+
+        4 457
+
+        6 Roth 401K
+
+        7 Roth 403B
+
+        8 FSA
+
+        9 HSA
+
+        10 Simple IRA
+
+        21 Post-tax
+
+        22 Cash tips imputed
+
+        23 Union dues
+
+        24 Imputed
+
+        25 Union dues based on hours
+
+        102 Section 132
+
+        '
+      enum:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 102
+    ApprovedPayRunsItem:
+      type: object
+      properties:
+        runid:
+          type: integer
+        check_date:
+          type: string
+        timestamp:
+          type: string
+        period_start:
+          type: string
+        period_end:
+          type: string
+        user_id:
+          type: integer
+        tax_sweep_date:
+          type: string
+        tax_sweep_amount:
+          type: number
+        direct_deposit_sweep_date:
+          type: string
+        direct_deposit_sweep_amount:
+          type: number
+        direct_despoit_date:
+          type: string
+        direct_deposit_amount:
+          type: number
+        total_wages:
+          type: number
+        total_cash_requirement:
+          type: number
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://app.onpay.com/app/oauth/authorize
+          tokenUrl: https://app.onpay.com/app/oauth/authorize
+          scopes:
+            Owner: '1'
+            Approver: '2'
+            Controller: '3'
+            Manager: '4'
+            Accountant: '5'
+            Employee: '6'
+    Bearer:
+      name: Authorization
+      type: apiKey
+      in: header

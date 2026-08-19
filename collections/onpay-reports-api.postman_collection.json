@@ -1,0 +1,384 @@
+{
+  "item": [
+    {
+      "id": "9f1d8336-6b71-441b-ba06-8fbb8afb03ab",
+      "name": "Reports",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6d321ca9-138a-4eb0-ab93-048bf0fcc2af",
+          "name": "/reports/listing",
+          "request": {
+            "name": "/reports/listing",
+            "description": {},
+            "url": {
+              "path": [
+                "reports",
+                "listing"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "company_id",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "employee_ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "position_id",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "department_id",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4bc6a126-0e16-4530-9b2a-5fee8e00590b",
+              "name": "Payroll Listing Resopnse\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "listing"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "company_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "employee_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "position_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "department_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"employee_id\": 9088,\n    \"employee_type\": 4189,\n    \"employee_number\": \"string\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"address\": \"string\",\n    \"address_2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip\": \"string\",\n    \"ssn\": \"string\",\n    \"chkid\": 4264,\n    \"runid\": 1811,\n    \"check_date\": \"string\",\n    \"check_number\": \"string\",\n    \"memo\": \"string\",\n    \"period_start\": \"string\",\n    \"period_end\": \"string\",\n    \"location_id\": 2370,\n    \"department_id\": 7085,\n    \"position_id\": 3285,\n    \"note\": \"string\",\n    \"note_visible_to_employee\": false,\n    \"pay_frequency\": 6561,\n    \"year_start\": \"string\",\n    \"qtr_start\": \"string\",\n    \"month_start\": \"string\",\n    \"net\": 5597.253940988245,\n    \"wages_amount\": \"string\",\n    \"wages_taxable\": \"string\",\n    \"subject_wages\": 1427.1736868524022,\n    \"wages_list\": [\n      {\n        \"name\": \"string\",\n        \"hours\": 6579.88730687037,\n        \"rate\": 1024.0149701276268,\n        \"amount\": 9037.866569637637,\n        \"ytd\": 6360.841524012662,\n        \"pay_type_id\": 9801.062662918845\n      },\n      {\n        \"name\": \"string\",\n        \"hours\": 3006.6928153228578,\n        \"rate\": 7241.379920973229,\n        \"amount\": 9675.25802880386,\n        \"ytd\": 8923.430553128404,\n        \"pay_type_id\": 9436.66201301575\n      }\n    ],\n    \"employee_taxes_amount\": 4461.432435964374,\n    \"employee_taxes_list\": [\n      {\n        \"name\": \"string\",\n        \"subject_wages\": 9780.662749608917,\n        \"amount\": 7421.994045264033,\n        \"ytd\": 3081.488324208711\n      },\n      {\n        \"name\": \"string\",\n        \"subject_wages\": 8108.657171481597,\n        \"amount\": 7280.8463780002485,\n        \"ytd\": 4819.098761049422\n      }\n    ],\n    \"employer_taxes_amount\": 7410.231686647292,\n    \"employer_taxes_list\": [\n      {\n        \"name\": \"string\",\n        \"subject_wages\": 6134.700139940471,\n        \"amount\": 9558.666076552148,\n        \"ytd\": 5195.491933373538\n      },\n      {\n        \"name\": \"string\",\n        \"subject_wages\": 560.2332515072284,\n        \"amount\": 9340.579070480831,\n        \"ytd\": 7937.887750922727\n      }\n    ],\n    \"deductions_amount\": 4072.7597396421556,\n    \"deductions_list\": [\n      {\n        \"name\": \"string\",\n        \"amount\": 4404.990605219242,\n        \"ytd\": 5583.506301900164,\n        \"id\": 4754.355925851977,\n        \"ach\": true,\n        \"include_match\": true,\n        \"benefit_name\": \"string\",\n        \"benefit_amount\": 3375.7276254806625,\n        \"nonelective_portion_of_benefit\": 4123.375923266398,\n        \"is_garnishment\": false\n      },\n      {\n        \"name\": \"string\",\n        \"amount\": 2520.1626284635313,\n        \"ytd\": 9693.990022067444,\n        \"id\": 1036.2032321545878,\n        \"ach\": true,\n        \"include_match\": true,\n        \"benefit_name\": \"string\",\n        \"benefit_amount\": 882.247052924825,\n        \"nonelective_portion_of_benefit\": 7987.0050296653335,\n        \"is_garnishment\": true\n      }\n    ],\n    \"employee_deferral_amount\": 4194.379656813404,\n    \"employee_401k_loan_amount\": 6945.589834724297,\n    \"employer_retirement_contribution\": 1512.8301628795793,\n    \"total_retirement_contribution\": 9145.202860478876,\n    \"benefits_amount\": 8681.484144881539,\n    \"benefits_list\": [\n      {\n        \"name\": \"string\",\n        \"amount\": 6844.734575794269,\n        \"nonelective_portion_of_benefit\": 8165.498613545351,\n        \"ytd\": 1507.2570641566408\n      },\n      {\n        \"name\": \"string\",\n        \"amount\": 3846.253271512664,\n        \"nonelective_portion_of_benefit\": 6775.193527062447,\n        \"ytd\": 215.1178200534276\n      }\n    ],\n    \"garnishments_list\": [\n      {\n        \"name\": \"string\",\n        \"amount\": 5630.229393729497,\n        \"ytd\": 2969.834988625606\n      },\n      {\n        \"name\": \"string\",\n        \"amount\": 4746.689391344262,\n        \"ytd\": 9136.338413203233\n      }\n    ],\n    \"leave_accruals_list\": [\n      {\n        \"pay_type\": 7762,\n        \"used\": 25.426986616853277,\n        \"accrued\": 938.3185688047535,\n        \"available\": 3963.498478198414\n      },\n      {\n        \"pay_type\": 4917,\n        \"used\": 8504.540887288398,\n        \"accrued\": 9038.88294681317,\n        \"available\": 8410.582741499373\n      }\n    ],\n    \"direct_deposit_amount\": 3049.158214147777,\n    \"deductions_ach_amount\": 611.1328833268703,\n    \"include_ytd\": false,\n    \"ytd_wages_amount\": 961.3237467547231,\n    \"ytd_employee_taxes_amount\": 2475.013630247207,\n    \"ytd_employer_taxes_amount\": 4757.789085681549,\n    \"ytd_deductions_amount\": 208.4398088703665,\n    \"ytd_benefits_amount\": 18.57739064567543,\n    \"workers_compensation_code\": \"string\",\n    \"workers_compensation_hours\": 2824.1744698682123,\n    \"workers_compensation_id\": 8419,\n    \"workers_compensation_name\": \"string\",\n    \"workers_compensation_rate\": 3326.533878013268,\n    \"workers_compensation_premium_amount\": 6585.245340241356,\n    \"workers_compensation_amount\": 9276.692703417491,\n    \"tips_amount\": 4298.638910432626,\n    \"workers_compensation_gross\": 6646.934312395851,\n    \"workers_compensation_use_multiple\": true,\n    \"show_only_voided_checks\": false,\n    \"is_prior_wages\": true,\n    \"employer_contribution_amount\": 353.4720610783382\n  },\n  {\n    \"employee_id\": 9003,\n    \"employee_type\": 7847,\n    \"employee_number\": \"string\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"address\": \"string\",\n    \"address_2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip\": \"string\",\n    \"ssn\": \"string\",\n    \"chkid\": 8116,\n    \"runid\": 1398,\n    \"check_date\": \"string\",\n    \"check_number\": \"string\",\n    \"memo\": \"string\",\n    \"period_start\": \"string\",\n    \"period_end\": \"string\",\n    \"location_id\": 2115,\n    \"department_id\": 1561,\n    \"position_id\": 3033,\n    \"note\": \"string\",\n    \"note_visible_to_employee\": true,\n    \"pay_frequency\": 6033,\n    \"year_start\": \"string\",\n    \"qtr_start\": \"string\",\n    \"month_start\": \"string\",\n    \"net\": 3812.1457749441524,\n    \"wages_amount\": \"string\",\n    \"wages_taxable\": \"string\",\n    \"subject_wages\": 8529.542396244078,\n    \"wages_list\": [\n      {\n        \"name\": \"string\",\n        \"hours\": 6782.6513656754305,\n        \"rate\": 276.9311304786648,\n        \"amount\": 7313.652361792663,\n        \"ytd\": 5630.408723481326,\n        \"pay_type_id\": 2942.535456567841\n      },\n      {\n        \"name\": \"string\",\n        \"hours\": 407.9609649735461,\n        \"rate\": 6560.807640324849,\n        \"amount\": 937.8186009907674,\n        \"ytd\": 5031.929288307781,\n        \"pay_type_id\": 8086.00771250724\n      }\n    ],\n    \"employee_taxes_amount\": 7369.333060915276,\n    \"employee_taxes_list\": [\n      {\n        \"name\": \"string\",\n        \"subject_wages\": 3549.2060923040826,\n        \"amount\": 3298.99097831722,\n        \"ytd\": 294.3058834484058\n      },\n      {\n        \"name\": \"string\",\n        \"subject_wages\": 2002.8158807481211,\n        \"amount\": 566.4320157056113,\n        \"ytd\": 1435.989496157245\n      }\n    ],\n    \"employer_taxes_amount\": 8335.876464082805,\n    \"employer_taxes_list\": [\n      {\n        \"name\": \"string\",\n        \"subject_wages\": 9637.825062880525,\n        \"amount\": 2084.040319567324,\n        \"ytd\": 9753.848442256238\n      },\n      {\n        \"name\": \"string\",\n        \"subject_wages\": 9557.33580185473,\n        \"amount\": 665.8415086366099,\n        \"ytd\": 6720.921579937101\n      }\n    ],\n    \"deductions_amount\": 6826.400522315029,\n    \"deductions_list\": [\n      {\n        \"name\": \"string\",\n        \"amount\": 1298.4995051311776,\n        \"ytd\": 6482.415023918457,\n        \"id\": 527.123955261295,\n        \"ach\": false,\n        \"include_match\": true,\n        \"benefit_name\": \"string\",\n        \"benefit_amount\": 3923.7278524202834,\n        \"nonelective_portion_of_benefit\": 8418.526646093764,\n        \"is_garnishment\": true\n      },\n      {\n        \"name\": \"string\",\n        \"amount\": 1353.2145552011832,\n        \"ytd\": 4105.937574654508,\n        \"id\": 4470.232946870463,\n        \"ach\": false,\n        \"include_match\": false,\n        \"benefit_name\": \"string\",\n        \"benefit_amount\": 435.9276537498691,\n        \"nonelective_portion_of_benefit\": 614.2264229588301,\n        \"is_garnishment\": true\n      }\n    ],\n    \"employee_deferral_amount\": 9874.004340089185,\n    \"employee_401k_loan_amount\": 1428.3487765557757,\n    \"employer_retirement_contribution\": 9416.533750411458,\n    \"total_retirement_contribution\": 7947.675071323438,\n    \"benefits_amount\": 7426.19806371674,\n    \"benefits_list\": [\n      {\n        \"name\": \"string\",\n        \"amount\": 2640.6608130672284,\n        \"nonelective_portion_of_benefit\": 9951.00225032806,\n        \"ytd\": 3075.9101748443118\n      },\n      {\n        \"name\": \"string\",\n        \"amount\": 7965.890347802936,\n        \"nonelective_portion_of_benefit\": 2813.6370603056516,\n        \"ytd\": 7544.290674382303\n      }\n    ],\n    \"garnishments_list\": [\n      {\n        \"name\": \"string\",\n        \"amount\": 6483.977111994952,\n        \"ytd\": 1373.7025168026994\n      },\n      {\n        \"name\": \"string\",\n        \"amount\": 3277.9704837851764,\n        \"ytd\": 7470.316385643801\n      }\n    ],\n    \"leave_accruals_list\": [\n      {\n        \"pay_type\": 7913,\n        \"used\": 3758.6559335621796,\n        \"accrued\": 596.2241691661252,\n        \"available\": 4423.411856355837\n      },\n      {\n        \"pay_type\": 7305,\n        \"used\": 1064.9782081383053,\n        \"accrued\": 1332.0659660782208,\n        \"available\": 6933.901375549069\n      }\n    ],\n    \"direct_deposit_amount\": 769.859483150438,\n    \"deductions_ach_amount\": 177.38269976727005,\n    \"include_ytd\": true,\n    \"ytd_wages_amount\": 9888.696685969177,\n    \"ytd_employee_taxes_amount\": 9361.03504918777,\n    \"ytd_employer_taxes_amount\": 3584.5158371486873,\n    \"ytd_deductions_amount\": 6836.037618807011,\n    \"ytd_benefits_amount\": 8595.041719916679,\n    \"workers_compensation_code\": \"string\",\n    \"workers_compensation_hours\": 4487.036240615448,\n    \"workers_compensation_id\": 7606,\n    \"workers_compensation_name\": \"string\",\n    \"workers_compensation_rate\": 4367.546001149744,\n    \"workers_compensation_premium_amount\": 4330.197798269716,\n    \"workers_compensation_amount\": 9752.589405884073,\n    \"tips_amount\": 3735.347941011712,\n    \"workers_compensation_gross\": 7129.012837290387,\n    \"workers_compensation_use_multiple\": false,\n    \"show_only_voided_checks\": false,\n    \"is_prior_wages\": true,\n    \"employer_contribution_amount\": 6299.803000007674\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f91dc7d-9628-4ab3-a90f-835bed660aa4",
+          "name": "/reports/pagination/listing",
+          "request": {
+            "name": "/reports/pagination/listing",
+            "description": {},
+            "url": {
+              "path": [
+                "reports",
+                "pagination",
+                "listing"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "company_id",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "employee_ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "position_id",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "department_id",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Owner Approver Controller Manager Accountant Employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://app.onpay.com/app/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7ba5a4a5-3767-4dbf-ac76-883a4ecdd243",
+              "name": "Sucessful Response\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "pagination",
+                    "listing"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "company_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "employee_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "position_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "department_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 6648\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://onpaydev.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "34ae7082-b7ad-4426-b730-2a297dfb3c52",
+    "name": "OnPay Reports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Must present a valid Bearer token.",
+      "type": "text/plain"
+    }
+  }
+}

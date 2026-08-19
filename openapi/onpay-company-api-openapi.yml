@@ -1,0 +1,1200 @@
+openapi: 3.2.0
+info:
+  version: 2.0.0
+  title: OnPay Company API
+  description: Must present a valid Bearer token.
+servers:
+- url: https://onpaydev.com/v2
+tags:
+- name: Company
+paths:
+  /company:
+    get:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: 'Get company information
+
+        '
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+        default:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+  /company/pay-schedules:
+    get:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: 'list pay schedules for company
+
+        '
+      responses:
+        '200':
+          description: successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PaySchedule'
+        default:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+  /company/deductions:
+    get:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: 'Get all deductions for company
+
+        '
+      responses:
+        '200':
+          description: successful resopnse
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmployeeDeductionItem'
+        default:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+    post:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: 'create a new deduction
+
+        '
+      requestBody:
+        $ref: '#/components/requestBodies/Parameters2'
+      responses:
+        '200':
+          description: successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InsertSuccessful'
+        default:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+  /company/deductions/{deduction_id}:
+    parameters:
+    - name: deduction_id
+      required: true
+      in: path
+      schema:
+        type: integer
+    patch:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: 'Patch deduction
+
+        '
+      requestBody:
+        $ref: '#/components/requestBodies/Parameters2'
+      responses:
+        '200':
+          description: successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchSuccessful'
+        default:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+    delete:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: 'Delete deduction by Id.
+
+        '
+      responses:
+        '200':
+          description: successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteSuccessful'
+        default:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+  /company/deduction-groupings:
+    get:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      responses:
+        '200':
+          description: 'Sucessful Response
+
+            '
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeductionGroupingItem'
+        default:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+    post:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      requestBody:
+        $ref: '#/components/requestBodies/DeductionGroupingItem'
+      responses:
+        '200':
+          description: 'Sucessful Response
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InsertSuccessful'
+        default:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+  /company/deduction-groupings/{id}:
+    parameters:
+    - name: id
+      required: true
+      in: path
+      schema:
+        type: integer
+    patch:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      requestBody:
+        $ref: '#/components/requestBodies/DeductionGroupingItem'
+      responses:
+        '200':
+          description: 'Sucessful Response
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchSuccessful'
+        default:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+  /company/worksites:
+    get:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+        - Controller
+        - Manager
+      responses:
+        '200':
+          description: Sucessful Resopnse
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WorksiteItem'
+    post:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                address:
+                  type: string
+                address_2:
+                  type: string
+                city:
+                  type: string
+                state:
+                  type: string
+                zip:
+                  type: string
+      responses:
+        '200':
+          description: Sucessful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InsertSuccessful'
+  /company/worksites/{id}:
+    parameters:
+    - name: id
+      required: true
+      in: path
+      schema:
+        type: integer
+    get:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+        - Controller
+        - Manager
+      responses:
+        '200':
+          description: Sucessful Resopnse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorksiteItem'
+    patch:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                address:
+                  type: string
+                address_2:
+                  type: string
+                city:
+                  type: string
+                state:
+                  type: string
+                zip:
+                  type: string
+                version:
+                  type: string
+        description: JSON Merge Patch [RFC 7396]
+      responses:
+        '200':
+          description: Sucessful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchSuccessful'
+  /company/locations:
+    get:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      responses:
+        '200':
+          description: 'Sucessful Response
+
+            '
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LocationItem'
+        default:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBadRequest'
+    post:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      requestBody:
+        $ref: '#/components/requestBodies/Properties2'
+      responses:
+        '200':
+          description: Sucessful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InsertSuccessful'
+  /company/locations/{id}:
+    parameters:
+    - name: id
+      required: true
+      in: path
+      schema:
+        type: integer
+    get:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      responses:
+        '200':
+          description: 'Sucessful Response
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocationItem'
+    patch:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      requestBody:
+        $ref: '#/components/requestBodies/Properties'
+      responses:
+        '200':
+          description: Sucessful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchSuccessful'
+  /company/departments:
+    get:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: Get all departments for company
+      responses:
+        '200':
+          description: 'Sucessful Response
+
+            '
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DepartmentItem'
+    post:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      requestBody:
+        $ref: '#/components/requestBodies/Properties2'
+      responses:
+        '200':
+          description: Sucessful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InsertSuccessful'
+  /company/departments/{id}:
+    parameters:
+    - name: id
+      required: true
+      in: path
+      schema:
+        type: integer
+    get:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: Get department by ID
+      responses:
+        '200':
+          description: 'Sucessful Response
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DepartmentItem'
+    patch:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      requestBody:
+        $ref: '#/components/requestBodies/Properties'
+      responses:
+        '200':
+          description: Sucessful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchSuccessful'
+  /company/positions:
+    get:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: List all positions for company
+      responses:
+        '200':
+          description: 'Sucessful Response
+
+            '
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PositionItem'
+    post:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: Add a PositionItem to company
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+        description: JSON
+      responses:
+        '200':
+          description: Sucessful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InsertSuccessful'
+  /company/positions/{id}:
+    parameters:
+    - name: id
+      required: true
+      in: path
+      schema:
+        type: integer
+    get:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: Get Position by ID
+      responses:
+        '200':
+          description: 'Sucessful Response
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PositionItem'
+    patch:
+      tags:
+      - Company
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PositionItem'
+        description: JSON Merge Patch [RFC 7396]
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      responses:
+        '200':
+          description: 'Sucessful Response
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchSuccessful'
+  /company/state-tax-fields/{fips}:
+    parameters:
+    - name: fips
+      required: true
+      in: path
+      schema:
+        type: string
+    get:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: Get state tax fields by fips code
+      responses:
+        '200':
+          description: 'Sucessful Response
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaxFields'
+    patch:
+      tags:
+      - Company
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaxFields'
+        description: JSON Merge Patch [RFC 7396]
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      responses:
+        '200':
+          description: 'Sucessful Response
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchSuccessful'
+  /company/unprocessed-hours:
+    get:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      description: Get unproccessed hours
+      responses:
+        '200':
+          description: 'Sucessful Response
+
+            '
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pay_schedule_id:
+                    type: integer
+                  period_start_date:
+                    type: string
+                  period_end_date:
+                    type: string
+                  employee_hours:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        employee_id:
+                          type: integer
+                        hourly_pay_items:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                              pay_type_id:
+                                type: integer
+                              hours:
+                                type: number
+    put:
+      tags:
+      - Company
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - pay_schedule_id
+              - period_start_date
+              - period_end_date
+              properties:
+                pay_schedule_id:
+                  type: integer
+                period_start_date:
+                  type: string
+                period_end_date:
+                  type: string
+                employee_hours:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      employee_id:
+                        type: integer
+                      hourly_pay_items:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            pay_type_id:
+                              type: integer
+                            hours:
+                              type: number
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+      responses:
+        '200':
+          description: 'Sucessful Response
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchSuccessful'
+  /company/pay-schedule-dates:
+    get:
+      tags:
+      - Company
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+        - Controller
+        - Manager
+      parameters:
+      - name: pay_schedule_id
+        required: true
+        in: query
+        schema:
+          type: integer
+      - name: number_of_periods
+        required: false
+        in: query
+        schema:
+          type: string
+      - name: first_date
+        required: false
+        in: query
+        schema:
+          type: string
+      description: 'Get important dates for a pay schedule
+
+        '
+      responses:
+        '200':
+          description: 'Sucessful Response
+
+            '
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pay_schedule_id:
+                    type: integer
+                  check_date:
+                    type: string
+                  period_start:
+                    type: string
+                  period_end:
+                    type: string
+                  effective_date:
+                    type: string
+                  submission_deadline:
+                    type: string
+components:
+  schemas:
+    DepartmentItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        version:
+          type: string
+    StateDisplayFieldsObject:
+      type: object
+      properties:
+        state_information:
+          $ref: '#/components/schemas/StateInformationObject'
+        display_fields:
+          $ref: '#/components/schemas/DisplayFieldsObject'
+    PaySchedule:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        frequency:
+          type: integer
+        check_date:
+          type: string
+        period_start:
+          type: string
+        period_end:
+          type: string
+        submission_deadline:
+          type: string
+        version:
+          type: string
+    DisplayFieldsObject:
+      type: object
+      properties:
+        state_misc_1_value:
+          type: string
+        state_misc_2_value:
+          type: string
+        sit_additional_amount:
+          type: integer
+        sit_exempt:
+          type: boolean
+        state_resident:
+          type: boolean
+    DeleteSuccessful:
+      type: object
+      properties:
+        deleted_id:
+          type: integer
+          description: id of deleted object
+    EmployeeDeductionItemBatch:
+      type: object
+      properties:
+        id:
+          type: integer
+        employee_id:
+          type: integer
+        employee_number:
+          type: string
+        deduction_type:
+          $ref: '#/components/schemas/DeductionType'
+        deduction_id:
+          type: integer
+        percent:
+          type: number
+        annual_limit:
+          type: number
+        amount:
+          type: number
+        override_amount:
+          type: number
+        active:
+          type: boolean
+        ach_active:
+          type: boolean
+        routing:
+          type: integer
+        account:
+          type: integer
+        savings:
+          type: boolean
+        memo:
+          type: string
+        include_benefit_amount_in_ach:
+          type: boolean
+        override_company_benefit_amount:
+          type: number
+        lifetime_limit:
+          type: number
+        version:
+          type: string
+    DeductionGroupingItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        nonelective_cap:
+          type: number
+        company_match_percent_cap:
+          type: number
+        company_match_percent_of_gross_cap:
+          type: number
+        company_match_percent_2_cap:
+          type: number
+        company_match_percent_of_gross_2_cap:
+          type: number
+        version:
+          type: string
+    Company:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        dba:
+          type: string
+        address:
+          type: string
+        address_2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: integer
+        email:
+          type: string
+        contact_name:
+          type: string
+        contact_number:
+          type: string
+        company_number:
+          type: string
+        mail_address:
+          type: string
+        mail_address_2:
+          type: string
+        mail_city:
+          type: string
+        mail_zip:
+          type: integer
+    DeductionIncludedIn401kReports:
+      type: string
+      description: 'L For Standard Deductions: include as loan in 401k reports
+
+        S report as safe harbor
+
+        Y include in deferral amounts
+
+        N exclude
+
+        '
+      enum:
+      - L
+      - S
+      - Y
+      - N
+    PatchSuccessful:
+      type: object
+      properties:
+        version:
+          type: string
+          description: new version
+    ErrorBadRequest:
+      type: object
+      properties:
+        resp:
+          type: string
+          description: error
+        message:
+          type: string
+          description: error message
+    StateInformationObject:
+      type: object
+      properties:
+        name:
+          type: string
+    InsertSuccessful:
+      type: object
+      properties:
+        version:
+          type: string
+          description: new version
+        id:
+          type: integer
+          description: id of inserted object
+    TaxFields:
+      type: object
+      properties:
+        federal_status:
+          type: integer
+        federal_allowances:
+          type: integer
+        fica_exempt:
+          type: boolean
+        fit_exempt:
+          type: boolean
+        fit_additional_amount:
+          type: integer
+        work_location_display_fields:
+          $ref: '#/components/schemas/StateDisplayFieldsObject'
+        state_misc_1_value:
+          type: string
+        state_misc_3_value:
+          type: string
+        state_misc_2_value:
+          type: string
+        sit_additional_amount:
+          type: integer
+        sdi_exempt:
+          type: boolean
+        state_misc_4_value:
+          type: string
+        sit_exempt:
+          type: boolean
+        state_resident:
+          type: boolean
+    LocationItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        version:
+          type: string
+    EmployeeDeductionItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        type:
+          $ref: '#/components/schemas/DeductionType'
+        name:
+          type: string
+        annual_limit:
+          type: number
+        included_in_401k_reports:
+          $ref: '#/components/schemas/DeductionIncludedIn401kReports'
+        company_match_percent:
+          type: number
+        company_match_percent_of_gross:
+          type: number
+        company_match_percent_2:
+          type: number
+        company_match_percent_of_gross_2:
+          type: number
+        ignore_deferral:
+          type: boolean
+        nonelective_percent_of_gross:
+          type: number
+        grouping_id:
+          type: integer
+        version:
+          type: string
+        batch:
+          $ref: '#/components/schemas/EmployeeDeductionItemBatch'
+    PositionItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        version:
+          type: string
+    WorksiteItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        address:
+          type: string
+        address_2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+        version:
+          type: string
+    DeductionType:
+      type: integer
+      description: '1 Section 125
+
+        2 401K
+
+        3 403B
+
+        4 457
+
+        6 Roth 401K
+
+        7 Roth 403B
+
+        8 FSA
+
+        9 HSA
+
+        10 Simple IRA
+
+        21 Post-tax
+
+        22 Cash tips imputed
+
+        23 Union dues
+
+        24 Imputed
+
+        25 Union dues based on hours
+
+        102 Section 132
+
+        '
+      enum:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 102
+  requestBodies:
+    Properties:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              version:
+                type: string
+      description: JSON Merge Patch [RFC 7396]
+    Properties2:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+      description: JSON Merge Patch [RFC 7396]
+    DeductionGroupingItem:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DeductionGroupingItem'
+      description: JSON Merge Patch [RFC 7396]
+    Parameters2:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              type:
+                $ref: '#/components/schemas/DeductionType'
+              company_match_percent_of_gross:
+                type: number
+              company_match_percent_of_gross_2:
+                type: number
+              company_match_percent:
+                type: number
+              company_match_percent_2:
+                type: number
+              annual_limit:
+                type: number
+              non_elective_percent_of_gross:
+                type: number
+              ignore_deferral:
+                type: boolean
+              grouping_id:
+                type: integer
+              included_in_401k_reports:
+                $ref: '#/components/schemas/DeductionIncludedIn401kReports'
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://app.onpay.com/app/oauth/authorize
+          tokenUrl: https://app.onpay.com/app/oauth/authorize
+          scopes:
+            Owner: '1'
+            Approver: '2'
+            Controller: '3'
+            Manager: '4'
+            Accountant: '5'
+            Employee: '6'
+    Bearer:
+      name: Authorization
+      type: apiKey
+      in: header

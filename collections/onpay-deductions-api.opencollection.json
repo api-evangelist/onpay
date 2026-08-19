@@ -1,0 +1,371 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OnPay Deductions API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Deductions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /employees/{employee_id}/deductions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://onpaydev.com/v2/employees/:employee_id/deductions",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get deductions for an employee\n"
+        },
+        {
+          "info": {
+            "name": "POST /employees/{employee_id}/deductions/{deduction_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://onpaydev.com/v2/employees/:employee_id/deductions/:deduction_id",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deduction_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Insert deduction batch for an employee by employee ID and deduction ID\n"
+        },
+        {
+          "info": {
+            "name": "PATCH /employees/{employee_id}/deductions/{deduction_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://onpaydev.com/v2/employees/:employee_id/deductions/:deduction_id",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deduction_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update an employee deduction batch by employee ID and deduction ID\n"
+        },
+        {
+          "info": {
+            "name": "GET /employees/{employee_id}/deductions/{deduction_id}/schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://onpaydev.com/v2/employees/:employee_id/deductions/:deduction_id/schedule",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deduction_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List scheduled changes to employee deductions"
+        },
+        {
+          "info": {
+            "name": "POST /employees/{employee_id}/deductions/{deduction_id}/schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://onpaydev.com/v2/employees/:employee_id/deductions/:deduction_id/schedule",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deduction_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Submit a scheduled change to a deduction batch for an employee by employee ID and deduction ID\n"
+        },
+        {
+          "info": {
+            "name": "GET /company/deductions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://onpaydev.com/v2/company/deductions",
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get all deductions for company\n"
+        },
+        {
+          "info": {
+            "name": "POST /company/deductions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://onpaydev.com/v2/company/deductions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "create a new deduction\n"
+        },
+        {
+          "info": {
+            "name": "PATCH /company/deductions/{deduction_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://onpaydev.com/v2/company/deductions/:deduction_id",
+            "params": [
+              {
+                "name": "deduction_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Patch deduction\n"
+        },
+        {
+          "info": {
+            "name": "DELETE /company/deductions/{deduction_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://onpaydev.com/v2/company/deductions/:deduction_id",
+            "params": [
+              {
+                "name": "deduction_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Delete deduction by Id.\n"
+        },
+        {
+          "info": {
+            "name": "GET /company/deduction-groupings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://onpaydev.com/v2/company/deduction-groupings",
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /company/deduction-groupings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://onpaydev.com/v2/company/deduction-groupings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "PATCH /company/deduction-groupings/{id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://onpaydev.com/v2/company/deduction-groupings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

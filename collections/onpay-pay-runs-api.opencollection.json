@@ -1,0 +1,122 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OnPay Pay Runs API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pay-runs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /reports/approved-pay-runs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://onpaydev.com/v2/reports/approved-pay-runs",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "runid",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /reports/retirement-summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://onpaydev.com/v2/reports/retirement-summary",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "employee_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "position_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "department_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://app.onpay.com/app/oauth/authorize",
+              "accessTokenUrl": "https://app.onpay.com/app/oauth/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

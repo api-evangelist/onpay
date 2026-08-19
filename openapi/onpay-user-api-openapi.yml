@@ -1,0 +1,61 @@
+openapi: 3.2.0
+info:
+  version: 2.0.0
+  title: OnPay User API
+  description: Must present a valid Bearer token.
+servers:
+- url: https://onpaydev.com/v2
+tags:
+- name: User
+paths:
+  /user:
+    get:
+      tags:
+      - User
+      security:
+      - OAuth2:
+        - Owner
+        - Approver
+        - Controller
+        - Manager
+        - Employee
+      responses:
+        '200':
+          description: 'Sucessful Response
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserItem'
+components:
+  schemas:
+    UserItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://app.onpay.com/app/oauth/authorize
+          tokenUrl: https://app.onpay.com/app/oauth/authorize
+          scopes:
+            Owner: '1'
+            Approver: '2'
+            Controller: '3'
+            Manager: '4'
+            Accountant: '5'
+            Employee: '6'
+    Bearer:
+      name: Authorization
+      type: apiKey
+      in: header
