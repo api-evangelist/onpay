@@ -18,6 +18,17 @@ specificationVersion: '0.23'
 created: '2026-08-04'
 modified: '2026-08-04'
 tags:
+- Payroll
+- Human Resources
+- Employee Benefits
+- payroll-tax
+- Small Business
+- Workforce Management
+- Fintech
+- HR Tech
+- Time and Attendance
+- retirement-401k
+tags_raw:
 - payroll
 - human-resources
 - employee-benefits
@@ -113,6 +124,8 @@ apis:
   humanURL: https://onpay.readme.io/reference/authorization
   baseURL: https://api.onpay.com/v2
   tags:
+  - Pay Runs
+  tags_raw:
   - Pay-runs
   properties:
   - type: OpenAPI
