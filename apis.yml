@@ -10,6 +10,18 @@ description: >-
   locations, departments and positions, pay schedules, and payroll reporting. Access is limited to
   approved partners, authorized with OAuth 2.0 authorization-code grants against app.onpay.com and
   role-scoped bearer tokens.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://onpay.com/wp-content/uploads/2017/08/d9fo84j1zi.jpg
 url: https://raw.githubusercontent.com/api-evangelist/onpay/refs/heads/main/apis.yml
 x-type: company
