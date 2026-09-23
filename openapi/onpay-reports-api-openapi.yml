@@ -73,6 +73,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/PayrollCheck'
+      summary: Get reports listing
+      x-summary-source: derived
+      operationId: getReportsListing
+      x-operation-id-source: derived
   /reports/pagination/listing:
     get:
       tags:
@@ -129,30 +133,12 @@ paths:
                 properties:
                   count:
                     type: integer
+      summary: Get reports pagination listing
+      x-summary-source: derived
+      operationId: getReportsPaginationListing
+      x-operation-id-source: derived
 components:
   schemas:
-    BenefitsListItem:
-      type: object
-      properties:
-        name:
-          type: string
-        amount:
-          type: number
-        nonelective_portion_of_benefit:
-          type: number
-        ytd:
-          type: number
-    EmployeeTaxListItem:
-      type: object
-      properties:
-        name:
-          type: string
-        subject_wages:
-          type: number
-        amount:
-          type: number
-        ytd:
-          type: number
     PayrollCheck:
       type: object
       properties:
@@ -304,37 +290,6 @@ components:
           type: boolean
         employer_contribution_amount:
           type: number
-    EmployerTaxListItem:
-      type: object
-      properties:
-        name:
-          type: string
-        subject_wages:
-          type: number
-        amount:
-          type: number
-        ytd:
-          type: number
-    LeaveAccrualsListItem:
-      type: object
-      properties:
-        pay_type:
-          type: integer
-        used:
-          type: number
-        accrued:
-          type: number
-        available:
-          type: number
-    GarnishmentsListItem:
-      type: object
-      properties:
-        name:
-          type: string
-        amount:
-          type: number
-        ytd:
-          type: number
     DeductionListItem:
       type: object
       properties:
@@ -358,6 +313,39 @@ components:
           type: number
         is_garnishment:
           type: boolean
+    LeaveAccrualsListItem:
+      type: object
+      properties:
+        pay_type:
+          type: integer
+        used:
+          type: number
+        accrued:
+          type: number
+        available:
+          type: number
+    BenefitsListItem:
+      type: object
+      properties:
+        name:
+          type: string
+        amount:
+          type: number
+        nonelective_portion_of_benefit:
+          type: number
+        ytd:
+          type: number
+    EmployerTaxListItem:
+      type: object
+      properties:
+        name:
+          type: string
+        subject_wages:
+          type: number
+        amount:
+          type: number
+        ytd:
+          type: number
     WageListItem:
       type: object
       properties:
@@ -372,6 +360,26 @@ components:
         ytd:
           type: number
         pay_type_id:
+          type: number
+    GarnishmentsListItem:
+      type: object
+      properties:
+        name:
+          type: string
+        amount:
+          type: number
+        ytd:
+          type: number
+    EmployeeTaxListItem:
+      type: object
+      properties:
+        name:
+          type: string
+        subject_wages:
+          type: number
+        amount:
+          type: number
+        ytd:
           type: number
   securitySchemes:
     OAuth2:

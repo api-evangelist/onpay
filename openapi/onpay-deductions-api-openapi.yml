@@ -19,9 +19,7 @@ paths:
         - Controller
         - Manager
         - Employee
-      description: 'Get deductions for an employee
-
-        '
+      description: Get deductions for an employee
       parameters:
       - name: employee_id
         in: path
@@ -104,6 +102,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorBadRequest'
+      summary: Get employees by employee id deductions
+      x-summary-source: derived
+      operationId: getEmployeesByEmployeeIdDeductions
+      x-operation-id-source: derived
   /employees/{employee_id}/deductions/{deduction_id}:
     parameters:
     - name: employee_id
@@ -123,9 +125,7 @@ paths:
       - OAuth2:
         - Owner
         - Approver
-      description: 'Update an employee deduction batch by employee ID and deduction ID
-
-        '
+      description: Update an employee deduction batch by employee ID and deduction ID
       requestBody:
         $ref: '#/components/requestBodies/Parameters'
       responses:
@@ -141,6 +141,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorBadRequest'
+      summary: Update employees by employee id deductions by deduction id
+      x-summary-source: derived
+      operationId: patchEmployeesByEmployeeIdDeductionsByDeductionId
+      x-operation-id-source: derived
     post:
       tags:
       - Deductions
@@ -148,9 +152,7 @@ paths:
       - OAuth2:
         - Owner
         - Approver
-      description: 'Insert deduction batch for an employee by employee ID and deduction ID
-
-        '
+      description: Insert deduction batch for an employee by employee ID and deduction ID
       requestBody:
         $ref: '#/components/requestBodies/Parameters'
       responses:
@@ -160,6 +162,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsertSuccessful'
+      summary: Create employees by employee id deductions by deduction id
+      x-summary-source: derived
+      operationId: postEmployeesByEmployeeIdDeductionsByDeductionId
+      x-operation-id-source: derived
   /employees/{employee_id}/deductions/{deduction_id}/schedule:
     parameters:
     - name: employee_id
@@ -241,6 +247,10 @@ paths:
                           type: number
                     requested_version:
                       type: string
+      summary: Get employees by employee id deductions by deduction id schedule
+      x-summary-source: derived
+      operationId: getEmployeesByEmployeeIdDeductionsByDeductionIdSchedule
+      x-operation-id-source: derived
     post:
       tags:
       - Deductions
@@ -248,9 +258,7 @@ paths:
       - OAuth2:
         - Owner
         - Approver
-      description: 'Submit a scheduled change to a deduction batch for an employee by employee ID and deduction ID
-
-        '
+      description: Submit a scheduled change to a deduction batch for an employee by employee ID and deduction ID
       requestBody:
         content:
           application/json:
@@ -316,6 +324,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InsertSuccessful'
+      summary: Create employees by employee id deductions by deduction id schedule
+      x-summary-source: derived
+      operationId: postEmployeesByEmployeeIdDeductionsByDeductionIdSchedule
+      x-operation-id-source: derived
   /company/deductions:
     get:
       tags:
@@ -324,9 +336,7 @@ paths:
       - OAuth2:
         - Owner
         - Approver
-      description: 'Get all deductions for company
-
-        '
+      description: Get all deductions for company
       responses:
         '200':
           description: successful resopnse
@@ -342,6 +352,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorBadRequest'
+      summary: Get company deductions
+      x-summary-source: derived
+      operationId: getCompanyDeductions
+      x-operation-id-source: derived
     post:
       tags:
       - Deductions
@@ -349,9 +363,7 @@ paths:
       - OAuth2:
         - Owner
         - Approver
-      description: 'create a new deduction
-
-        '
+      description: create a new deduction
       requestBody:
         $ref: '#/components/requestBodies/Parameters2'
       responses:
@@ -367,6 +379,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorBadRequest'
+      summary: Create company deductions
+      x-summary-source: derived
+      operationId: postCompanyDeductions
+      x-operation-id-source: derived
   /company/deductions/{deduction_id}:
     parameters:
     - name: deduction_id
@@ -381,9 +397,7 @@ paths:
       - OAuth2:
         - Owner
         - Approver
-      description: 'Patch deduction
-
-        '
+      description: Patch deduction
       requestBody:
         $ref: '#/components/requestBodies/Parameters2'
       responses:
@@ -399,6 +413,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorBadRequest'
+      summary: Update company deductions by deduction id
+      x-summary-source: derived
+      operationId: patchCompanyDeductionsByDeductionId
+      x-operation-id-source: derived
     delete:
       tags:
       - Deductions
@@ -406,9 +424,7 @@ paths:
       - OAuth2:
         - Owner
         - Approver
-      description: 'Delete deduction by Id.
-
-        '
+      description: Delete deduction by Id.
       responses:
         '200':
           description: successful response
@@ -422,6 +438,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorBadRequest'
+      summary: Delete company deductions by deduction id
+      x-summary-source: derived
+      operationId: deleteCompanyDeductionsByDeductionId
+      x-operation-id-source: derived
   /company/deduction-groupings:
     get:
       tags:
@@ -447,6 +467,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorBadRequest'
+      summary: Get company deduction groupings
+      x-summary-source: derived
+      operationId: getCompanyDeductionGroupings
+      x-operation-id-source: derived
     post:
       tags:
       - Deductions
@@ -471,6 +495,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorBadRequest'
+      summary: Create company deduction groupings
+      x-summary-source: derived
+      operationId: postCompanyDeductionGroupings
+      x-operation-id-source: derived
   /company/deduction-groupings/{id}:
     parameters:
     - name: id
@@ -502,7 +530,78 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorBadRequest'
+      summary: Update company deduction groupings by id
+      x-summary-source: derived
+      operationId: patchCompanyDeductionGroupingsById
+      x-operation-id-source: derived
 components:
+  requestBodies:
+    Parameters:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              percent:
+                type: number
+              annual_limit:
+                type: number
+              amount:
+                type: number
+              override_amount:
+                type: number
+              active:
+                type: boolean
+              ach_active:
+                type: boolean
+              routing:
+                type: integer
+              account:
+                type: integer
+              savings:
+                type: boolean
+              memo:
+                type: string
+              include_benefit_amount_in_ach:
+                type: boolean
+              override_company_benefit_amount:
+                type: number
+              lifetime_limit:
+                type: number
+    DeductionGroupingItem:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DeductionGroupingItem'
+      description: JSON Merge Patch [RFC 7396]
+    Parameters2:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              type:
+                $ref: '#/components/schemas/DeductionType'
+              company_match_percent_of_gross:
+                type: number
+              company_match_percent_of_gross_2:
+                type: number
+              company_match_percent:
+                type: number
+              company_match_percent_2:
+                type: number
+              annual_limit:
+                type: number
+              non_elective_percent_of_gross:
+                type: number
+              ignore_deferral:
+                type: boolean
+              grouping_id:
+                type: integer
+              included_in_401k_reports:
+                $ref: '#/components/schemas/DeductionIncludedIn401kReports'
   schemas:
     EmployeeDeductionItemBatch:
       type: object
@@ -545,15 +644,6 @@ components:
           type: number
         version:
           type: string
-    InsertSuccessful:
-      type: object
-      properties:
-        version:
-          type: string
-          description: new version
-        id:
-          type: integer
-          description: id of inserted object
     EmployeeDeductionItem:
       type: object
       properties:
@@ -585,6 +675,23 @@ components:
           type: string
         batch:
           $ref: '#/components/schemas/EmployeeDeductionItemBatch'
+    DeductionGroupingItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        nonelective_cap:
+          type: number
+        company_match_percent_cap:
+          type: number
+        company_match_percent_of_gross_cap:
+          type: number
+        company_match_percent_2_cap:
+          type: number
+        company_match_percent_of_gross_2_cap:
+          type: number
+        version:
+          type: string
     DeductionType:
       type: integer
       description: '1 Section 125
@@ -634,29 +741,12 @@ components:
       - 24
       - 25
       - 102
-    DeleteSuccessful:
+    PatchSuccessful:
       type: object
       properties:
-        deleted_id:
-          type: integer
-          description: id of deleted object
-    DeductionGroupingItem:
-      type: object
-      properties:
-        id:
-          type: integer
-        nonelective_cap:
-          type: number
-        company_match_percent_cap:
-          type: number
-        company_match_percent_of_gross_cap:
-          type: number
-        company_match_percent_2_cap:
-          type: number
-        company_match_percent_of_gross_2_cap:
-          type: number
         version:
           type: string
+          description: new version
     DeductionIncludedIn401kReports:
       type: string
       description: 'L For Standard Deductions: include as loan in 401k reports
@@ -673,12 +763,15 @@ components:
       - S
       - Y
       - N
-    PatchSuccessful:
+    InsertSuccessful:
       type: object
       properties:
         version:
           type: string
           description: new version
+        id:
+          type: integer
+          description: id of inserted object
     ErrorBadRequest:
       type: object
       properties:
@@ -688,73 +781,12 @@ components:
         message:
           type: string
           description: error message
-  requestBodies:
-    Parameters2:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              name:
-                type: string
-              type:
-                $ref: '#/components/schemas/DeductionType'
-              company_match_percent_of_gross:
-                type: number
-              company_match_percent_of_gross_2:
-                type: number
-              company_match_percent:
-                type: number
-              company_match_percent_2:
-                type: number
-              annual_limit:
-                type: number
-              non_elective_percent_of_gross:
-                type: number
-              ignore_deferral:
-                type: boolean
-              grouping_id:
-                type: integer
-              included_in_401k_reports:
-                $ref: '#/components/schemas/DeductionIncludedIn401kReports'
-    Parameters:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              percent:
-                type: number
-              annual_limit:
-                type: number
-              amount:
-                type: number
-              override_amount:
-                type: number
-              active:
-                type: boolean
-              ach_active:
-                type: boolean
-              routing:
-                type: integer
-              account:
-                type: integer
-              savings:
-                type: boolean
-              memo:
-                type: string
-              include_benefit_amount_in_ach:
-                type: boolean
-              override_company_benefit_amount:
-                type: number
-              lifetime_limit:
-                type: number
-    DeductionGroupingItem:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/DeductionGroupingItem'
-      description: JSON Merge Patch [RFC 7396]
+    DeleteSuccessful:
+      type: object
+      properties:
+        deleted_id:
+          type: integer
+          description: id of deleted object
   securitySchemes:
     OAuth2:
       type: oauth2

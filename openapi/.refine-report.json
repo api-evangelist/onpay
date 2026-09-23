@@ -1,12 +1,7 @@
 {
   "provider": "onpay",
   "sources": [
-    "onpay-company-api-openapi.yml",
-    "onpay-deductions-api-openapi.yml",
-    "onpay-employees-api-openapi.yml",
-    "onpay-pay-runs-api-openapi.yml",
-    "onpay-reports-api-openapi.yml",
-    "onpay-user-api-openapi.yml"
+    "_original/onpay-api-openapi.json"
   ],
   "outputs": [
     "onpay-company-api-openapi.yml",
@@ -20,13 +15,22 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "onpay-company-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "onpay-deductions-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "onpay-employees-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "onpay-pay-runs-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "onpay-reports-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "onpay-user-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "onpay-api-openapi.json: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "onpay-api-openapi.json: declared missing tag: Company",
+    "onpay-api-openapi.json: declared missing tag: Deductions",
+    "onpay-api-openapi.json: declared missing tag: Employees",
+    "onpay-api-openapi.json: declared missing tag: Pay-runs",
+    "onpay-api-openapi.json: declared missing tag: Reports",
+    "onpay-api-openapi.json: declared missing tag: User",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "onpay-company-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "onpay-deductions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "onpay-employees-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "onpay-pay-runs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "onpay-reports-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "onpay-user-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -28,6 +28,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserItem'
+      summary: Get user
+      x-summary-source: derived
+      operationId: getUser
+      x-operation-id-source: derived
 components:
   schemas:
     UserItem:
