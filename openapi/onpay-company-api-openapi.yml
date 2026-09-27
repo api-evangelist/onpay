@@ -893,6 +893,95 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    Company:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        dba:
+          type: string
+        address:
+          type: string
+        address_2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: integer
+        email:
+          type: string
+        contact_name:
+          type: string
+        contact_number:
+          type: string
+        company_number:
+          type: string
+        mail_address:
+          type: string
+        mail_address_2:
+          type: string
+        mail_city:
+          type: string
+        mail_zip:
+          type: integer
+    DeductionGroupingItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        nonelective_cap:
+          type: number
+        company_match_percent_cap:
+          type: number
+        company_match_percent_of_gross_cap:
+          type: number
+        company_match_percent_2_cap:
+          type: number
+        company_match_percent_of_gross_2_cap:
+          type: number
+        version:
+          type: string
+    PaySchedule:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        frequency:
+          type: integer
+        check_date:
+          type: string
+        period_start:
+          type: string
+        period_end:
+          type: string
+        submission_deadline:
+          type: string
+        version:
+          type: string
+    DepartmentItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        version:
+          type: string
+    InsertSuccessful:
+      type: object
+      properties:
+        version:
+          type: string
+          description: new version
+        id:
+          type: integer
+          description: id of inserted object
     TaxFields:
       type: object
       properties:
@@ -924,64 +1013,88 @@ components:
           type: boolean
         state_resident:
           type: boolean
-    EmployeeDeductionItemBatch:
+    LocationItem:
       type: object
       properties:
         id:
           type: integer
-        employee_id:
-          type: integer
-        employee_number:
+        name:
           type: string
-        deduction_type:
-          $ref: '#/components/schemas/DeductionType'
-        deduction_id:
+        version:
+          type: string
+    EmployeeDeductionItem:
+      type: object
+      properties:
+        id:
           type: integer
-        percent:
-          type: number
+        type:
+          $ref: '#/components/schemas/DeductionType'
+        name:
+          type: string
         annual_limit:
           type: number
-        amount:
+        included_in_401k_reports:
+          $ref: '#/components/schemas/DeductionIncludedIn401kReports'
+        company_match_percent:
           type: number
-        override_amount:
+        company_match_percent_of_gross:
           type: number
-        active:
+        company_match_percent_2:
+          type: number
+        company_match_percent_of_gross_2:
+          type: number
+        ignore_deferral:
           type: boolean
-        ach_active:
-          type: boolean
-        routing:
+        nonelective_percent_of_gross:
+          type: number
+        grouping_id:
           type: integer
-        account:
-          type: integer
-        savings:
-          type: boolean
-        memo:
-          type: string
-        include_benefit_amount_in_ach:
-          type: boolean
-        override_company_benefit_amount:
-          type: number
-        lifetime_limit:
-          type: number
         version:
           type: string
-    DeductionGroupingItem:
+        batch:
+          $ref: '#/components/schemas/EmployeeDeductionItemBatch'
+    PatchSuccessful:
       type: object
       properties:
-        id:
-          type: integer
-        nonelective_cap:
-          type: number
-        company_match_percent_cap:
-          type: number
-        company_match_percent_of_gross_cap:
-          type: number
-        company_match_percent_2_cap:
-          type: number
-        company_match_percent_of_gross_2_cap:
-          type: number
         version:
           type: string
+          description: new version
+    DeductionIncludedIn401kReports:
+      type: string
+      description: 'L For Standard Deductions: include as loan in 401k reports
+
+        S report as safe harbor
+
+        Y include in deferral amounts
+
+        N exclude
+
+        '
+      enum:
+      - L
+      - S
+      - Y
+      - N
+    StateInformationObject:
+      type: object
+      properties:
+        name:
+          type: string
+    DeleteSuccessful:
+      type: object
+      properties:
+        deleted_id:
+          type: integer
+          description: id of deleted object
+    ErrorBadRequest:
+      type: object
+      properties:
+        resp:
+          type: string
+          description: error
+        message:
+          type: string
+          description: error message
     DeductionType:
       type: integer
       description: '1 Section 125
@@ -1031,87 +1144,6 @@ components:
       - 24
       - 25
       - 102
-    InsertSuccessful:
-      type: object
-      properties:
-        version:
-          type: string
-          description: new version
-        id:
-          type: integer
-          description: id of inserted object
-    StateDisplayFieldsObject:
-      type: object
-      properties:
-        state_information:
-          $ref: '#/components/schemas/StateInformationObject'
-        display_fields:
-          $ref: '#/components/schemas/DisplayFieldsObject'
-    Company:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        dba:
-          type: string
-        address:
-          type: string
-        address_2:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        zip:
-          type: integer
-        email:
-          type: string
-        contact_name:
-          type: string
-        contact_number:
-          type: string
-        company_number:
-          type: string
-        mail_address:
-          type: string
-        mail_address_2:
-          type: string
-        mail_city:
-          type: string
-        mail_zip:
-          type: integer
-    PaySchedule:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        frequency:
-          type: integer
-        check_date:
-          type: string
-        period_start:
-          type: string
-        period_end:
-          type: string
-        submission_deadline:
-          type: string
-        version:
-          type: string
-    PatchSuccessful:
-      type: object
-      properties:
-        version:
-          type: string
-          description: new version
-    StateInformationObject:
-      type: object
-      properties:
-        name:
-          type: string
     PositionItem:
       type: object
       properties:
@@ -1121,56 +1153,54 @@ components:
           type: string
         version:
           type: string
-    DeleteSuccessful:
+    StateDisplayFieldsObject:
       type: object
       properties:
-        deleted_id:
-          type: integer
-          description: id of deleted object
-    EmployeeDeductionItem:
+        state_information:
+          $ref: '#/components/schemas/StateInformationObject'
+        display_fields:
+          $ref: '#/components/schemas/DisplayFieldsObject'
+    EmployeeDeductionItemBatch:
       type: object
       properties:
         id:
           type: integer
-        type:
-          $ref: '#/components/schemas/DeductionType'
-        name:
+        employee_id:
+          type: integer
+        employee_number:
           type: string
+        deduction_type:
+          $ref: '#/components/schemas/DeductionType'
+        deduction_id:
+          type: integer
+        percent:
+          type: number
         annual_limit:
           type: number
-        included_in_401k_reports:
-          $ref: '#/components/schemas/DeductionIncludedIn401kReports'
-        company_match_percent:
+        amount:
           type: number
-        company_match_percent_of_gross:
+        override_amount:
           type: number
-        company_match_percent_2:
-          type: number
-        company_match_percent_of_gross_2:
-          type: number
-        ignore_deferral:
+        active:
           type: boolean
-        nonelective_percent_of_gross:
-          type: number
-        grouping_id:
+        ach_active:
+          type: boolean
+        routing:
           type: integer
+        account:
+          type: integer
+        savings:
+          type: boolean
+        memo:
+          type: string
+        include_benefit_amount_in_ach:
+          type: boolean
+        override_company_benefit_amount:
+          type: number
+        lifetime_limit:
+          type: number
         version:
           type: string
-        batch:
-          $ref: '#/components/schemas/EmployeeDeductionItemBatch'
-    DisplayFieldsObject:
-      type: object
-      properties:
-        state_misc_1_value:
-          type: string
-        state_misc_2_value:
-          type: string
-        sit_additional_amount:
-          type: integer
-        sit_exempt:
-          type: boolean
-        state_resident:
-          type: boolean
     WorksiteItem:
       type: object
       properties:
@@ -1188,49 +1218,19 @@ components:
           type: string
         version:
           type: string
-    LocationItem:
+    DisplayFieldsObject:
       type: object
       properties:
-        id:
+        state_misc_1_value:
+          type: string
+        state_misc_2_value:
+          type: string
+        sit_additional_amount:
           type: integer
-        name:
-          type: string
-        version:
-          type: string
-    DeductionIncludedIn401kReports:
-      type: string
-      description: 'L For Standard Deductions: include as loan in 401k reports
-
-        S report as safe harbor
-
-        Y include in deferral amounts
-
-        N exclude
-
-        '
-      enum:
-      - L
-      - S
-      - Y
-      - N
-    ErrorBadRequest:
-      type: object
-      properties:
-        resp:
-          type: string
-          description: error
-        message:
-          type: string
-          description: error message
-    DepartmentItem:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        version:
-          type: string
+        sit_exempt:
+          type: boolean
+        state_resident:
+          type: boolean
   requestBodies:
     DeductionGroupingItem:
       content:

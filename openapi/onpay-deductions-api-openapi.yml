@@ -535,74 +535,55 @@ paths:
       operationId: patchCompanyDeductionGroupingsById
       x-operation-id-source: derived
 components:
-  requestBodies:
-    Parameters:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              percent:
-                type: number
-              annual_limit:
-                type: number
-              amount:
-                type: number
-              override_amount:
-                type: number
-              active:
-                type: boolean
-              ach_active:
-                type: boolean
-              routing:
-                type: integer
-              account:
-                type: integer
-              savings:
-                type: boolean
-              memo:
-                type: string
-              include_benefit_amount_in_ach:
-                type: boolean
-              override_company_benefit_amount:
-                type: number
-              lifetime_limit:
-                type: number
-    DeductionGroupingItem:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/DeductionGroupingItem'
-      description: JSON Merge Patch [RFC 7396]
-    Parameters2:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              name:
-                type: string
-              type:
-                $ref: '#/components/schemas/DeductionType'
-              company_match_percent_of_gross:
-                type: number
-              company_match_percent_of_gross_2:
-                type: number
-              company_match_percent:
-                type: number
-              company_match_percent_2:
-                type: number
-              annual_limit:
-                type: number
-              non_elective_percent_of_gross:
-                type: number
-              ignore_deferral:
-                type: boolean
-              grouping_id:
-                type: integer
-              included_in_401k_reports:
-                $ref: '#/components/schemas/DeductionIncludedIn401kReports'
   schemas:
+    DeductionGroupingItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        nonelective_cap:
+          type: number
+        company_match_percent_cap:
+          type: number
+        company_match_percent_of_gross_cap:
+          type: number
+        company_match_percent_2_cap:
+          type: number
+        company_match_percent_of_gross_2_cap:
+          type: number
+        version:
+          type: string
+    EmployeeDeductionItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        type:
+          $ref: '#/components/schemas/DeductionType'
+        name:
+          type: string
+        annual_limit:
+          type: number
+        included_in_401k_reports:
+          $ref: '#/components/schemas/DeductionIncludedIn401kReports'
+        company_match_percent:
+          type: number
+        company_match_percent_of_gross:
+          type: number
+        company_match_percent_2:
+          type: number
+        company_match_percent_of_gross_2:
+          type: number
+        ignore_deferral:
+          type: boolean
+        nonelective_percent_of_gross:
+          type: number
+        grouping_id:
+          type: integer
+        version:
+          type: string
+        batch:
+          $ref: '#/components/schemas/EmployeeDeductionItemBatch'
     EmployeeDeductionItemBatch:
       type: object
       properties:
@@ -644,54 +625,52 @@ components:
           type: number
         version:
           type: string
-    EmployeeDeductionItem:
+    DeleteSuccessful:
       type: object
       properties:
-        id:
+        deleted_id:
           type: integer
-        type:
-          $ref: '#/components/schemas/DeductionType'
-        name:
-          type: string
-        annual_limit:
-          type: number
-        included_in_401k_reports:
-          $ref: '#/components/schemas/DeductionIncludedIn401kReports'
-        company_match_percent:
-          type: number
-        company_match_percent_of_gross:
-          type: number
-        company_match_percent_2:
-          type: number
-        company_match_percent_of_gross_2:
-          type: number
-        ignore_deferral:
-          type: boolean
-        nonelective_percent_of_gross:
-          type: number
-        grouping_id:
-          type: integer
-        version:
-          type: string
-        batch:
-          $ref: '#/components/schemas/EmployeeDeductionItemBatch'
-    DeductionGroupingItem:
+          description: id of deleted object
+    PatchSuccessful:
       type: object
       properties:
-        id:
-          type: integer
-        nonelective_cap:
-          type: number
-        company_match_percent_cap:
-          type: number
-        company_match_percent_of_gross_cap:
-          type: number
-        company_match_percent_2_cap:
-          type: number
-        company_match_percent_of_gross_2_cap:
-          type: number
         version:
           type: string
+          description: new version
+    ErrorBadRequest:
+      type: object
+      properties:
+        resp:
+          type: string
+          description: error
+        message:
+          type: string
+          description: error message
+    InsertSuccessful:
+      type: object
+      properties:
+        version:
+          type: string
+          description: new version
+        id:
+          type: integer
+          description: id of inserted object
+    DeductionIncludedIn401kReports:
+      type: string
+      description: 'L For Standard Deductions: include as loan in 401k reports
+
+        S report as safe harbor
+
+        Y include in deferral amounts
+
+        N exclude
+
+        '
+      enum:
+      - L
+      - S
+      - Y
+      - N
     DeductionType:
       type: integer
       description: '1 Section 125
@@ -741,52 +720,73 @@ components:
       - 24
       - 25
       - 102
-    PatchSuccessful:
-      type: object
-      properties:
-        version:
-          type: string
-          description: new version
-    DeductionIncludedIn401kReports:
-      type: string
-      description: 'L For Standard Deductions: include as loan in 401k reports
-
-        S report as safe harbor
-
-        Y include in deferral amounts
-
-        N exclude
-
-        '
-      enum:
-      - L
-      - S
-      - Y
-      - N
-    InsertSuccessful:
-      type: object
-      properties:
-        version:
-          type: string
-          description: new version
-        id:
-          type: integer
-          description: id of inserted object
-    ErrorBadRequest:
-      type: object
-      properties:
-        resp:
-          type: string
-          description: error
-        message:
-          type: string
-          description: error message
-    DeleteSuccessful:
-      type: object
-      properties:
-        deleted_id:
-          type: integer
-          description: id of deleted object
+  requestBodies:
+    Parameters2:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              type:
+                $ref: '#/components/schemas/DeductionType'
+              company_match_percent_of_gross:
+                type: number
+              company_match_percent_of_gross_2:
+                type: number
+              company_match_percent:
+                type: number
+              company_match_percent_2:
+                type: number
+              annual_limit:
+                type: number
+              non_elective_percent_of_gross:
+                type: number
+              ignore_deferral:
+                type: boolean
+              grouping_id:
+                type: integer
+              included_in_401k_reports:
+                $ref: '#/components/schemas/DeductionIncludedIn401kReports'
+    Parameters:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              percent:
+                type: number
+              annual_limit:
+                type: number
+              amount:
+                type: number
+              override_amount:
+                type: number
+              active:
+                type: boolean
+              ach_active:
+                type: boolean
+              routing:
+                type: integer
+              account:
+                type: integer
+              savings:
+                type: boolean
+              memo:
+                type: string
+              include_benefit_amount_in_ach:
+                type: boolean
+              override_company_benefit_amount:
+                type: number
+              lifetime_limit:
+                type: number
+    DeductionGroupingItem:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DeductionGroupingItem'
+      description: JSON Merge Patch [RFC 7396]
   securitySchemes:
     OAuth2:
       type: oauth2
