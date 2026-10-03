@@ -139,41 +139,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    GarnishmentsListItem:
-      type: object
-      properties:
-        name:
-          type: string
-        amount:
-          type: number
-        ytd:
-          type: number
-    BenefitsListItem:
-      type: object
-      properties:
-        name:
-          type: string
-        amount:
-          type: number
-        nonelective_portion_of_benefit:
-          type: number
-        ytd:
-          type: number
-    WageListItem:
-      type: object
-      properties:
-        name:
-          type: string
-        hours:
-          type: number
-        rate:
-          type: number
-        amount:
-          type: number
-        ytd:
-          type: number
-        pay_type_id:
-          type: number
     PayrollCheck:
       type: object
       properties:
@@ -325,6 +290,54 @@ components:
           type: boolean
         employer_contribution_amount:
           type: number
+    WageListItem:
+      type: object
+      properties:
+        name:
+          type: string
+        hours:
+          type: number
+        rate:
+          type: number
+        amount:
+          type: number
+        ytd:
+          type: number
+        pay_type_id:
+          type: number
+    EmployeeTaxListItem:
+      type: object
+      properties:
+        name:
+          type: string
+        subject_wages:
+          type: number
+        amount:
+          type: number
+        ytd:
+          type: number
+    EmployerTaxListItem:
+      type: object
+      properties:
+        name:
+          type: string
+        subject_wages:
+          type: number
+        amount:
+          type: number
+        ytd:
+          type: number
+    BenefitsListItem:
+      type: object
+      properties:
+        name:
+          type: string
+        amount:
+          type: number
+        nonelective_portion_of_benefit:
+          type: number
+        ytd:
+          type: number
     DeductionListItem:
       type: object
       properties:
@@ -348,28 +361,6 @@ components:
           type: number
         is_garnishment:
           type: boolean
-    EmployerTaxListItem:
-      type: object
-      properties:
-        name:
-          type: string
-        subject_wages:
-          type: number
-        amount:
-          type: number
-        ytd:
-          type: number
-    EmployeeTaxListItem:
-      type: object
-      properties:
-        name:
-          type: string
-        subject_wages:
-          type: number
-        amount:
-          type: number
-        ytd:
-          type: number
     LeaveAccrualsListItem:
       type: object
       properties:
@@ -380,6 +371,15 @@ components:
         accrued:
           type: number
         available:
+          type: number
+    GarnishmentsListItem:
+      type: object
+      properties:
+        name:
+          type: string
+        amount:
+          type: number
+        ytd:
           type: number
   securitySchemes:
     OAuth2:

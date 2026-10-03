@@ -118,6 +118,37 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ApprovedPayRunsItem:
+      type: object
+      properties:
+        runid:
+          type: integer
+        check_date:
+          type: string
+        timestamp:
+          type: string
+        period_start:
+          type: string
+        period_end:
+          type: string
+        user_id:
+          type: integer
+        tax_sweep_date:
+          type: string
+        tax_sweep_amount:
+          type: number
+        direct_deposit_sweep_date:
+          type: string
+        direct_deposit_sweep_amount:
+          type: number
+        direct_despoit_date:
+          type: string
+        direct_deposit_amount:
+          type: number
+        total_wages:
+          type: number
+        total_cash_requirement:
+          type: number
     DeductionType:
       type: integer
       description: '1 Section 125
@@ -217,37 +248,6 @@ components:
                 type: number
               nonelective_portion_of_benefit:
                 type: number
-    ApprovedPayRunsItem:
-      type: object
-      properties:
-        runid:
-          type: integer
-        check_date:
-          type: string
-        timestamp:
-          type: string
-        period_start:
-          type: string
-        period_end:
-          type: string
-        user_id:
-          type: integer
-        tax_sweep_date:
-          type: string
-        tax_sweep_amount:
-          type: number
-        direct_deposit_sweep_date:
-          type: string
-        direct_deposit_sweep_amount:
-          type: number
-        direct_despoit_date:
-          type: string
-        direct_deposit_amount:
-          type: number
-        total_wages:
-          type: number
-        total_cash_requirement:
-          type: number
   securitySchemes:
     OAuth2:
       type: oauth2
