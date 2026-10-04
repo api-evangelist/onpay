@@ -1,21 +1,19 @@
-# Kin Score artifact — onpay — 2026-09-01T063623
+# Kin Score artifact — onpay — 2026-09-25T210408
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: onpay
-  schema_version: 0.17.2
-  scored_at: '2026-09-01'
-  run_ts: 2026-09-01T063623
-  composite: 38.7
-  band: thin
+  schema_version: 0.23.0
+  scored_at: '2026-09-25'
+  run_ts: 2026-09-25T210408
+  composite: 42.2
+  band: developing
   facets:
-    discoverability: 75.9
-    contract_quality: 43.0
-    governance: 4.5
+    discoverability: 73.2
+    contract_quality: 44.9
+    contract_governance: 4.5
     operational_transparency: 10.5
     developer_ergonomics: 39.9
-    commercial_clarity: 52.6
-    contract_governance: 4.5
     access_clarity: 52.6
   agent_readiness:
     score: 29.0
@@ -40,6 +38,12 @@ kin_score:
       protected_resource_metadata: false
       dynamic_client_registration: false
       agentic_commerce: false
+  regulatory:
+    applies: true
+    regime: Employment & Payroll
+    regime_id: employment_payroll
+    score: 45.1
+    matched_via: tags
   provenance:
     mcp: derived
     skills: derived
