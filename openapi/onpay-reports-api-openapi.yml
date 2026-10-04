@@ -139,6 +139,60 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    DeductionListItem:
+      type: object
+      properties:
+        name:
+          type: string
+        amount:
+          type: number
+        ytd:
+          type: number
+        id:
+          type: number
+        ach:
+          type: boolean
+        include_match:
+          type: boolean
+        benefit_name:
+          type: string
+        benefit_amount:
+          type: number
+        nonelective_portion_of_benefit:
+          type: number
+        is_garnishment:
+          type: boolean
+    LeaveAccrualsListItem:
+      type: object
+      properties:
+        pay_type:
+          type: integer
+        used:
+          type: number
+        accrued:
+          type: number
+        available:
+          type: number
+    EmployerTaxListItem:
+      type: object
+      properties:
+        name:
+          type: string
+        subject_wages:
+          type: number
+        amount:
+          type: number
+        ytd:
+          type: number
+    GarnishmentsListItem:
+      type: object
+      properties:
+        name:
+          type: string
+        amount:
+          type: number
+        ytd:
+          type: number
     PayrollCheck:
       type: object
       properties:
@@ -305,28 +359,6 @@ components:
           type: number
         pay_type_id:
           type: number
-    EmployeeTaxListItem:
-      type: object
-      properties:
-        name:
-          type: string
-        subject_wages:
-          type: number
-        amount:
-          type: number
-        ytd:
-          type: number
-    EmployerTaxListItem:
-      type: object
-      properties:
-        name:
-          type: string
-        subject_wages:
-          type: number
-        amount:
-          type: number
-        ytd:
-          type: number
     BenefitsListItem:
       type: object
       properties:
@@ -338,45 +370,13 @@ components:
           type: number
         ytd:
           type: number
-    DeductionListItem:
+    EmployeeTaxListItem:
       type: object
       properties:
         name:
           type: string
-        amount:
+        subject_wages:
           type: number
-        ytd:
-          type: number
-        id:
-          type: number
-        ach:
-          type: boolean
-        include_match:
-          type: boolean
-        benefit_name:
-          type: string
-        benefit_amount:
-          type: number
-        nonelective_portion_of_benefit:
-          type: number
-        is_garnishment:
-          type: boolean
-    LeaveAccrualsListItem:
-      type: object
-      properties:
-        pay_type:
-          type: integer
-        used:
-          type: number
-        accrued:
-          type: number
-        available:
-          type: number
-    GarnishmentsListItem:
-      type: object
-      properties:
-        name:
-          type: string
         amount:
           type: number
         ytd:

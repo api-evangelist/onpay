@@ -1103,160 +1103,51 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    LeaveItem:
+    StateDisplayFieldsObject:
       type: object
       properties:
-        id:
-          type: integer
-        available:
-          type: integer
-        version:
-          type: string
-    StateInformationObject:
-      type: object
-      properties:
-        name:
-          type: string
-    Employee:
-      type: object
-      properties:
-        employee_id:
-          type: integer
-        home_phone_number:
-          type: string
-        cell_phone_number:
-          type: string
-        employee_number:
-          type: string
-        first_name:
-          type: string
-        middle_initial:
-          type: string
-        last_name:
-          type: string
-        address:
-          type: string
-        address_2:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        zip:
-          type: string
-        mail_address:
-          type: string
-        mail_address_2:
-          type: string
-        mail_city:
-          type: string
-        mail_state:
-          type: string
-        mail_zip:
-          type: string
-        email:
-          type: string
-        ssn:
-          type: string
-        gender:
-          type: string
-          enum:
-          - M
-          - F
-          description: 'M - Male > F - Female
+        state_information:
+          $ref: '#/components/schemas/StateInformationObject'
+        display_fields:
+          $ref: '#/components/schemas/DisplayFieldsObject'
+    DeductionIncludedIn401kReports:
+      type: string
+      description: 'L For Standard Deductions: include as loan in 401k reports
 
-            '
-        birthday:
-          type: string
-        direct_deposit_active:
-          type: string
-        type:
-          type: integer
-        pay_frequency:
-          type: integer
-          readOnly: true
-        wage:
-          type: string
-          readOnly: true
-        rate:
-          type: string
-          readOnly: true
-        pay_schedule_id:
-          type: integer
-        employment_status:
-          type: integer
-          enum:
-          - 0
-          - 1
-        part_time:
-          type: integer
-          enum:
-          - 0
-          - 1
-        seasonal:
-          type: integer
-        department_id:
-          type: integer
-        location_id:
-          type: integer
-        position_id:
-          type: integer
-        manager_id:
-          type: integer
-        workers_compensation_id:
-          type: integer
-        hire_date:
-          type: string
-        termination_date:
-          type: string
-        rehire_date:
-          type: string
-        supplemental_calculation_method:
-          type: integer
-        use_401k_catchup:
-          type: integer
-        date_added:
-          type: string
-        commit_id:
-          type: integer
-        version:
-          type: string
-        compid:
-          type: integer
-        profile_image:
-          type: string
-    InsertSuccessful:
+        S report as safe harbor
+
+        Y include in deferral amounts
+
+        N exclude
+
+        '
+      enum:
+      - L
+      - S
+      - Y
+      - N
+    PatchSuccessful:
       type: object
       properties:
         version:
           type: string
           description: new version
-        id:
-          type: integer
-          description: id of inserted object
-    DeductionListItem:
+    EmployeeAchAccountPutItem:
       type: object
       properties:
-        name:
+        routing:
+          type: string
+        account:
+          type: string
+        percent:
           type: string
         amount:
-          type: number
-        ytd:
-          type: number
-        id:
-          type: number
-        ach:
-          type: boolean
-        include_match:
-          type: boolean
-        benefit_name:
           type: string
-        benefit_amount:
-          type: number
-        nonelective_portion_of_benefit:
-          type: number
-        is_garnishment:
-          type: boolean
+        savings:
+          type: integer
+          enum:
+          - 0
+          - 1
     EmployeePost:
       type: object
       properties:
@@ -1371,134 +1262,116 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/EmployeeAchAccountItem'
-    ErrorBadRequest:
-      type: object
-      properties:
-        resp:
-          type: string
-          description: error
-        message:
-          type: string
-          description: error message
-    EmployeeAchAccountItem:
+    EmployeeDeductionItem:
       type: object
       properties:
         id:
           type: integer
-        employee_id:
-          type: integer
         type:
+          $ref: '#/components/schemas/DeductionType'
+        name:
           type: string
-          enum:
-          - dd
-        ach_order:
+        annual_limit:
+          type: number
+        included_in_401k_reports:
+          $ref: '#/components/schemas/DeductionIncludedIn401kReports'
+        company_match_percent:
+          type: number
+        company_match_percent_of_gross:
+          type: number
+        company_match_percent_2:
+          type: number
+        company_match_percent_of_gross_2:
+          type: number
+        ignore_deferral:
+          type: boolean
+        nonelective_percent_of_gross:
+          type: number
+        grouping_id:
           type: integer
-        percent:
+        version:
           type: string
-        amount:
-          type: string
-        routing:
-          type: string
-        account:
-          type: string
-        savings:
-          type: integer
-          enum:
-          - 0
-          - 1
-    WageListItem:
+        batch:
+          $ref: '#/components/schemas/EmployeeDeductionItemBatch'
+    DeductionListItem:
       type: object
       properties:
         name:
           type: string
-        hours:
-          type: number
-        rate:
-          type: number
         amount:
           type: number
         ytd:
           type: number
-        pay_type_id:
+        id:
           type: number
-    StateDisplayFieldsObject:
+        ach:
+          type: boolean
+        include_match:
+          type: boolean
+        benefit_name:
+          type: string
+        benefit_amount:
+          type: number
+        nonelective_portion_of_benefit:
+          type: number
+        is_garnishment:
+          type: boolean
+    PayItem:
       type: object
       properties:
-        state_information:
-          $ref: '#/components/schemas/StateInformationObject'
-        display_fields:
-          $ref: '#/components/schemas/DisplayFieldsObject'
-    DeductionIncludedIn401kReports:
-      type: string
-      description: 'L For Standard Deductions: include as loan in 401k reports
-
-        S report as safe harbor
-
-        Y include in deferral amounts
-
-        N exclude
-
-        '
-      enum:
-      - L
-      - S
-      - Y
-      - N
-    EmployeeAchAccountPutItem:
-      type: object
-      properties:
-        routing:
-          type: string
-        account:
-          type: string
-        percent:
-          type: string
-        amount:
-          type: string
-        savings:
+        id:
           type: integer
-          enum:
-          - 0
-          - 1
-    PatchSuccessful:
-      type: object
-      properties:
-        version:
-          type: string
-          description: new version
-    EmployeeNote:
+        pay_type_id:
+          type: integer
+        employee_id:
+          type: integer
+        hours:
+          type: number
+        rate:
+          type: number
+        override_amount:
+          type: number
+    EmployeeDeductionItemBatch:
       type: object
       properties:
         id:
           type: integer
         employee_id:
           type: integer
-        user_id:
+        employee_number:
+          type: string
+        deduction_type:
+          $ref: '#/components/schemas/DeductionType'
+        deduction_id:
           type: integer
-        public:
+        percent:
+          type: number
+        annual_limit:
+          type: number
+        amount:
+          type: number
+        override_amount:
+          type: number
+        active:
           type: boolean
-        note:
-          type: string
-        user_name:
-          type: string
-        user_image:
-          type: string
-        time:
-          type: string
-          format: date-time
-    DisplayFieldsObject:
-      type: object
-      properties:
-        state_misc_1_value:
-          type: string
-        state_misc_2_value:
-          type: string
-        sit_additional_amount:
+        ach_active:
+          type: boolean
+        routing:
           type: integer
-        sit_exempt:
+        account:
+          type: integer
+        savings:
           type: boolean
-        state_resident:
+        memo:
+          type: string
+        include_benefit_amount_in_ach:
           type: boolean
+        override_company_benefit_amount:
+          type: number
+        lifetime_limit:
+          type: number
+        version:
+          type: string
     DeductionType:
       type: integer
       description: '1 Section 125
@@ -1548,92 +1421,219 @@ components:
       - 24
       - 25
       - 102
-    PayItem:
+    EmployeeAchAccountItem:
       type: object
       properties:
         id:
           type: integer
-        pay_type_id:
-          type: integer
         employee_id:
           type: integer
+        type:
+          type: string
+          enum:
+          - dd
+        ach_order:
+          type: integer
+        percent:
+          type: string
+        amount:
+          type: string
+        routing:
+          type: string
+        account:
+          type: string
+        savings:
+          type: integer
+          enum:
+          - 0
+          - 1
+    InsertSuccessful:
+      type: object
+      properties:
+        version:
+          type: string
+          description: new version
+        id:
+          type: integer
+          description: id of inserted object
+    WageListItem:
+      type: object
+      properties:
+        name:
+          type: string
         hours:
           type: number
         rate:
           type: number
-        override_amount:
+        amount:
           type: number
-    EmployeeDeductionItem:
+        ytd:
+          type: number
+        pay_type_id:
+          type: number
+    DisplayFieldsObject:
       type: object
       properties:
-        id:
-          type: integer
-        type:
-          $ref: '#/components/schemas/DeductionType'
-        name:
+        state_misc_1_value:
           type: string
-        annual_limit:
-          type: number
-        included_in_401k_reports:
-          $ref: '#/components/schemas/DeductionIncludedIn401kReports'
-        company_match_percent:
-          type: number
-        company_match_percent_of_gross:
-          type: number
-        company_match_percent_2:
-          type: number
-        company_match_percent_of_gross_2:
-          type: number
-        ignore_deferral:
+        state_misc_2_value:
+          type: string
+        sit_additional_amount:
+          type: integer
+        sit_exempt:
           type: boolean
-        nonelective_percent_of_gross:
-          type: number
-        grouping_id:
-          type: integer
-        version:
-          type: string
-        batch:
-          $ref: '#/components/schemas/EmployeeDeductionItemBatch'
-    EmployeeDeductionItemBatch:
+        state_resident:
+          type: boolean
+    EmployeeNote:
       type: object
       properties:
         id:
           type: integer
         employee_id:
           type: integer
+        user_id:
+          type: integer
+        public:
+          type: boolean
+        note:
+          type: string
+        user_name:
+          type: string
+        user_image:
+          type: string
+        time:
+          type: string
+          format: date-time
+    StateInformationObject:
+      type: object
+      properties:
+        name:
+          type: string
+    LeaveItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        available:
+          type: integer
+        version:
+          type: string
+    ErrorBadRequest:
+      type: object
+      properties:
+        resp:
+          type: string
+          description: error
+        message:
+          type: string
+          description: error message
+    Employee:
+      type: object
+      properties:
+        employee_id:
+          type: integer
+        home_phone_number:
+          type: string
+        cell_phone_number:
+          type: string
         employee_number:
           type: string
-        deduction_type:
-          $ref: '#/components/schemas/DeductionType'
-        deduction_id:
-          type: integer
-        percent:
-          type: number
-        annual_limit:
-          type: number
-        amount:
-          type: number
-        override_amount:
-          type: number
-        active:
-          type: boolean
-        ach_active:
-          type: boolean
-        routing:
-          type: integer
-        account:
-          type: integer
-        savings:
-          type: boolean
-        memo:
+        first_name:
           type: string
-        include_benefit_amount_in_ach:
-          type: boolean
-        override_company_benefit_amount:
-          type: number
-        lifetime_limit:
-          type: number
+        middle_initial:
+          type: string
+        last_name:
+          type: string
+        address:
+          type: string
+        address_2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+        mail_address:
+          type: string
+        mail_address_2:
+          type: string
+        mail_city:
+          type: string
+        mail_state:
+          type: string
+        mail_zip:
+          type: string
+        email:
+          type: string
+        ssn:
+          type: string
+        gender:
+          type: string
+          enum:
+          - M
+          - F
+          description: 'M - Male > F - Female
+
+            '
+        birthday:
+          type: string
+        direct_deposit_active:
+          type: string
+        type:
+          type: integer
+        pay_frequency:
+          type: integer
+          readOnly: true
+        wage:
+          type: string
+          readOnly: true
+        rate:
+          type: string
+          readOnly: true
+        pay_schedule_id:
+          type: integer
+        employment_status:
+          type: integer
+          enum:
+          - 0
+          - 1
+        part_time:
+          type: integer
+          enum:
+          - 0
+          - 1
+        seasonal:
+          type: integer
+        department_id:
+          type: integer
+        location_id:
+          type: integer
+        position_id:
+          type: integer
+        manager_id:
+          type: integer
+        workers_compensation_id:
+          type: integer
+        hire_date:
+          type: string
+        termination_date:
+          type: string
+        rehire_date:
+          type: string
+        supplemental_calculation_method:
+          type: integer
+        use_401k_catchup:
+          type: integer
+        date_added:
+          type: string
+        commit_id:
+          type: integer
         version:
+          type: string
+        compid:
+          type: integer
+        profile_image:
           type: string
   requestBodies:
     Parameters:

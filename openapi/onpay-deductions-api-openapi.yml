@@ -535,191 +535,6 @@ paths:
       operationId: patchCompanyDeductionGroupingsById
       x-operation-id-source: derived
 components:
-  schemas:
-    ErrorBadRequest:
-      type: object
-      properties:
-        resp:
-          type: string
-          description: error
-        message:
-          type: string
-          description: error message
-    PatchSuccessful:
-      type: object
-      properties:
-        version:
-          type: string
-          description: new version
-    DeleteSuccessful:
-      type: object
-      properties:
-        deleted_id:
-          type: integer
-          description: id of deleted object
-    DeductionGroupingItem:
-      type: object
-      properties:
-        id:
-          type: integer
-        nonelective_cap:
-          type: number
-        company_match_percent_cap:
-          type: number
-        company_match_percent_of_gross_cap:
-          type: number
-        company_match_percent_2_cap:
-          type: number
-        company_match_percent_of_gross_2_cap:
-          type: number
-        version:
-          type: string
-    DeductionType:
-      type: integer
-      description: '1 Section 125
-
-        2 401K
-
-        3 403B
-
-        4 457
-
-        6 Roth 401K
-
-        7 Roth 403B
-
-        8 FSA
-
-        9 HSA
-
-        10 Simple IRA
-
-        21 Post-tax
-
-        22 Cash tips imputed
-
-        23 Union dues
-
-        24 Imputed
-
-        25 Union dues based on hours
-
-        102 Section 132
-
-        '
-      enum:
-      - 1
-      - 2
-      - 3
-      - 4
-      - 6
-      - 7
-      - 8
-      - 9
-      - 10
-      - 21
-      - 22
-      - 23
-      - 24
-      - 25
-      - 102
-    EmployeeDeductionItem:
-      type: object
-      properties:
-        id:
-          type: integer
-        type:
-          $ref: '#/components/schemas/DeductionType'
-        name:
-          type: string
-        annual_limit:
-          type: number
-        included_in_401k_reports:
-          $ref: '#/components/schemas/DeductionIncludedIn401kReports'
-        company_match_percent:
-          type: number
-        company_match_percent_of_gross:
-          type: number
-        company_match_percent_2:
-          type: number
-        company_match_percent_of_gross_2:
-          type: number
-        ignore_deferral:
-          type: boolean
-        nonelective_percent_of_gross:
-          type: number
-        grouping_id:
-          type: integer
-        version:
-          type: string
-        batch:
-          $ref: '#/components/schemas/EmployeeDeductionItemBatch'
-    DeductionIncludedIn401kReports:
-      type: string
-      description: 'L For Standard Deductions: include as loan in 401k reports
-
-        S report as safe harbor
-
-        Y include in deferral amounts
-
-        N exclude
-
-        '
-      enum:
-      - L
-      - S
-      - Y
-      - N
-    InsertSuccessful:
-      type: object
-      properties:
-        version:
-          type: string
-          description: new version
-        id:
-          type: integer
-          description: id of inserted object
-    EmployeeDeductionItemBatch:
-      type: object
-      properties:
-        id:
-          type: integer
-        employee_id:
-          type: integer
-        employee_number:
-          type: string
-        deduction_type:
-          $ref: '#/components/schemas/DeductionType'
-        deduction_id:
-          type: integer
-        percent:
-          type: number
-        annual_limit:
-          type: number
-        amount:
-          type: number
-        override_amount:
-          type: number
-        active:
-          type: boolean
-        ach_active:
-          type: boolean
-        routing:
-          type: integer
-        account:
-          type: integer
-        savings:
-          type: boolean
-        memo:
-          type: string
-        include_benefit_amount_in_ach:
-          type: boolean
-        override_company_benefit_amount:
-          type: number
-        lifetime_limit:
-          type: number
-        version:
-          type: string
   requestBodies:
     Parameters:
       content:
@@ -787,6 +602,191 @@ components:
           schema:
             $ref: '#/components/schemas/DeductionGroupingItem'
       description: JSON Merge Patch [RFC 7396]
+  schemas:
+    DeductionIncludedIn401kReports:
+      type: string
+      description: 'L For Standard Deductions: include as loan in 401k reports
+
+        S report as safe harbor
+
+        Y include in deferral amounts
+
+        N exclude
+
+        '
+      enum:
+      - L
+      - S
+      - Y
+      - N
+    DeleteSuccessful:
+      type: object
+      properties:
+        deleted_id:
+          type: integer
+          description: id of deleted object
+    ErrorBadRequest:
+      type: object
+      properties:
+        resp:
+          type: string
+          description: error
+        message:
+          type: string
+          description: error message
+    EmployeeDeductionItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        type:
+          $ref: '#/components/schemas/DeductionType'
+        name:
+          type: string
+        annual_limit:
+          type: number
+        included_in_401k_reports:
+          $ref: '#/components/schemas/DeductionIncludedIn401kReports'
+        company_match_percent:
+          type: number
+        company_match_percent_of_gross:
+          type: number
+        company_match_percent_2:
+          type: number
+        company_match_percent_of_gross_2:
+          type: number
+        ignore_deferral:
+          type: boolean
+        nonelective_percent_of_gross:
+          type: number
+        grouping_id:
+          type: integer
+        version:
+          type: string
+        batch:
+          $ref: '#/components/schemas/EmployeeDeductionItemBatch'
+    DeductionGroupingItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        nonelective_cap:
+          type: number
+        company_match_percent_cap:
+          type: number
+        company_match_percent_of_gross_cap:
+          type: number
+        company_match_percent_2_cap:
+          type: number
+        company_match_percent_of_gross_2_cap:
+          type: number
+        version:
+          type: string
+    InsertSuccessful:
+      type: object
+      properties:
+        version:
+          type: string
+          description: new version
+        id:
+          type: integer
+          description: id of inserted object
+    PatchSuccessful:
+      type: object
+      properties:
+        version:
+          type: string
+          description: new version
+    EmployeeDeductionItemBatch:
+      type: object
+      properties:
+        id:
+          type: integer
+        employee_id:
+          type: integer
+        employee_number:
+          type: string
+        deduction_type:
+          $ref: '#/components/schemas/DeductionType'
+        deduction_id:
+          type: integer
+        percent:
+          type: number
+        annual_limit:
+          type: number
+        amount:
+          type: number
+        override_amount:
+          type: number
+        active:
+          type: boolean
+        ach_active:
+          type: boolean
+        routing:
+          type: integer
+        account:
+          type: integer
+        savings:
+          type: boolean
+        memo:
+          type: string
+        include_benefit_amount_in_ach:
+          type: boolean
+        override_company_benefit_amount:
+          type: number
+        lifetime_limit:
+          type: number
+        version:
+          type: string
+    DeductionType:
+      type: integer
+      description: '1 Section 125
+
+        2 401K
+
+        3 403B
+
+        4 457
+
+        6 Roth 401K
+
+        7 Roth 403B
+
+        8 FSA
+
+        9 HSA
+
+        10 Simple IRA
+
+        21 Post-tax
+
+        22 Cash tips imputed
+
+        23 Union dues
+
+        24 Imputed
+
+        25 Union dues based on hours
+
+        102 Section 132
+
+        '
+      enum:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 102
   securitySchemes:
     OAuth2:
       type: oauth2

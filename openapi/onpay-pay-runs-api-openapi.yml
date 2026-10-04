@@ -118,37 +118,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ApprovedPayRunsItem:
-      type: object
-      properties:
-        runid:
-          type: integer
-        check_date:
-          type: string
-        timestamp:
-          type: string
-        period_start:
-          type: string
-        period_end:
-          type: string
-        user_id:
-          type: integer
-        tax_sweep_date:
-          type: string
-        tax_sweep_amount:
-          type: number
-        direct_deposit_sweep_date:
-          type: string
-        direct_deposit_sweep_amount:
-          type: number
-        direct_despoit_date:
-          type: string
-        direct_deposit_amount:
-          type: number
-        total_wages:
-          type: number
-        total_cash_requirement:
-          type: number
     DeductionType:
       type: integer
       description: '1 Section 125
@@ -198,6 +167,37 @@ components:
       - 24
       - 25
       - 102
+    ApprovedPayRunsItem:
+      type: object
+      properties:
+        runid:
+          type: integer
+        check_date:
+          type: string
+        timestamp:
+          type: string
+        period_start:
+          type: string
+        period_end:
+          type: string
+        user_id:
+          type: integer
+        tax_sweep_date:
+          type: string
+        tax_sweep_amount:
+          type: number
+        direct_deposit_sweep_date:
+          type: string
+        direct_deposit_sweep_amount:
+          type: number
+        direct_despoit_date:
+          type: string
+        direct_deposit_amount:
+          type: number
+        total_wages:
+          type: number
+        total_cash_requirement:
+          type: number
     RetirementSummaryItem:
       type: object
       properties:
